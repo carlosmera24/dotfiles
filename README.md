@@ -120,4 +120,16 @@ Si queremos que `stow` ignore ciertos archivos al momento de crear los enlaces s
 README.md
 ```
 
+### Retirar aplicación
 
+Para desvincular o eliminar los dotsfiles de una aplicación en concreta, basta con ejecutar stow desde el directorio `.dotfiles`:
+
+```shell
+stow alacritty -D
+```
+
+Si la aplicación tiene un directorio especial definido como target:
+
+```shell
+stow alacritty -D -t ~/Library/Application\ Support
+```

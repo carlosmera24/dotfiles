@@ -1,6 +1,6 @@
 # Kitty
 
-Utilizo este terminal para trabajar en conjunto con NeoVim, una alternativa **Alacrritty** y **Terminator**, su [Web]([kitty](https://sw.kovidgoyal.net/kitty/)) [GitHub]([GitHub - kovidgoyal/kitty: Cross-platform, fast, feature-rich, GPU based terminal](https://github.com/kovidgoyal/kitty)). Este repositorio contiene mi configuración.
+Utilizo este terminal para trabajar en conjunto con NeoVim, una alternativa **Alacrritty** y **Terminator**, su [Web]([kitty](https://sw.kovidgoyal.net/kitty/)) [GitHub]([GitHub - kovidgoyal/kitty: Cross-platform, fast, feature-rich, GPU based terminal](https://github.com/kovidgoyal/kitty)). Este sección contiene mi configuración.
 
 > Lo mejor de éste terminal es el poder habilitar lingatures con Fira Code, es el único terminal en Linux con el que lo he podido utilizar.
 
