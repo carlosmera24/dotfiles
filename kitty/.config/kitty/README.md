@@ -128,7 +128,7 @@ He habilitado el uso de **Fira Code** con **Lingatures**, es importante instalar
 
 ```shell
 #ArchLinux
-sudo pacman -S ttf-fira-code otf-droid-nerd ttf-firacode-nerd otf-cascadia-code 
+sudo pacman -S noto-fonts-emoji ttf-fira-code otf-droid-nerd ttf-firacode-nerd otf-cascadia-code 
 #Actualizar fuentes
 fc-cache -v
 #Listar o usar con | grep [Name]
@@ -142,6 +142,7 @@ Es necesario y recomendable descargar las fuentes desde el repositorio oficial e
 - [Fira Code](https://github.com/tonsky/FiraCode/releases)
 - [Cascadia](https://github.com/microsoft/cascadia-code/releases)
 - [Droid Sans Mono](https://www.fontsquirrel.com/fonts/droid-sans-mono)
+- [Noto Emoji](https://fonts.google.com/noto/specimen/Noto+Emoji)
 
 > El tamaño de la fuente lo he tenido que variar para Linux y Mac, para lo cual basta con comentar y descomentar según el SO utilizado en las líneas 26 o 28:
 > 
@@ -151,6 +152,14 @@ Es necesario y recomendable descargar las fuentes desde el repositorio oficial e
 > #Mac
 >  #font_size 16.0
 > ```
+
+Instalación con homebrew:
+
+```shell
+brew install font-noto-color-emoji font-fira-code font-droid-sans-mono-nerd-font font-fira-code-nerd-font font-cascadia-code
+```
+
+> Por probar
 
 ### 3. Tema
 
