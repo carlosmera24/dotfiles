@@ -2,7 +2,7 @@
 
 Utilizó esta terminal para trabajar en conjunto con NeoVim, [GitHub]([GitHub - alacritty/alacritty: A cross-platform, OpenGL terminal emulator.](https://github.com/alacritty/alacritty)).
 
-Este repositorio contiene el respaldo del archivo de configuración (*alacritty.yml*) y la guía de instlación
+Esta sección contiene el respaldo del archivo de configuración (*alacritty.yml*) y la guía de instlación
 
 ## Instalación
 
