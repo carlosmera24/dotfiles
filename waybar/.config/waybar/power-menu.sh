@@ -5,7 +5,8 @@ case $CHOICE in
     " Apagar") systemctl poweroff ;;
     " Reiniciar") systemctl reboot ;;
     " Cerrar sesión") swaymsg exit ;;
-    " Bloquear") swaylock ;;
+    # " Bloquear") swaylock ;;
+    " Bloquear") sh ~/.config/swaylock/swaylock.sh ;;
     "⏾ Suspender") systemctl suspend ;;
     "⏻ Hibernar") systemctl hibernate ;;
 esac

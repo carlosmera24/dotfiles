@@ -193,6 +193,17 @@ He creado mi propio script como `power-menu.sh` y le he concedido los permisos d
 }
 ```
 
-De esta manera tengo una forma sencilla y funcional para cerrar sesión o apagar el sistema, de igual manera puedo usar atajo `Super+Shift+E` para cerrar `Sway`.
+De esta manera tengo una forma sencilla y funcional para cerrar sesión o apagar el sistema, de igual manera puedo usar atajo `Super+Shift+E` para cerrar `Sway`. Importante destacar que para el bloqueo de pantalla he definido en el script el uso de `swaylock`, más adelante amplío su documentación.    
 
 > TODO: Pendiente validar otras opciones como `wlogout`
+
+### Bloqueo de pantalla
+
+Tal y como sugiere la documentación de `sway` de ArchLinux, el paquete a instalar para bloquear la pantalla es  [swaylock](https://github.com/swaywm/swaylock), partimos de su instalación con pacman, tras su instalación se puede ejecutar `swaylock` y se bloqueará la pantalla, para desbloquear es necesarios ingresar la contraseña del usuario actual. En cuanto a su estilo y configuración no posee una ruta como tal, es necesario indicar en la ejecución la ruta correspondiente, para ello creo `~/.config/swaylock/` en donde registro los archivos de configuración y el script que se encargará de ejecutar `swaylock` con la personalización:
+
+```vim
+config.confi
+swaylock.sh
+```
+
+ `swaylock.sh` debe tener permisos de ejecución, ya que debemos modificar la configuración de `waybar` o cualquier otro, para que ejecute el script `swaylock.sh` en lugar del comando `sway` como tal, de esa manera podremos personalizar a gusto. Para la personalización en la web podemos encontrar muchos dotfiles para personalizar, entre ellos tenemos [catppuccin/swaylock](https://github.com/catppuccin/swaylock), para lo cual basta descargar los archivos y ubicarlos en el directorio de configuración, reemplazando el archivo config y ajustado lo que se requiera. He agrado el comando `Ctrl+Alt+L` para ejecutar el bloqueo de pantalla. Ahora bien, tenemos un bloqueo que pantalla sencillo y funcional, existe otra alternativa extendida que es `swaylock-effects` instalable desde `aur`, por ahora decido quedarme con `swaylock`.
