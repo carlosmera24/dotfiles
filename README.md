@@ -32,6 +32,10 @@ A continuación describo las herramientas o aplicaciones que estoy gestionando c
 | Alacritty   | alacritty | `~/.dotfiles/alacritty/.config/alacritty` | `~/.config/alacritty` |
 | WezTerm     | wezterm   | `~/.dotfiles/wezterm/.config/wezterm`     | `~/.config/wezterm`   |
 | NeoVim      | nvim      | `~/.dotfiles/nvim/.config/nvim`           | `~/.config/nvim`      |
+| Sway        | sway      | `~/.dotfiles/sway/.config/sway`           | `~/.config/sway`      |
+| Swaylock    | swaylock  | `~/.dotfiles/swaylock/.config/swaylock`   | `~/.config/swaylock`  |
+| Waybar      | waybar    | `~/.dotfiles/waybar/.config/waybar`       | `~/.config/waybar`    |
+| tmux        | tmux      | `~/.dotfiles/tmux/.tmux`                  | `~/.tmux`             |
 
 ## Árbol de directorio
 
@@ -40,6 +44,7 @@ Para el directorio principal `.dotfiles` tenemos:
 ```shell
 tree -La 3
 .
+├── README.md
 ├── alacritty
 │   └── .config
 │       └── alacritty
@@ -49,7 +54,18 @@ tree -La 3
 ├── nvim
 │   └── .config
 │       └── nvim
-├── README.md
+├── sway
+│   └── .config
+│       └── sway
+├── swaylock
+│   └── .config
+│       └── swaylock
+├── tmux
+│   ├── .tmux.config
+│   └── README.md
+├── waybar
+│   └── .config
+│       └── waybar
 └── wezterm
     └── .config
         └── wezterm
