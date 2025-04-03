@@ -7,7 +7,16 @@ return {
         config = function()
             -- definir el tema/colorscheme
             -- vim.cmd([[colorscheme nord]])
-            vim.cmd([[colorscheme tokyonight-moon]])
+            -- vim.cmd([[colorscheme tokyonight-moon]])
+
+            --Configurar tema
+            require("tokyonight").setup({
+                style = "moon",
+                transparent = false,
+            })
+            -- definir tema con la configuración definida
+            vim.cmd.colorscheme("tokyonight")
+
         end
     },
 }

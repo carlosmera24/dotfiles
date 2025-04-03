@@ -52,7 +52,7 @@ else
 end
 
 
-config.window_background_opacity = 0.9
+config.window_background_opacity = 0.95
 
 -- and finally, return the configuration to wezterm
 return config

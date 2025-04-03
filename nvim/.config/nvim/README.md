@@ -245,6 +245,8 @@ Dentro de las opciones que tenemos para configurar los plugins:
 
 **Ajuste de fuentes**: Para que visualice correctamente con > en la información, es necesario instalar la fuente power line:
 
+> IMPORTANTE: Validar la documentación de Kitty e instalar las fuentes definidas allí.
+
 - **Linux:**
   
   ```shell
@@ -298,6 +300,8 @@ Dentro de las opciones que tenemos para configurar los plugins:
 [Vim Awesome](https://vimawesome.com/plugin/nerdtree-red) [GitHub](https://github.com/preservim/nerdtree) Permite tener un árbol de directorios para explorar el proyecto o carpetas. En la documentación se recomiendan algunos comandos a configurar para no tener que ejecutar comandos como *:NERDTree, :NERDTreeFind, NERDTreeToggle* entre otros, de igual manera recomienda otros plugins y configuraciones que podemos aplicar de acuerdo a nuestros gustos y necesidades.
 
 #### Vim-Devicons:
+
+> IMPORTANTE: Validar la documentación de Kitty e instalar las fuentes definidas allí.
 
 [Vim Awesome](https://vimawesome.com/plugin/vim-devicons) [GitHub](https://github.com/ryanoasis/vim-devicons) Integración de iconos para NerdTree. Para su instalación es necesario instalar una fuente compatible, yo utilizo la opción 6 en la doucumentación [GitHub - ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts#font-installation), para Linux:
 
