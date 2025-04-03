@@ -46,26 +46,28 @@ tree -La 3
 .
 ├── README.md
 ├── alacritty
-│   └── .config
-│       └── alacritty
+│   └── .config
+│       └── alacritty
 ├── kitty
-│   └── .config
-│       └── kitty
+│   └── .config
+│       └── kitty
 ├── nvim
-│   └── .config
-│       └── nvim
+│   └── .config
+│       └── nvim
 ├── sway
-│   └── .config
-│       └── sway
+│   └── .config
+│       └── sway
 ├── swaylock
-│   └── .config
-│       └── swaylock
+│   └── .config
+│       └── swaylock
 ├── tmux
-│   ├── .tmux.config
-│   └── README.md
+│   ├── .config
+│   │   └── tmux
+│   ├── README.md
+│   └── .tmux.config
 ├── waybar
-│   └── .config
-│       └── waybar
+│   └── .config
+│       └── waybar
 └── wezterm
     └── .config
         └── wezterm

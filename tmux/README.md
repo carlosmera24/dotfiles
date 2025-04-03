@@ -90,6 +90,40 @@ Por defecto, tmux tiene definido el comando `Ctrl+b`, de esta manera se interact
 
 ## Configuración
 
-Tmux usa el archivo de configuración `~/.tmux.conf`
+Tmux usa el archivo de configuración `~/.tmux.conf`, en este archivo se puede personalizar la configuarción
 
+### Temas
+
+Dado que `tmux` utiliza un archivo de configuración y no una carpeta específica, opto por definir un directorio para agregar extras y poder llamarlas de forma recursiva desde la configuración, esto me permite controlar con `stow` los directortio y su configuración, este directorio corresponde a `~/.config/tmux`, aquí defino el directorio `themes` para incluir los temas y llamar el correspondiente dentro de la configuración de `tmux`. Algunos temas probados son:
+
+1. [catppuccin/tmux](https://github.com/catppuccin/tmux): `themes/catppucin`, variaciones `latte`, `frappe`, `macchiato` y `mocha`, definiciones:
+   
+   ```vim
+   set -g @catppuccin_flavor 'mocha'
+   set -g @catppuccin_window_status_style "rounded"
+   
+   run ~/.config/tmux/themes/catppuccin/catppuccin.tmux
+   
+   set -g status-right-length 100
+   set -g status-left-length 100
+   set -g status-left ""
+   set -g status-right "#{E:@catppuccin_status_application}"
+   set -ag status-right "#{E:@catppuccin_status_session}"
+   set -ag status-right "#{E:@catppuccin_status_uptime}"
+   
+   ```
+2. [tmux-themepack](https://github.com/jimeh/tmux-themepack): `themes/themepack` variaciones:
+   - `set -g @themepack 'basic'` (default)
+   
+   - `set -g @themepack 'powerline/block/blue'`
+   
+   - `set -g @themepack 'powerline/block/cyan'`
+   
+   - `set -g @themepack 'powerline/default/green'`:
+   
+   - `set -g @themepack 'powerline/double/magenta'`
+     
+     > los colores pueden variar a: blue, cyan gray, green, magenta, orange, purple, red, yellow
+
+> 
 > TODO Agregar tema
