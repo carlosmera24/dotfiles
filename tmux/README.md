@@ -110,9 +110,10 @@ Dado que `tmux` utiliza un archivo de configuración y no una carpeta específic
    set -g status-right "#{E:@catppuccin_status_application}"
    set -ag status-right "#{E:@catppuccin_status_session}"
    set -ag status-right "#{E:@catppuccin_status_uptime}"
-   
    ```
+
 2. [tmux-themepack](https://github.com/jimeh/tmux-themepack): `themes/themepack` variaciones:
+   
    - `set -g @themepack 'basic'` (default)
    
    - `set -g @themepack 'powerline/block/blue'`
@@ -124,6 +125,3 @@ Dado que `tmux` utiliza un archivo de configuración y no una carpeta específic
    - `set -g @themepack 'powerline/double/magenta'`
      
      > los colores pueden variar a: blue, cyan gray, green, magenta, orange, purple, red, yellow
-
-> 
-> TODO Agregar tema
