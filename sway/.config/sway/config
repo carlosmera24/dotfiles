@@ -90,7 +90,8 @@ bindsym Control+$modAlt+k exec kitty
 # Open terminal as others desktop 
 bindsym Control+$modAlt+t exec gnome-terminal
 #Block screen
-bindsym Control+$modAlt+l exec sh ~/.config/swaylock/swaylock.sh
+# bindsym Control+$modAlt+l exec sh ~/.config/swaylock/swaylock.sh
+bindsym Control+$modAlt+l exec gtklock
 
 # Basics:
 

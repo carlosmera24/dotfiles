@@ -199,6 +199,14 @@ De esta manera tengo una forma sencilla y funcional para cerrar sesión o apagar
 
 ### Bloqueo de pantalla
 
+La documentación de [ArchLinux - Session lock](https://wiki.archlinux.org/title/Session_lock#Wayland) sugiere algunas aplicaciones que podemos usar, para el caso de `sway` debemos usar los recomendados para `Wayland`, gráficamente me ha gustado `gtklock` el cual incluye componentes definidos por defecto, siendo `saylock` y `waylock` lo màs sencillos.
+
+#### Gtklock
+
+El paquete instalable desde Pacman es `gtklock`, he agregado el atajo de teclado `Ctrl+Alt+L` para ejecutar el bloqueo de pantalla. En cuanto a la configuración toma por defecto `~/.config/gtklock/config.ini`
+
+#### Swaylock
+
 Tal y como sugiere la documentación de `sway` de ArchLinux, el paquete a instalar para bloquear la pantalla es  [swaylock](https://github.com/swaywm/swaylock), partimos de su instalación con pacman, tras su instalación se puede ejecutar `swaylock` y se bloqueará la pantalla, para desbloquear es necesarios ingresar la contraseña del usuario actual. En cuanto a su estilo y configuración no posee una ruta como tal, es necesario indicar en la ejecución la ruta correspondiente, para ello creo `~/.config/swaylock/` en donde registro los archivos de configuración y el script que se encargará de ejecutar `swaylock` con la personalización:
 
 ```vim
@@ -206,4 +214,4 @@ config.confi
 swaylock.sh
 ```
 
- `swaylock.sh` debe tener permisos de ejecución, ya que debemos modificar la configuración de `waybar` o cualquier otro, para que ejecute el script `swaylock.sh` en lugar del comando `sway` como tal, de esa manera podremos personalizar a gusto. Para la personalización en la web podemos encontrar muchos dotfiles para personalizar, entre ellos tenemos [catppuccin/swaylock](https://github.com/catppuccin/swaylock), para lo cual basta descargar los archivos y ubicarlos en el directorio de configuración, reemplazando el archivo config y ajustado lo que se requiera. He agrado el comando `Ctrl+Alt+L` para ejecutar el bloqueo de pantalla. Ahora bien, tenemos un bloqueo que pantalla sencillo y funcional, existe otra alternativa extendida que es `swaylock-effects` instalable desde `aur`, por ahora decido quedarme con `swaylock`.
+ `swaylock.sh` debe tener permisos de ejecución, ya que debemos modificar la configuración de `waybar` o cualquier otro, para que ejecute el script `swaylock.sh` en lugar del comando `sway` como tal, de esa manera podremos personalizar a gusto. Para la personalización en la web podemos encontrar muchos dotfiles para personalizar, entre ellos tenemos [catppuchin-swaylock](https://github.com/catppuccin/swaylock), para lo cual basta descargar los archivos y ubicarlos en el directorio de configuración, reemplazando el archivo config y ajustado lo que se requiera. He agrado el comando `Ctrl+Alt+L` para ejecutar el bloqueo de pantalla. Ahora bien, tenemos un bloqueo que pantalla sencillo y funcional, existe otra alternativa extendida que es `swaylock-effects` instalable desde `aur`, por ahora decido quedarme con `swaylock`.
