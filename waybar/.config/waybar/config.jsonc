@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "custom/spotify"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "tray", "clock", "custom/power"],
+    "modules-right": ["pulseaudio", "cpu", "memory", "battery", "tray", "clock", "custom/power"],
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -52,6 +52,7 @@
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
+    //Not included, I'm using nm-applet from sway configurtion
     "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",

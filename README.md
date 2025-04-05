@@ -36,6 +36,7 @@ A continuación describo las herramientas o aplicaciones que estoy gestionando c
 | Swaylock    | swaylock  | `~/.dotfiles/swaylock/.config/swaylock`   | `~/.config/swaylock`  |
 | Waybar      | waybar    | `~/.dotfiles/waybar/.config/waybar`       | `~/.config/waybar`    |
 | tmux        | tmux      | `~/.dotfiles/tmux/.tmux`                  | `~/.tmux`             |
+| yazi        | yazi      | `~/.dotfiles/yazi/.config/yazi`           | `~/.config/yazi`      |
 
 ## Árbol de directorio
 
@@ -68,9 +69,12 @@ tree -La 3
 ├── waybar
 │   └── .config
 │       └── waybar
-└── wezterm
+├── wezterm
+│   └── .config
+│       └── wezterm
+└── yazi
     └── .config
-        └── wezterm
+        └── yazi
 ```
 
 ## Stow

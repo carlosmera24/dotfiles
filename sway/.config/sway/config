@@ -28,6 +28,10 @@ output * bg /usr/share/backgrounds/archlinux/awesome.png fill
 
 # Cursor
 seat seat0 xcursor_theme elementary 16
+
+# Network tray icon on waybar
+exec nm-applet
+
 #
 # Example configuration:
 #
@@ -39,6 +43,15 @@ seat seat0 xcursor_theme elementary 16
 #
 # Example configuration:
 #
+exec swayidle -w \
+         timeout 300 'gtklock' \
+         timeout 600 'swaymsg "output * power off"' \
+         resume 'swaymsg "output * power on"' \
+         before-sleep 'gtklock'
+# This will lock your screnn after 5 minutes of inactivity,then turn off
+# your displays after another 10 minutes, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
 # exec swayidle -w \
 #          timeout 300 'swaylock -f -c 000000' \
 #          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
@@ -71,11 +84,23 @@ input type:touchpad {
     tap_button_map lrm
 }
   
+# ---------------
 # Keyboard
-input type:keyboard {
-    xkb_layout es
+# ---------------
+
+# input type:keyboard {
+#     xkb_layout latam
+#     # xkb_layout es
+# }
+# Teclado Notebook HP
+input "1:1:AT_Translated_Set_2_keyboard" {
+    xkb_layout latam
 }
 
+# Macbook
+# input "1:1:AT_Translated_Set_2_keyboard" {
+#     xkb_layout latam
+# }
 
 #-----------------------
 ### Key bindings

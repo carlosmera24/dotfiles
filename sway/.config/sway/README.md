@@ -12,6 +12,14 @@ sudo pacman -S sway
 
 Instalará un par de dependencias y estamos listos para ejecutarla, lo cual se puede hacer desde la terminal TTY o con el display manager, como lightdm. Antes de ejecutarlo, debemos tener presente que no tenemos una configuración y que algunas opciones pueden no estar disponibles, como lo es la apertura de la terminal, la cual está con el atajo `Super+Enter`, dado que usa la terminal `foot`, si no la tenemos instalada no abrirá, para ello es importante preparar la configuración básica antes de comenzar. En la pagina de `ArchLinux` nos sugieren instalar algunos paquetes a considerar y que describo en detalle en cada apartado de la configuración, `swaylock`, `swayidle`, `sawybg`, `wmenu` y `foot`, estos para bloquear la pantalla, configurar un idle manager, establecer fondos de pantalla, lazar aplicaciones y tener la terminal por defecto, respectivamente.
 
+### Instalación recomendada 
+
+Mi instalación recomendada o en un solo comando, después de recopilar toda mi configuración y dependencias:
+
+```shell
+sudo pacman -S sway gtklock swayidle swaybg wofi foot networkmanager nm-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme 
+```
+
 ## Configuración
 
 La ruta de configuración será `~/.config/sway/conf`, inicialmente tomará la configuración del sistema por lo que es oportuno copiarla como base desde `/etc/sway/config`:
@@ -215,3 +223,40 @@ swaylock.sh
 ```
 
  `swaylock.sh` debe tener permisos de ejecución, ya que debemos modificar la configuración de `waybar` o cualquier otro, para que ejecute el script `swaylock.sh` en lugar del comando `sway` como tal, de esa manera podremos personalizar a gusto. Para la personalización en la web podemos encontrar muchos dotfiles para personalizar, entre ellos tenemos [catppuchin-swaylock](https://github.com/catppuccin/swaylock), para lo cual basta descargar los archivos y ubicarlos en el directorio de configuración, reemplazando el archivo config y ajustado lo que se requiera. He agrado el comando `Ctrl+Alt+L` para ejecutar el bloqueo de pantalla. Ahora bien, tenemos un bloqueo que pantalla sencillo y funcional, existe otra alternativa extendida que es `swaylock-effects` instalable desde `aur`, por ahora decido quedarme con `swaylock`.
+
+### Gestión de sesiones inactivas
+
+Sway tiene un demonio de gestión de sesiones inactivas llamado `swayidle` para gestionar las sesiones inactivas, instalable desde pacman, basta con agregar a la configuración de sway:
+
+```vim
+exec swayidle -w \
+         timeout 300 'gtklock' \
+         timeout 600 'swaymsg "output * power off"' \
+         resume 'swaymsg "output * power on"' \
+         before-sleep 'gtklock'
+```
+
+> Esto bloqueará la pantalla en 5 minutos, 10 minutos después apagará la pantalla y al regresar la pantalla se encenderá. 
+
+### Conexiones de red
+
+Para su gestión uso `NetworkManager` el cual debe estar instalado y habilitado para su inicio automático en el inicio del sistema 
+
+```shell
+sudo pacman -S networkmanager
+sudo systemctl enable --now NetworkManager
+```
+
+Para la gestión de las conexiones gráficamente, uso `nm-applet` instalable desde Pacman:
+
+```shell
+sudo pacman -S network-manager-applet
+```
+
+Esto proporcion el ejecutable para tener un icono en waybar y gestionar las conexiones de manera gráfica, para ello he agregado a la configuración de sway el inicio automático:
+
+```vim
+exec nm-applet
+```
+
+> Adicionalmente, he eliminado el llamado de el icono de identificación de la red conectada de waybar, ya que `nm-applet` lo muestra por defecto.
