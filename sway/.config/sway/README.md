@@ -17,7 +17,7 @@ Instalará un par de dependencias y estamos listos para ejecutarla, lo cual se p
 Mi instalación recomendada o en un solo comando, después de recopilar toda mi configuración y dependencias:
 
 ```shell
-sudo pacman -S sway gtklock swayidle swaybg wofi foot networkmanager nm-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme 
+sudo pacman -S sway gtklock swayidle swaybg wofi foot networkmanager nm-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme wl-clipboard 
 ```
 
 ## Configuración
@@ -260,3 +260,7 @@ exec nm-applet
 ```
 
 > Adicionalmente, he eliminado el llamado de el icono de identificación de la red conectada de waybar, ya que `nm-applet` lo muestra por defecto.
+
+## Clipboard
+
+Para una mayor compatibilidad con waylan, es sugerible instalar wl-clipboard, es posible tener xclipboard, pero no trabajará correctamente con la copia en Neovim, por esa razón es importante instalar wl-clipboard, de esa manera aseguramos que al copiar en Neovim este disponible para todo el sistema
