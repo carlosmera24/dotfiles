@@ -186,6 +186,12 @@ En los estilos encontrados dentro de la comunidad, en especial los ejemplos que 
 
 ##### Menú logout
 
+###### Wlogout
+
+`wlogout` es un menú logout para wayland, se puede instalar desde `AUR`, tiene un mejor aspecto gráfico y se puede personalizar. Partimos de tenerlo instalado y crear la copia de los archivos de configuración `/etc/wlogout/` a `~/.config/wlogout/`, dentro de la configuración, he cambiado en `layout` la acción para bloquear la pantalla con `gtklock` y el tema con 
+
+###### Personalizado - wofi
+
 He creado mi propio script como `power-menu.sh` y le he concedido los permisos de ejcución `sudo chmod +x power-menu.sh`, este script se ejecuta con `wofi` por lo que es importante tenerlo previamente instalado;editando el archivo de configuración de waybar he agregado:
 
 ```json
@@ -202,8 +208,6 @@ He creado mi propio script como `power-menu.sh` y le he concedido los permisos d
 ```
 
 De esta manera tengo una forma sencilla y funcional para cerrar sesión o apagar el sistema, de igual manera puedo usar atajo `Super+Shift+E` para cerrar `Sway`. Importante destacar que para el bloqueo de pantalla he definido en el script el uso de `swaylock`, más adelante amplío su documentación.    
-
-> TODO: Pendiente validar otras opciones como `wlogout`
 
 ### Bloqueo de pantalla
 

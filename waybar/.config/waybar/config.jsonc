@@ -85,7 +85,8 @@
     "custom/power": {
         "format": "⏻ ",
         "tooltip": false,
-        "on-click": "~/.config/waybar/power-menu.sh"
+        "on-click" : "wlogout"
+        // "on-click": "~/.config/waybar/power-menu.sh"
         // "on-click": "sh -c '~/.config/waybar/power-menu.sh'"
     }
 }
