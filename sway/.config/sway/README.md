@@ -20,6 +20,10 @@ Mi instalación recomendada o en un solo comando, después de recopilar toda mi 
 sudo pacman -S sway gtklock swayidle swaybg wofi foot networkmanager network-manager-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme wl-clipboard 
 ```
 
+```shell
+yay -S wlogout
+```
+
 ## Configuración
 
 La ruta de configuración será `~/.config/sway/conf`, inicialmente tomará la configuración del sistema por lo que es oportuno copiarla como base desde `/etc/sway/config`:
