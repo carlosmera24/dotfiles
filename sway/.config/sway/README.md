@@ -17,7 +17,7 @@ Instalará un par de dependencias y estamos listos para ejecutarla, lo cual se p
 Mi instalación recomendada o en un solo comando, después de recopilar toda mi configuración y dependencias:
 
 ```shell
-sudo pacman -S sway gtklock swayidle swaybg wofi foot networkmanager nm-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme wl-clipboard 
+sudo pacman -S sway gtklock swayidle swaybg wofi foot networkmanager network-manager-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme wl-clipboard 
 ```
 
 ## Configuración
