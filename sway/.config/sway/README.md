@@ -12,7 +12,7 @@ sudo pacman -S sway
 
 Instalará un par de dependencias y estamos listos para ejecutarla, lo cual se puede hacer desde la terminal TTY o con el display manager, como lightdm. Antes de ejecutarlo, debemos tener presente que no tenemos una configuración y que algunas opciones pueden no estar disponibles, como lo es la apertura de la terminal, la cual está con el atajo `Super+Enter`, dado que usa la terminal `foot`, si no la tenemos instalada no abrirá, para ello es importante preparar la configuración básica antes de comenzar. En la pagina de `ArchLinux` nos sugieren instalar algunos paquetes a considerar y que describo en detalle en cada apartado de la configuración, `swaylock`, `swayidle`, `sawybg`, `wmenu` y `foot`, estos para bloquear la pantalla, configurar un idle manager, establecer fondos de pantalla, lazar aplicaciones y tener la terminal por defecto, respectivamente.
 
-### Instalación recomendada 
+### Instalación recomendada
 
 Mi instalación recomendada o en un solo comando, después de recopilar toda mi configuración y dependencias:
 
@@ -272,3 +272,21 @@ exec nm-applet
 ## Clipboard
 
 Para una mayor compatibilidad con waylan, es sugerible instalar wl-clipboard, es posible tener xclipboard, pero no trabajará correctamente con la copia en Neovim, por esa razón es importante instalar wl-clipboard, de esa manera aseguramos que al copiar en Neovim este disponible para todo el sistema
+
+## Capturas de pantalla
+
+La documentación de ArchLinux para [Wayland](https://wiki.archlinux.org/title/Screen_capture#Wayland), sobre la captura de pantalla, sugiere los paquetes [grim](https://archlinux.org/packages/?name=grim) para capturar pantalla, [wf-recorder](https://archlinux.org/packages/?name=wf-recorder) para grabar la pantalla,  [wlrobs-hg](https://aur.archlinux.org/packages/wlrobs-hg/)(AUR) como complemento de wlroots-based para obs-studio, y [slurp](https://archlinux.org/packages/?name=slurp) para seleccionar la región de la pantalla a capturar. Partimos de instalar:
+
+```shell
+sudo pacman -S grim wf-recorder slurp
+```
+
+### Capturar región y copiar al portapapeles
+
+Para este caso, grim hace una captura de pantall a partir de la región que definamos con el comando `grim -g "$(slurp)"` ([Simon Ser / grim · GitLab](https://gitlab.freedesktop.org/emersion/grim)), posteriormente se copia al portapapeles con `wl-copy` (perteneciente al paquete wl-clipboard), el comando completo:
+
+```shell
+grim -g "$(slurp)" - | wl-copy --type image/png
+```
+
+Este comando lo he agregado como atajo de teclado a la configuración de `sway` como `Ctrl+Shift+Imp pnt`

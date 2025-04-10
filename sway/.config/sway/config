@@ -117,6 +117,8 @@ bindsym Control+$modAlt+t exec gnome-terminal
 #Block screen
 # bindsym Control+$modAlt+l exec sh ~/.config/swaylock/swaylock.sh
 bindsym Control+$modAlt+l exec gtklock
+# Screenshot
+bindsym Control+Shift+Print exec grim -g "$(slurp)" - | wl-copy --type image/png
 
 # Basics:
 
