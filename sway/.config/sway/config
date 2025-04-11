@@ -29,8 +29,13 @@ output * bg /usr/share/backgrounds/archlinux/awesome.png fill
 # Cursor
 seat seat0 xcursor_theme elementary 16
 
+### Run applications on startup
+
 # Network tray icon on waybar
 exec nm-applet
+
+# Mako notification
+exec mako
 
 #
 # Example configuration:

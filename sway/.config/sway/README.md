@@ -292,3 +292,11 @@ grim -g "$(slurp)" - | wl-copy --type image/png
 ```
 
 Este comando lo he agregado como atajo de teclado a la configuración de `sway` como `Ctrl+Shift+Imp pnt` y `Super+Ctrl+Shift+4`
+
+## Notificaciones
+
+La pagina de ArchLinux para [Desktop notifications](https://wiki.archlinux.org/title/Desktop_notifications) aclara que se usa `libnotify` para el envío o ejecución de la notificación, esta herramienta tiene soporte para aplicaciones GTK/Qt, ahora bien, también necesita un servidor de notificaciones, en este caso, para Wayland, se sugiere usar [mako](https://github.com/emersion/mako).
+
+### Mako
+
+Estos paquetes pueden ser instalados desde pacman, basta con agregar la ejecución de mako al inicio de sway desde su archivo de configuración. El directorio de configuración de mako es `~/.config/mako/` el cual esta manejado con stow,
