@@ -60,6 +60,8 @@ set $menu wofi --show drun
 
 Asì podremos usar el atajo `Super+d`, sin embargo he agregado el atajo `Alt+F2`.
 
+Para el tema he utilizado en el directorio de configuración `~/.config/wofi` el archivo `style.css` desde catppuccin moha, al ejecutarlo toma por defecto este archivo.
+
 ### Teclado
 
 La documentación sugiere listar los inputs con el comando `swaymsg -t get_inputs` y de esta manera poder determinar o identificar el teclado a partir de su identificador o tipo, siendo práctico usar el tipo, dado que no necesitamos en si conocer el identificador, para definir la distribución del teclado basta agregar:
@@ -289,4 +291,4 @@ Para este caso, grim hace una captura de pantall a partir de la región que defi
 grim -g "$(slurp)" - | wl-copy --type image/png
 ```
 
-Este comando lo he agregado como atajo de teclado a la configuración de `sway` como `Ctrl+Shift+Imp pnt`
+Este comando lo he agregado como atajo de teclado a la configuración de `sway` como `Ctrl+Shift+Imp pnt` y `Super+Ctrl+Shift+4`

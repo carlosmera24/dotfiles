@@ -119,6 +119,7 @@ bindsym Control+$modAlt+t exec gnome-terminal
 bindsym Control+$modAlt+l exec gtklock
 # Screenshot
 bindsym Control+Shift+Print exec grim -g "$(slurp)" - | wl-copy --type image/png
+bindsym $mod+Control+Shift+4 exec grim -g "$(slurp)" - | wl-copy --type image/png
 
 # Basics:
 
