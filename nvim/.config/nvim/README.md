@@ -785,6 +785,35 @@ Para ejecutarlo basta con:
 
 - `<leader>gv` Es el map para abrir la vista previa del archivo actual.
 
+#### Yazi
+
+Este plugin integra `yazi` dentro de NeoVim, lo podemos encontrar en el [link](https://github.com/mikavilpas/yazi.nvim) y toda su documentación. Partimos de tener instalado `yazi` en el sistema. Algunos atajos de teclado a considerar son:
+
+- `Leader+-`: Abre la ventana de Yazi a partir del archivo abierto.
+
+- `q`: Salir de la ventana de Yazi.
+
+- `<f1> `: Ayuda de Yazi.
+
+- `<c-t>`: Abrir el archivo seleccionado en una nueva pestaña
+
+- `<c-x>`: Abrir el archivo en split horizontal
+
+- `<c-v>`: Abrir el archivo en split vertical
+
+- `<c-q>`: Enviar el archivo a la lista de archivos recientes 
+
+- `<c-s>`: Busqueda en el directorio / archivos seleccionados
+
+- `<c-g>`: Reemplaza en el directorio / archivos seleccionados
+
+- `<tab>`: Desplazamiento por los archivos en buffer (abiertos)
+
+- `<c-y>`: Copia la ruta relativa de los archivos selecionados
+
+- `<c-\>`: Cambiar al directorio actual (cwd )
+
+
 #### Asistentes IA / Autocompletado
 
 ##### Codeium
