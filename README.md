@@ -28,14 +28,18 @@ A continuación describo las herramientas o aplicaciones que estoy gestionando c
 
 | Herramienta | Raíz      | Ruta completa                             | Directorio final      |
 | ----------- | --------- | ----------------------------------------- | --------------------- |
-| Kitty       | kitty     | `~/.dotfiles/kitty/.config/kitty`         | `~/.config/kitty`     |
 | Alacritty   | alacritty | `~/.dotfiles/alacritty/.config/alacritty` | `~/.config/alacritty` |
-| WezTerm     | wezterm   | `~/.dotfiles/wezterm/.config/wezterm`     | `~/.config/wezterm`   |
+| gtklock     | gtklock   | `~/.dotfiles/gtklock/.config/gtklock`     | `~/.config/gtklock`   |
+| Kitty       | kitty     | `~/.dotfiles/kitty/.config/kitty`         | `~/.config/kitty`     |
+| Mako        | mako      | `~/.dotfiles/mako/.config/mako`           | `~/.config/mako`      |
 | NeoVim      | nvim      | `~/.dotfiles/nvim/.config/nvim`           | `~/.config/nvim`      |
 | Sway        | sway      | `~/.dotfiles/sway/.config/sway`           | `~/.config/sway`      |
 | Swaylock    | swaylock  | `~/.dotfiles/swaylock/.config/swaylock`   | `~/.config/swaylock`  |
-| Waybar      | waybar    | `~/.dotfiles/waybar/.config/waybar`       | `~/.config/waybar`    |
 | tmux        | tmux      | `~/.dotfiles/tmux/.tmux`                  | `~/.tmux`             |
+| wallpapers  | wallpapers| `~/.dotfiles/wallpapers/.config/wallpapers`| `~/.config/wallpapers`|
+| Waybar      | waybar    | `~/.dotfiles/waybar/.config/waybar`       | `~/.config/waybar`    |
+| WezTerm     | wezterm   | `~/.dotfiles/wezterm/.config/wezterm`     | `~/.config/wezterm`   |
+| wofi        | wofi      | `~/.dotfiles/wofi/.config/wofi`           | `~/.config/wofi`      |
 | yazi        | yazi      | `~/.dotfiles/yazi/.config/yazi`           | `~/.config/yazi`      |
 
 ## Árbol de directorio
@@ -49,9 +53,15 @@ tree -La 3
 ├── alacritty
 │   └── .config
 │       └── alacritty
+├── gtklock
+│   └── .config
+│       └── gtklock
 ├── kitty
 │   └── .config
 │       └── kitty
+├── mako
+│   └── .config
+│       └── mako
 ├── nvim
 │   └── .config
 │       └── nvim
@@ -64,16 +74,23 @@ tree -La 3
 ├── tmux
 │   ├── .config
 │   │   └── tmux
-│   ├── README.md
-│   └── .tmux.config
+├── wallpapers
+│   └── .config
+│       └── wallpapers
 ├── waybar
 │   └── .config
 │       └── waybar
+├── wlogout
+│   └── .config
+│       └── wlogout
 ├── wezterm
 │   └── .config
 │       └── wezterm
-└── yazi
-    └── .config
+├── wofi
+│   └── .config
+│       └── wofi
+├── yazi
+|    └── .config
         └── yazi
 ```
 
