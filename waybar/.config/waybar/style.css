@@ -5,6 +5,15 @@
     font-size: 13px;
     min-height: 0;
 }
+#custom-logo {
+    padding-right: 7px;
+    padding-left: 7px;
+    margin-left: 5px;
+    font-size: 18px;
+    border-radius: 8px 0px 0px 8px;
+    color: #1793d1;
+}
+
 
 window#waybar {
     background: transparent;
