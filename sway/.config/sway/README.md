@@ -299,4 +299,12 @@ La pagina de ArchLinux para [Desktop notifications](https://wiki.archlinux.org/t
 
 ### Mako
 
-Estos paquetes pueden ser instalados desde pacman, basta con agregar la ejecución de mako al inicio de sway desde su archivo de configuración. El directorio de configuración de mako es `~/.config/mako/` el cual esta manejado con stow,
+Estos paquetes pueden ser instalados desde pacman, basta con agregar la ejecución de mako al inicio de sway desde su archivo de configuración. El directorio de configuración de mako es `~/.config/mako/` el cual esta manejado con stow.
+
+## Display Manager
+
+Como gestores de inicio de sesión he utilizado tanto `lightDM` y `GDM`, ambos reconocen y trabajan con sway sin problemas.
+
+### GDM
+
+Es necesario verificar que el archivo `/etc/gdm/custom.conf` no tenga `WaylandEnable` como false, si es así, no se visualizará las opciones que involucren a wayland y por ende, tampoco sway
