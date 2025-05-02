@@ -17,7 +17,7 @@ Instalará un par de dependencias y estamos listos para ejecutarla, lo cual se p
 Mi instalación recomendada o en un solo comando, después de recopilar toda mi configuración y dependencias:
 
 ```shell
-sudo pacman -S sway gtklock swayidle swaybg wofi foot networkmanager network-manager-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme wl-clipboard 
+sudo pacman -S sway waybar gtklock swayidle swaybg wofi foot networkmanager network-manager-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme wl-clipboard mako
 ```
 
 ```shell
@@ -86,7 +86,7 @@ input "type:touchpad" {
     middle_emulation enabled
     #Gestos, 1 dedo click, 2 dedos click derecho
     tap_button_map lrm
-}        
+}        
 ```
 
 > Podemos usar `"type:touchpad"` o bien sin comillas `type:touchpad` 
@@ -99,7 +99,7 @@ Teniendo instalado el icono de nuestra preferencia, por ejemplo `Adwaita` o `ele
 seat seat0 xcursor_theme elementary 16
 ```
 
-Done `elementary` es el pack de iconos y `16` es el tamaño que usará.         
+Done `elementary` es el pack de iconos y `16` es el tamaño que usará.         
 
 ### Explorador de archivos
 
@@ -152,9 +152,9 @@ Si optamos por usar `i3status` debemos reempalzar `status_command' por:
 
 ```vim
 bar {
-    position top
+    position top
     status_command i3status
-    colors {
+    colors {
         statusline #ffffff
         background #323232
         inactive_workspace #32323200 #32323200 #5c5c5c
@@ -213,7 +213,7 @@ He creado mi propio script como `power-menu.sh` y le he concedido los permisos d
 }
 ```
 
-De esta manera tengo una forma sencilla y funcional para cerrar sesión o apagar el sistema, de igual manera puedo usar atajo `Super+Shift+E` para cerrar `Sway`. Importante destacar que para el bloqueo de pantalla he definido en el script el uso de `swaylock`, más adelante amplío su documentación.    
+De esta manera tengo una forma sencilla y funcional para cerrar sesión o apagar el sistema, de igual manera puedo usar atajo `Super+Shift+E` para cerrar `Sway`. Importante destacar que para el bloqueo de pantalla he definido en el script el uso de `swaylock`, más adelante amplío su documentación.    
 
 ### Bloqueo de pantalla
 
@@ -225,7 +225,7 @@ El paquete instalable desde Pacman es `gtklock`, he agregado el atajo de teclado
 
 #### Swaylock
 
-Tal y como sugiere la documentación de `sway` de ArchLinux, el paquete a instalar para bloquear la pantalla es  [swaylock](https://github.com/swaywm/swaylock), partimos de su instalación con pacman, tras su instalación se puede ejecutar `swaylock` y se bloqueará la pantalla, para desbloquear es necesarios ingresar la contraseña del usuario actual. En cuanto a su estilo y configuración no posee una ruta como tal, es necesario indicar en la ejecución la ruta correspondiente, para ello creo `~/.config/swaylock/` en donde registro los archivos de configuración y el script que se encargará de ejecutar `swaylock` con la personalización:
+Tal y como sugiere la documentación de `sway` de ArchLinux, el paquete a instalar para bloquear la pantalla es  [swaylock](https://github.com/swaywm/swaylock), partimos de su instalación con pacman, tras su instalación se puede ejecutar `swaylock` y se bloqueará la pantalla, para desbloquear es necesarios ingresar la contraseña del usuario actual. En cuanto a su estilo y configuración no posee una ruta como tal, es necesario indicar en la ejecución la ruta correspondiente, para ello creo `~/.config/swaylock/` en donde registro los archivos de configuración y el script que se encargará de ejecutar `swaylock` con la personalización:
 
 ```vim
 config.confi
@@ -277,7 +277,7 @@ Para una mayor compatibilidad con waylan, es sugerible instalar wl-clipboard, es
 
 ## Capturas de pantalla
 
-La documentación de ArchLinux para [Wayland](https://wiki.archlinux.org/title/Screen_capture#Wayland), sobre la captura de pantalla, sugiere los paquetes [grim](https://archlinux.org/packages/?name=grim) para capturar pantalla, [wf-recorder](https://archlinux.org/packages/?name=wf-recorder) para grabar la pantalla,  [wlrobs-hg](https://aur.archlinux.org/packages/wlrobs-hg/)(AUR) como complemento de wlroots-based para obs-studio, y [slurp](https://archlinux.org/packages/?name=slurp) para seleccionar la región de la pantalla a capturar. Partimos de instalar:
+La documentación de ArchLinux para [Wayland](https://wiki.archlinux.org/title/Screen_capture#Wayland), sobre la captura de pantalla, sugiere los paquetes [grim](https://archlinux.org/packages/?name=grim) para capturar pantalla, [wf-recorder](https://archlinux.org/packages/?name=wf-recorder) para grabar la pantalla,  [wlrobs-hg](https://aur.archlinux.org/packages/wlrobs-hg/)(AUR) como complemento de wlroots-based para obs-studio, y [slurp](https://archlinux.org/packages/?name=slurp) para seleccionar la región de la pantalla a capturar. Partimos de instalar:
 
 ```shell
 sudo pacman -S grim wf-recorder slurp
