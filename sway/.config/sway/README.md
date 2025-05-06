@@ -17,7 +17,7 @@ Instalará un par de dependencias y estamos listos para ejecutarla, lo cual se p
 Mi instalación recomendada o en un solo comando, después de recopilar toda mi configuración y dependencias:
 
 ```shell
-sudo pacman -S sway waybar gtklock swayidle swaybg wofi foot networkmanager network-manager-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome
+sudo pacman -S sway waybar gtklock swayidle swaybg wofi foot networkmanager network-manager-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire
 ```
 
 ```shell
@@ -308,3 +308,26 @@ Como gestores de inicio de sesión he utilizado tanto `lightDM` y `GDM`, ambos r
 ### GDM
 
 Es necesario verificar que el archivo `/etc/gdm/custom.conf` no tenga `WaylandEnable` como false, si es así, no se visualizará las opciones que involucren a wayland y por ende, tampoco sway
+
+## Captura de pantalla - Navegadores
+
+He experimentado en Brave, durante una reunión en Google Meet, que no me era posible compartir ventanas o aplicaciones, solo me dejaba compartir pestañas, indagando, esto es un comportamiento para los navegadores que requieren unos permisos adicionales, en mi caso, basto con instalar:
+
+```shell
+sudo pacman -S xdg-desktop-portal-wlr
+```
+
+Reinicié mi sesión y me dejó compartir, sin problemas, aplicaciones o ventanas. Ahora bien, es importante validar que se cuente con el soporte de PipeWire y xdk-desktop-portal, esto si no funciona como se espera:
+
+1. Paquetes necesarios
+
+```shell
+sudo pacman -S xdg-desktop-portal xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire
+```
+
+2. Verificar servicios corriendo para el usuario:
+
+```shell
+systemctl --user status pipewire
+systemctl --user status xdg-desktop-portal
+```
