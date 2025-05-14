@@ -17,7 +17,7 @@ Instalará un par de dependencias y estamos listos para ejecutarla, lo cual se p
 Mi instalación recomendada o en un solo comando, después de recopilar toda mi configuración y dependencias:
 
 ```shell
-sudo pacman -S sway waybar gtklock swayidle swaybg wofi foot networkmanager network-manager-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire
+sudo pacman -S sway waybar gtklock swayidle swaybg wofi foot networkmanager network-manager-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl
 ```
 
 ```shell
@@ -73,6 +73,16 @@ input "type:keyboard" {
 ```
 
 Como vemos, definimos `type:keyboard` de una manera global y simple.
+
+#### Teclas multimedia
+
+Si el teclado acepta y se reconoce las teclas multimedias, he habilitado el uso de las teclas para pausar, reproducir, siguiente, anterior y stop de la reproducción en curso, par esto dememos tener instalado `playerctl`:
+
+```shell
+sudo pacman -S playerctl
+```
+
+Es posible validar las teclas del teclado instalando `evtest` y ejecutar `sudo evtest` seleccionando el teclado, de esta manera podemos ver las teclas que acepta.
 
 ### Touchpad
 
