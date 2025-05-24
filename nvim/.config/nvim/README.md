@@ -433,6 +433,22 @@ Se recomiendo *'junegunn/fzf', { 'do': { -> fzf#install() } }* para garantizar q
 1. **Fugitive.vim**: [Vim Awesome](https://vimawesome.com/plugin/fugitive-vim) [GitHub](https://github.com/tpope/vim-fugitive) Integra comandos para el uso de git, además se integra muy bien con **Airline**, se puede invocar utilizando `:G` o `:Git` para visualizar el estado e información del proyecto actual, a su vez se complementa con todos los comandos de git, ejemplo: `:G status`.
 
 2. **vim-gitgutter:** [Vim Awesome](https://vimawesome.com/plugin/vim-gitgutter) [GitHub](https://github.com/airblade/vim-gitgutter) Resalta dentro de los archivos los cambios realizados.
+> Reemplazado por **gitsings.nvim**
+
+3. **gitsings.nvim**: [GitHub](https://github.com/lewis6991/gitsigns.nvim) Resalta dentro de los archivos los cambios realizados y permite interactuar con ellos. Los maps que he definido son:
+
+- 
+- `leader+hi`: Visualiza los cambios(hunk) de la lìnea
+
+- `leader+hp`: Visualiza todos los cambios(hunks)
+
+- `leader+tb`: Habilita/Deshabilita el commit (Blame) sobre la línea
+
+- `leader+tw`: Habilita/Deshabilita el commit (Blame) sobre el hunk, resaltando el cambio
+
+- `leader+hd`: Visualiza las diferencias del archivo (diff) 
+
+- `leader+hD`: Visualiza las diferencias del archivo en un split vertical
 
 #### Sintanxis Y Completado LSP:
 
