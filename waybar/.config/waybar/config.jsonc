@@ -7,10 +7,15 @@
     "modules-left": [
         "custom/logo",
         "sway/workspaces", 
+        "hyprland/workspaces", 
         "sway/mode", 
+        "hyprland/submap",
         "custom/spotify"
     ],
-    "modules-center": ["sway/window"],
+    "modules-center": [
+        "sway/window",
+        "hyprland/window"
+    ],
     "modules-right": [
         "pulseaudio", 
         "cpu", 
@@ -42,6 +47,28 @@
         }
     },
     "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "format-icons": {
+            "1:web": "",
+            "2:code": "",
+            "3:term": "",
+            "4:work": "",
+            "5:music": "",
+            "6:docs": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
+    "hyprland/window": {
+        "separate-outputs": true
+    },
+    "hyprland/submap": {
         "format": "<span style=\"italic\">{}</span>"
     },
     "tray": {
