@@ -169,7 +169,11 @@ floating_modifier $mod normal
 bindsym $mod+Shift+c reload
 
 # Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec swaynag -t warning -m 'Salir. Cerrar la sesión de Wayland?' -B 'Si, salir' 'swaymsg exit'
+set $dialogExit swaynag --background cad3f5 --text 24273a \
+    --button-background 939ab7 --border 6e738d --button-text 24273a \
+    -m 'Salir. Cerrar la sesión de Sway?' \
+    -B 'Si, salir' 'swaymsg exit'
+bindsym $mod+Shift+e exec $dialogExit
 
 # Moving around:
 
