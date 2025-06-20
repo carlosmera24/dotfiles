@@ -151,6 +151,7 @@ bindsym $mod+Control+Shift+4 exec grim -g "$(slurp)" - | wl-copy --type image/pn
 
 # Start a terminal
 bindsym $mod+Return exec $term
+bindsym $mod+Q exec $term
 
 # Kill focused window
 bindsym $mod+Shift+q kill
