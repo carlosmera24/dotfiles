@@ -125,7 +125,9 @@ input "9610:144:SIN_Mec_Keyboard" {
 input "9610:144:SIN_Mec" {
     xkb_layout latam
 }
-
+input "9610:144:SINO_WEALTH_Mec" {
+    xkb_layout latam
+}
 #-----------------------
 ### Key bindings
 #-----------------------
@@ -149,6 +151,7 @@ bindsym $mod+Control+Shift+4 exec grim -g "$(slurp)" - | wl-copy --type image/pn
 
 # Start a terminal
 bindsym $mod+Return exec $term
+bindsym $mod+Q exec $term
 
 # Kill focused window
 bindsym $mod+Shift+q kill
