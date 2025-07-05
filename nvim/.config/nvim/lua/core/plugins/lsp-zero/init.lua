@@ -156,6 +156,13 @@ return {
 
             -- Setup emmet for blade files
             setup_emmet_for_blade()
+
+            -- Vue setup, required for vetur-vls 
+            require('lspconfig').vls.setup({
+                cmd = { "vls" },
+                filetypes = { "vue" },
+                flags = { debounce_text_changes = 150 },
+            })
         end
     }
 }

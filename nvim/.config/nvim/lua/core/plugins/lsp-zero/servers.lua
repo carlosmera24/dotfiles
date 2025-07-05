@@ -70,7 +70,9 @@ return {
     ["tailwindcss"] = default, --css
     ["cssls"] = default, --css
     ["ts_ls"] = default, -- js
-    ["volar"] = default, --vue
+    -- ["volar"] = default, --vue
+    -- Vue, instala vetur-vls, requiere configuración en init.lua para mason
+    -- require('lspconfig').vls.setup({})
     ["vuels"] = default, --vue
     ["intelephense"] = default, -- php
     ["phpactor"] = function()
