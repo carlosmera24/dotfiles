@@ -54,6 +54,21 @@ La ruta de configuración será `~/.config/hypr/`, inicialmente, la primera vez 
 
 > De momento estoy usando los servicios y complementos que tengo instalados con sway, de tal manera que la configuración sea compatible o la conserve, solo he tenido que ajustar waybar
 
+## Vídeo llamadas
+
+###  Captura/compartir pantalla - Navegadores
+
+Importante seguir la configuración que indicó en mi configuración de sway, para ello es importante instalar:
+
+```shell
+sudo pacman -S xdg-desktop-portal xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire
+```
+
+En mi caso tengo la instalación y configuración con pipewire dado que también uso sway, sin embargo, es importante saber que Wayland tiene un soporte limitado para compartir la pantalla, permitiendo compartir pestañas o toda la pantalla (escritorio o monitor), pero para compartir una aplicación en particular es necesario ejecutar en modo X11 el navegador o aplicación:
+
+```shell
+XDG_SESSION_TYPE=x11 brave & disown 
+```
 ### Vídeo en llamadas
 
 Para habilitar la cámara en las vídeo llamadas, es necesario instalar `v4l2loopback-dkm` el cual habilita el vídeo para aplicaciones de streaming, como Meet, Telegram, etc, una vez instalado y reinicado el sistema es detectada la cámara automáticamente.

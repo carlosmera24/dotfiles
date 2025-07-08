@@ -327,13 +327,19 @@ Como gestores de inicio de sesión he utilizado tanto `lightDM` y `GDM`, ambos r
 
 Es necesario verificar que el archivo `/etc/gdm/custom.conf` no tenga `WaylandEnable` como false, si es así, no se visualizará las opciones que involucren a wayland y por ende, tampoco sway
 
-## Captura de pantalla - Navegadores
+## Captura/compartir pantalla - Navegadores
 
 He experimentado en Brave, durante una reunión en Google Meet, que no me era posible compartir ventanas o aplicaciones, solo me dejaba compartir pestañas, indagando, esto es un comportamiento para los navegadores que requieren unos permisos adicionales, en mi caso, basto con instalar:
 
 ```shell
 sudo pacman -S xdg-desktop-portal-wlr
 ```
+
+>Es importante saber que Wayland tiene un soporte limitado para compartir la pantalla, permitiendo compartir pestañas o toda la pantalla (escritorio o monitor), pero para compartir una aplicación en particular es necesario ejecutar en modo X11 el navegador o aplicación:
+>
+>```shell
+>XDG_SESSION_TYPE=x11 brave & disown 
+>```
 
 Reinicié mi sesión y me dejó compartir, sin problemas, aplicaciones o ventanas. Ahora bien, es importante validar que se cuente con el soporte de PipeWire y xdk-desktop-portal, esto si no funciona como se espera:
 
