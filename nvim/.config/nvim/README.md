@@ -801,6 +801,10 @@ Para ejecutarlo basta con:
 
 - `<leader>gv` Es el map para abrir la vista previa del archivo actual.
 
+#### Render Markdown
+
+[GitHub]( https://github.com/MeanderingProgrammer/render-markdown.nvim ) Permite generar vistas previas de archivos `markdown` a partir de su contenido, actualmente lo estoy implementando directamente en Avante.
+
 #### Yazi
 
 Este plugin integra `yazi` dentro de NeoVim, lo podemos encontrar en el [link](https://github.com/mikavilpas/yazi.nvim) y toda su documentación. Partimos de tener instalado `yazi` en el sistema. Algunos atajos de teclado a considerar son:
@@ -861,6 +865,32 @@ Al insertar escribir se generará automáticamente sugerencias que pueden comple
 [Github](https://github.com/codota/tabnine-nvim) [Web](https://www.tabnine.com/) Otra opción
 
 > Sin probar, actualmente estoy usando Codium, he dejado el archivo de instalación comentado
+
+#### Cliente IA
+
+##### Avante
+
+Hasta la fecha, he probado muy superficialmente Avante [Github](https://github.com/yetone/avante.nvim) con `gemini` activo.
+
+###### Providers:
+
+- `Gemini`: Es necesario generar un API para Gemini AI Studio y agregarla al `bashrc` o `zhrc` como `export GEMINI_API_KEY=`
+##### Avante
+
+Hasta la fecha, he probado muy superficialmente Avante [Github](https://github.com/yetone/avante.nvim) con `gemini` activo.
+
+###### Maps:
+
+- `leader+aa` : Abrir/Cerrar la ventana de chat de Avante.
+- `leader+ae` : Editar bloque seleccionado. 
+- `leader+at` : Abrir/Ocultar la ventana visible.
+- `leader+as` : Habilitar/Deshabilitar sugerencias.
+- `leader+an` : Nueva conversación.
+- `leader+ag` : Generar una sugerencia o completar código.
+
+###### Providers:
+
+- `Gemini`: Es necesario generar un API para Gemini AI Studio y agregarla al `bashrc` o `zhrc` como `export GEMINI_API_KEY=`
 
 ### Temas
 
