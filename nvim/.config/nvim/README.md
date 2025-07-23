@@ -870,11 +870,13 @@ Al insertar escribir se generará automáticamente sugerencias que pueden comple
 
 ##### Avante
 
-Hasta la fecha, he probado muy superficialmente Avante [Github](https://github.com/yetone/avante.nvim) con `gemini` activo.
+Hasta la fecha, he probado muy superficialmente Avante [Github](https://github.com/yetone/avante.nvim) con `gemini` y `copilot`.
 
 ###### Providers:
 
 - `Gemini`: Es necesario generar un API para Gemini AI Studio y agregarla al `bashrc` o `zhrc` como `export GEMINI_API_KEY=`
+- `GitHub Copilot`: Este proveedor requiere tener instalado el plugin `github/copilot.vim` y activarlo ejecutando el comando `:Copilot setup`, se deben seguir las instrucciones para ir a la web y habilitar el dispositivo.
+
 ##### Avante
 
 Hasta la fecha, he probado muy superficialmente Avante [Github](https://github.com/yetone/avante.nvim) con `gemini` activo.

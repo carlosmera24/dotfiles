@@ -6,22 +6,15 @@ return {
         cmd = { "AvanteAsk", "AvanteEdit" }, -- Carga al ejecutar estos comandos
         -- cargar al ejecutar estos comandos
         keys = {
-            { "<Space>aa", mode = "v", desc = "Avante Ask" },
-            {
-                "<leader>ae",
-                mode = "v",
-                function()
-                    require("avante.api").edit()
-                end,
-                desc = "Avante Edit"
-            },
+            { "<Space>aa", mode = { "n" ,"v" }, function() require("avante.api").ask() end, desc = "Avante Ask" },
+            { "<leader>ae", mode = "v", function() require("avante.api").edit() end, desc = "Avante Edit" },
         },
         version = false, -- Never set this value to "*"! Never!
         opts = {
             -- "openai" "claude", "gemini", "copilot", etc.
-            provider = "gemini",
+            provider = "copilot",
             providers = {
-                openai = {
+              openai = {
                     endpoint = "https://api.openai.com/v1",
                     model = "gpt-4o",
                     extra_request_body = {
@@ -42,7 +35,19 @@ return {
             },
             behaviour = {
                 auto_suggestions = false,
-                auto_set_keymaps = true,
+            },
+            windows = {
+                width = 35,
+                edit = {
+                    border = "rounded",
+                },
+                ask = {
+                    border = "rounded",
+                },
+                input = {
+                    prefix = "| ",
+                    height = 10, -- Height of the input window in vertical layout
+                },
             }
         },
         build = "make", -- or "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" for Windows
@@ -52,6 +57,9 @@ return {
 
             "stevearc/dressing.nvim",
             "MunifTanjim/nui.nvim",
+
+            -- Optional para providers
+            "github/copilot.vim",
 
             -- Optional dependencies for enhanced functionality
             -- "hrsh7th/nvim-cmp", -- Autocompletion support
