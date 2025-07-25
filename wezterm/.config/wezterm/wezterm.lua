@@ -51,8 +51,10 @@ else
     config.font_size = 13
 end
 
-
 config.window_background_opacity = 0.95
+
+-- Deshabilitar el uso de Wayland, ya que no inicia en Hyprland/Sway
+config.enable_wayland = false
 
 -- and finally, return the configuration to wezterm
 return config
