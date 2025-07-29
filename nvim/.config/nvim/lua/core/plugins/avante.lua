@@ -3,7 +3,7 @@ return {
         "yetone/avante.nvim",
         -- event = "VeryLazy", -- Eliminado "VeryLazy" para que no se ejecute/cargue al iniciar,
         event = {},
-        cmd = { "AvanteAsk", "AvanteEdit" }, -- Carga al ejecutar estos comandos
+        cmd = { "AvanteAsk", "AvanteEdit", "AvanteSwitchProvider" }, -- Carga al ejecutar estos comandos
         -- cargar al ejecutar estos comandos
         keys = {
             { "<Space>aa", mode = { "n" ,"v" }, function() require("avante.api").ask() end, desc = "Avante Ask" },
@@ -14,7 +14,7 @@ return {
             -- "openai" "claude", "gemini", "copilot", etc.
             provider = "copilot",
             providers = {
-              openai = {
+                openai = {
                     endpoint = "https://api.openai.com/v1",
                     model = "gpt-4o",
                     extra_request_body = {
