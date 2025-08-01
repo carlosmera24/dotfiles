@@ -1,8 +1,8 @@
 return {
     {
         "yetone/avante.nvim",
-        event = "VeryLazy", -- Eliminado "VeryLazy" para que no se ejecute/cargue al iniciar,
-        -- event = {},
+        -- event = "VeryLazy", -- Eliminado "VeryLazy" para que no se ejecute/cargue al iniciar,
+        event = {},
         cmd = { "AvanteAsk", "AvanteEdit", "AvanteSwitchProvider" }, -- Carga al ejecutar estos comandos
         -- cargar al ejecutar estos comandos
         keys = {
