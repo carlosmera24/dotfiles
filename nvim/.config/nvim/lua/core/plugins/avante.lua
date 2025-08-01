@@ -12,7 +12,7 @@ return {
         version = false, -- Never set this value to "*"! Never!
         opts = {
             -- "openai" "claude", "gemini", "copilot", etc.
-            provider = "gemini",
+            provider = "ollama",
             providers = {
                 openai = {
                     endpoint = "https://api.openai.com/v1",
@@ -36,13 +36,15 @@ return {
                     endpoint = "http://127.0.0.1:11434",
                     -- model = "llama3.2:1b",
                     -- model = "qwen:0.5b",
+                    -- model = "qwen:1.8b",
                     -- model = "granite3-moe:1b",
-                    model = "qwen:1.8b",
+                    model = "deepseek-coder:1.3b",
+                    -- model = "qwen2.5-coder:1.5b",
                 },
-                ollama_deepseek = {
+                ollama_deepseek_coder = {
                     __inherited_from = 'ollama',
                     endpoint = "http://127.0.0.1:11434",
-                    model = "deepseek-r1:8b"
+                    model = "deepseek-coder:1.3b"
                 },
                 ollama_qewn18 = {
                     __inherited_from = 'ollama',
