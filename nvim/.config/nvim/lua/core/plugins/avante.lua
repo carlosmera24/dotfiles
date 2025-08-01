@@ -34,10 +34,22 @@ return {
                 },
                 ollama = {
                     endpoint = "http://127.0.0.1:11434",
-                    model = "llama3.2:1b",
+                    -- model = "llama3.2:1b",
                     -- model = "qwen:0.5b",
                     -- model = "granite3-moe:1b",
+                    model = "qwen:1.8b",
+                },
+                ollama_deepseek = {
+                    __inherited_from = 'ollama',
+                    endpoint = "http://127.0.0.1:11434",
+                    model = "deepseek-r1:8b"
+                },
+                ollama_qewn18 = {
+                    __inherited_from = 'ollama',
+                    endpoint = "http://127.0.0.1:11434",
+                    model = "qwen:1.8b"
                 }
+
             },
             behaviour = {
                 auto_suggestions = false,
