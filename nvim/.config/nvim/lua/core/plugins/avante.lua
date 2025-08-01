@@ -1,8 +1,8 @@
 return {
     {
         "yetone/avante.nvim",
-        -- event = "VeryLazy", -- Eliminado "VeryLazy" para que no se ejecute/cargue al iniciar,
-        event = {},
+        event = "VeryLazy", -- Eliminado "VeryLazy" para que no se ejecute/cargue al iniciar,
+        -- event = {},
         cmd = { "AvanteAsk", "AvanteEdit", "AvanteSwitchProvider" }, -- Carga al ejecutar estos comandos
         -- cargar al ejecutar estos comandos
         keys = {
@@ -12,7 +12,7 @@ return {
         version = false, -- Never set this value to "*"! Never!
         opts = {
             -- "openai" "claude", "gemini", "copilot", etc.
-            provider = "copilot",
+            provider = "gemini",
             providers = {
                 openai = {
                     endpoint = "https://api.openai.com/v1",
@@ -32,6 +32,12 @@ return {
                         max_completion_tokens = 8192,
                     },
                 },
+                ollama = {
+                    endpoint = "http://127.0.0.1:11434",
+                    model = "llama3.2:1b",
+                    -- model = "qwen:0.5b",
+                    -- model = "granite3-moe:1b",
+                }
             },
             behaviour = {
                 auto_suggestions = false,
@@ -52,18 +58,18 @@ return {
         },
         build = "make", -- or "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" for Windows
         dependencies = {
-         "nvim-treesitter/nvim-treesitter",
-            "nvim-lua/plenary.nvim",
-
-            "stevearc/dressing.nvim",
+            -- "nvim-lua/plenary.nvim",
             "MunifTanjim/nui.nvim",
-
-            -- Optional para providers
+            --- The below dependencies are optional,
+            "echasnovski/mini.pick", -- for file_selector provider mini.pick
+            -- "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+            -- "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+            -- "ibhagwan/fzf-lua", -- for file_selector provider fzf
+            "stevearc/dressing.nvim", -- for input provider dressing
+            "folke/snacks.nvim", -- for input provider snacks
+            -- "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+            -- "zbirenbaum/copilot.lua", -- for providers='copilot'
             "github/copilot.vim",
-
-            -- Optional dependencies for enhanced functionality
-            -- "hrsh7th/nvim-cmp", -- Autocompletion support
-            -- "nvim-tree/nvim-web-devicons", -- Icons
 
             "HakonHarnes/img-clip.nvim", -- Image pasting support
             {
