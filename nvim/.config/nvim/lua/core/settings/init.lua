@@ -39,5 +39,9 @@ opt.redrawtime = 10000
 cmd 'syntax sync fromstart'
 opt.re = 1
 
+-- Avante
+-- views can only be fully collapsed with the global statusline
+vim.opt.laststatus = 3
+
 -- folding
 require("core.settings.folding")

@@ -1,6 +1,10 @@
 return {
     {
         "yetone/avante.nvim",
+          build = vim.fn.has("win32") ~= 0
+            and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+            or "make",
+        -- build = "make", -- or "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" for Windows
         -- event = "VeryLazy", -- Eliminado "VeryLazy" para que no se ejecute/cargue al iniciar,
         event = {},
         cmd = { "AvanteAsk", "AvanteEdit", "AvanteSwitchProvider" }, -- Carga al ejecutar estos comandos
@@ -10,9 +14,11 @@ return {
             { "<leader>ae", mode = "v", function() require("avante.api").edit() end, desc = "Avante Edit" },
         },
         version = false, -- Never set this value to "*"! Never!
+        ---@module 'avante'
+        ---@type avante.Config
         opts = {
             -- "openai" "claude", "gemini", "copilot", etc.
-            provider = "ollama",
+            provider = "gemini",
             providers = {
                 openai = {
                     endpoint = "https://api.openai.com/v1",
@@ -35,10 +41,10 @@ return {
                 ollama = {
                     endpoint = "http://127.0.0.1:11434",
                     -- model = "llama3.2:1b",
-                    -- model = "qwen:0.5b",
+                    model = "qwen:0.5b",
                     -- model = "qwen:1.8b",
                     -- model = "granite3-moe:1b",
-                    model = "deepseek-coder:1.3b",
+                    -- model = "deepseek-coder:1.3b",
                     -- model = "qwen2.5-coder:1.5b",
                 },
                 ollama_deepseek_coder = {
@@ -70,7 +76,6 @@ return {
                 },
             }
         },
-        build = "make", -- or "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" for Windows
         dependencies = {
             -- "nvim-lua/plenary.nvim",
             "MunifTanjim/nui.nvim",
@@ -78,7 +83,7 @@ return {
             "echasnovski/mini.pick", -- for file_selector provider mini.pick
             -- "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
             -- "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-            -- "ibhagwan/fzf-lua", -- for file_selector provider fzf
+            "ibhagwan/fzf-lua", -- for file_selector provider fzf
             "stevearc/dressing.nvim", -- for input provider dressing
             "folke/snacks.nvim", -- for input provider snacks
             -- "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons

@@ -1,6 +1,6 @@
 return {
     {
-        'junegunn/fzf',
+        --[[ 'junegunn/fzf',
         dependencies = 'junegunn/fzf.vim',
         keys = {
             --Abrir con leader+t
@@ -10,6 +10,6 @@ return {
             -- Abrir Ag busqueda con leader+G (leader+Shift+f)
             { "<leader>G", ':Ag<CR>', desc="Search text in files with Ag" }
         },
-        cmd = { "Rg", "FZF", "Ag", "Maps" }
+        cmd = { "Rg", "FZF", "Ag", "Maps" } ]]
     }
 }
