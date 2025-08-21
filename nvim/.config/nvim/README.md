@@ -464,23 +464,23 @@ Migre a LSP depués de usar COC por mucho tiempo, para ello he usado [lsp-zero.n
 
 - Maps por default:
   
-  - `K`:  Muestra información del simbolo en cursor. Ver [:help vim.lsp.buf.hover()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.hover()).
+  - `K`:  Muestra información del simbolo en cursor. Ver [:help vim.lsp.buf.hover()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.hover()).
   
-  - `gd`: Ir a la definición del simbolo en cursor. Ver [:help vim.lsp.buf.definition()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.definition()).
+  - `gd`: Ir a la definición del simbolo en cursor. Ver [:help vim.lsp.buf.definition()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.definition()).
   
-  - `gD`: Salta a la declaración. Algonos servidores no lo implementan esta función. Ver [:help vim.lsp.buf.declaration()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.declaration()).
+  - `gD`: Salta a la declaración. Algonos servidores no lo implementan esta función. Ver [:help vim.lsp.buf.declaration()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.declaration()).
   
-  - `gi`: Lista todas las implementaciones para el símbolo bajo el cursor en la ventana quickfix. Ver [:help vim.lsp.buf.implementation()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.implementation()).
+  - `gi`: Lista todas las implementaciones para el símbolo bajo el cursor en la ventana quickfix. Ver [:help vim.lsp.buf.implementation()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.implementation()).
   
-  - `go`: Salta a la definición del tipo del símbolo bajo el cursor. Ver [:help vim.lsp.buf.type_definition()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.type_definition()).
+  - `go`: Salta a la definición del tipo del símbolo bajo el cursor. Ver [:help vim.lsp.buf.type_definition()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.type_definition()).
   
-  - `gr`: Lista todas las referencias al símbolo bajo el cursor en la ventana quickfix. Ver [:help vim.lsp.buf.references()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.references()).
+  - `gr`: Lista todas las referencias al símbolo bajo el cursor en la ventana quickfix. Ver [:help vim.lsp.buf.references()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.references()).
   
-  - `<Ctrl-k>`: Muestra información de firma sobre el símbolo situado bajo el cursor en una ventana flotante.. Ver [:help vim.lsp.buf.signature_help()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.signature_help()). 
+  - `<Ctrl-k>`: Muestra información de firma sobre el símbolo situado bajo el cursor en una ventana flotante.. Ver [:help vim.lsp.buf.signature_help()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.signature_help()). 
   
-  - `<F2>`: Cambia el nombre de todas las referencias al símbolo situado bajo el cursor. Ver [:help vim.lsp.buf.rename()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.rename()). TODO: Cambiar key, entra en conflicto con Kitty
+  - `<F2>`: Cambia el nombre de todas las referencias al símbolo situado bajo el cursor. Ver [:help vim.lsp.buf.rename()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.rename()). TODO: Cambiar key, entra en conflicto con Kitty
   
-  - `<Ctrl-F4>`: Selecciona una acción de código disponible en la posición actual del cursor. Ver [:help vim.lsp.buf.code_action()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.code_action()).
+  - `<Ctrl-F4>`: Selecciona una acción de código disponible en la posición actual del cursor. Ver [:help vim.lsp.buf.code_action()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.code_action()).
 
 ##### Sintaxis con treesitter
 
@@ -580,21 +580,21 @@ Para integrar correctamente los comentarios, en conjunto con **vim-commentary** 
 
 [GitHub](https://github.com/mg979/vim-visual-multi) Permite selección de multiples líenas, propicio para editar al mismo tiempo:
 
-- Seleccionar palabas con `Ctrl-n` (Salir con `Ctrl-d` )
+- Seleccionar palabas con `Ctrl-n` (Salir con `Ctrl-d` )
 
 - Crear cursores verticalmente `Ctrl-Down/Ctrl-Up`
   
   > Modificado a `Alt+Up/Down` ya que en Kitty no me funciona al utilizar split, pues ese atajo pertenece a otra función
 
-- Seleccionar un caracter a la vez `Shift-Arrows`
+- Seleccionar un caracter a la vez `Shift-Arrows`
 
-- Presionar `n/N` para  next/previous ocurrencia
+- Presionar `n/N` para  next/previous ocurrencia
 
-- Presione `[/]` para seleccionar siguiente/anterior cursor
+- Presione `[/]` para seleccionar siguiente/anterior cursor
 
-- Presione `q` para salir del acual y obtener la siguiente ocurrencia
+- Presione `q` para salir del acual y obtener la siguiente ocurrencia
 
-- Presione `Q` para remover el actual curos/selección
+- Presione `Q` para remover el actual curos/selección
 
 - Iniciar modo inserción con `i,a,I,A`
 
@@ -646,13 +646,13 @@ Inicialmente usé **nvim-comment** citado en el siguiente punto, pero no me fue 
 
 - Comenta/Descomenta un párrafo `gcip`
 
-- Comenta/Descomenta linea actual `gc4w` 
+- Comenta/Descomenta linea actual `gc4w` 
 
-- `gc4j` comment/uncomment 4 lines below the current line
+- `gc4j` comment/uncomment 4 lines below the current line
 
 - Borra bloque comentado `dic`
 
-- Descomenta un bloque `gcic` 
+- Descomenta un bloque `gcic` 
 
 #### Colorizer:
 
@@ -868,9 +868,35 @@ Al insertar escribir se generará automáticamente sugerencias que pueden comple
 
 #### Cliente IA
 
+##### Gen
+
+[Github](https://github.com/David-Kunz/gen.nvim) Esta es una integración con `ollama` de forma práctica y sencilla, para inicializarlo he activado el uso de `:Gen` a partir de él es posible interactuar con lo que se requiera, por ejemplo `:Gen Ask` o `:Gen Chat`.
+
+###### Maps:
+
+- `leader+]`: Habilita el menú de opciones para determinar la opción a utilizar.
+- 
+
+##### CodeCompanion
+
+[GitHub](https://github.com/olimorris/codecompanion.nvim) **AI Coding, Vim Style** es un complemento muy avanzado para utilizar AI en Neovim al estilo de [CodeCompanion](https://codecompanion.ai/), tiene muchas funcionalidades e integración, entre ellas tenemos los más reconocidos LLM, incluyendo `Ollama` a nivel local o server, Copilos, DeepSeeg, Gemini, OpenAi, etc. Su [Documentación](https://codecompanion.ai/) es muy completa.
+
+###### Dependencias:
+
+- `curl`
+- `plenary.nvim`: Incluida por telescope.
+- `nvim-treesitter`: Incluida por separado en mi integración.
+
+###### Maps
+
+- `Leader+cc`: Abre interacción con `prompt`
+- `Leader+ccA`: Menú de acciones.
+- `Leader+ccC`: Chat
+- `Ctrl-s`: Para enviar el prompt en modo `insert` o `Enter` en modo `normal`.
+
 ##### Avante
 
-Hasta la fecha, he probado muy superficialmente Avante [Github](https://github.com/yetone/avante.nvim) con `gemini` y `copilot`.
+Hasta la fecha, he probado muy superficialmente Avante [Github](https://github.com/yetone/avante.nvim) con `gemini` y `copilot`, el uso de `ollama` no ha sido posible, parece que tiene un bug y no termina de procesar la respuesta o consulta.
 
 ###### Providers:
 
