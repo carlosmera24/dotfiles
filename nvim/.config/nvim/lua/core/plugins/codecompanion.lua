@@ -7,9 +7,9 @@ return {
     },
     cmd = { "CodeCompanion", "CodeCompanionActions", "CodeCompanionChat" },
     keys = {
-        { "<leader>cc", ":CodeCompanion<CR>", desc="Open prompt CodeCompanion" },
-        { "<leader>ccA", ":CodeCompanionActions<CR>", desc="Open actions menu CodeCompanion" },
-        { "<leader>ccC", ":CodeCompanionChat<CR>", desc="Open Chat CodeCompanion" },
+        { "<leader>cc", mode= { "n", "v"}, ":CodeCompanion<CR>", desc="Open prompt CodeCompanion" },
+        { "<leader>ccA", mode= { "n", "v"}, ":CodeCompanionActions<CR>", desc="Open actions menu CodeCompanion" },
+        { "<leader>ccC", mode= { "n", "v"}, ":CodeCompanionChat<CR>", desc="Open Chat CodeCompanion" },
     },
     opts = {
         adapters = {
