@@ -894,6 +894,10 @@ Al insertar escribir se generará automáticamente sugerencias que pueden comple
 - `Leader+ccC`: Chat
 - `Ctrl-s`: Para enviar el prompt en modo `insert` o `Enter` en modo `normal`.
 
+###### Interfaz gráfica
+
+Para visualizar el estado he agreado a `lualine` el uso del plugin [franco-ruggeri/codecompanion-lualine.nvim](https://github.com/franco-ruggeri/codecompanion-lualine.nvim) y ajustado la configuración del plugin en el archivo de lualine.lua para incluir la sección de codecompanion
+
 ##### Avante
 
 Hasta la fecha, he probado muy superficialmente Avante [Github](https://github.com/yetone/avante.nvim) con `gemini` y `copilot`, el uso de `ollama` no ha sido posible, parece que tiene un bug y no termina de procesar la respuesta o consulta.

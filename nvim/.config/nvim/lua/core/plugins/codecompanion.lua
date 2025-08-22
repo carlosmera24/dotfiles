@@ -4,6 +4,26 @@ return {
         -- Estas dependencias ya están incluidas por telescope y separado
         -- "nvim-lua/plenary.nvim",
         -- "nvim-treesitter/nvim-treesitter",
+
+        -- Plugin para renderizar Markdown en Neovim
+        {
+            "MeanderingProgrammer/render-markdown.nvim",
+            ft = { "markdown", "codecompanion" }
+        },
+
+       -- Permite pegar imágenes desde el portapapeles en buffers de Neovim
+        {
+            "HakonHarnes/img-clip.nvim",
+            opts = {
+                filetypes = {
+                    codecompanion = {
+                        prompt_for_file_name = false,
+                        template = "[Image]($FILE_PATH)",
+                        use_absolute_path = true,
+                    },
+                },
+            },
+        },
     },
     cmd = { "CodeCompanion", "CodeCompanionActions", "CodeCompanionChat" },
     keys = {
@@ -20,6 +40,13 @@ return {
             end
         },
         display = {
+            chat = {
+                window = {
+                    layout = "vertical",
+                    position = "right",
+                    width = 0.35
+                }
+            },
             action_palette = {
                 width = 95,
                 height = 10,
@@ -31,6 +58,9 @@ return {
                     title = "CodeCompanion actions", -- The title of the action palette
                 },
             },
+            inline = {
+                layout = "horizontal"
+            }
         },
     },
 }
