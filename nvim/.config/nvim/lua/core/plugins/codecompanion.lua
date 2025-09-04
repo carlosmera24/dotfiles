@@ -32,6 +32,17 @@ return {
         { "<leader>ccC", mode= { "n", "v"}, ":CodeCompanionChat<CR>", desc="Open Chat CodeCompanion" },
     },
     opts = {
+        strategies = {
+            chat = {
+                adapter = "ollama",
+            },
+            inline = {
+                adapter = "ollama",
+            },
+            cmd = {
+                adapter = "ollama",
+            }
+        },
         adapters = {
             ollama = function()
                 return require("codecompanion.adapters").extend("ollama", {
