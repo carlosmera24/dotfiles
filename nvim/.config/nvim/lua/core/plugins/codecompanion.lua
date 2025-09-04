@@ -32,6 +32,7 @@ return {
         { "<leader>ccC", mode= { "n", "v"}, ":CodeCompanionChat<CR>", desc="Open Chat CodeCompanion" },
     },
     opts = {
+        language = "Spanish",
         strategies = {
             chat = {
                 adapter = "ollama",
@@ -52,6 +53,8 @@ return {
         },
         display = {
             chat = {
+                -- show_settings = true,
+                -- show_tools_processing = true,
                 window = {
                     layout = "vertical",
                     position = "right",

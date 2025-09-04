@@ -77,6 +77,7 @@ return {
                 "vim",
                 "vue",
                 "python",
+                "yaml",
             },
         },
         config = function(_,opts)
