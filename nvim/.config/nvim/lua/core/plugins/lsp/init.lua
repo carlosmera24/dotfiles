@@ -14,27 +14,22 @@ end
 
 return {
     {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v4.x',
+        'neovim/nvim-lspconfig',
         dependencies = {
-            -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- Required
-
             -- Manage installation of language servers
             {'williamboman/mason.nvim'},
             {'williamboman/mason-lspconfig.nvim'},
 
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},         -- Required
-            {'hrsh7th/cmp-nvim-lsp'},     -- Required
-            {'hrsh7th/cmp-buffer'},       -- Optional
-            {'hrsh7th/cmp-path'},         -- Optional
-            {'saadparwaiz1/cmp_luasnip'}, -- Optional
-            {'hrsh7th/cmp-nvim-lua'},     -- Optional
+            {'hrsh7th/nvim-cmp'},
+            {'hrsh7th/cmp-nvim-lsp'},
+            {'hrsh7th/cmp-buffer'},
+            {'hrsh7th/cmp-path'},
+            {'saadparwaiz1/cmp_luasnip'},
+            {'hrsh7th/cmp-nvim-lua'},
 
             -- Snippets
-            {'L3MON4D3/LuaSnip'},             -- Required
-            {'rafamadriz/friendly-snippets'}, -- Optional
+            { 'nvim-mini/mini.nvim', version = false },
         },
         config = function()
             -- Reserve a space in the gutter
@@ -74,7 +69,7 @@ return {
 
             local lspconfig = require("lspconfig")
             local mason_servers = {}
-            local servers = require("core.plugins.lsp-zero.servers")
+            local servers = require("core.plugins.lsp.servers")
 
             -- Verificar si el servidor esta instalado, sino lo agrega al listado para ser instalado
             for server, _ in pairs(servers) do
@@ -93,55 +88,9 @@ return {
                 },
             }
 
-            -- Autocompletion config (CMP)
-            local cmp = require('cmp')
-            local cmp_action = require('lsp-zero').cmp_action()
-
-            cmp.setup({
-                sources = {
-                    { name = 'nvim_lsp' },
-                    { name = 'buffer' },
-                    { name = 'codeium' }
-                },
-                window = {
-                    completion = cmp.config.window.bordered(),
-                    documentation = cmp.config.window.bordered(),
-                },
-                mapping = cmp.mapping.preset.insert({
-                    -- Confirm selection
-                    --['<C-y>'] = cmp.mapping.confirm({select = true}),
-                    ['<CR>'] = cmp.mapping.confirm({select = false}),
-
-                    -- Navigation with Tab on menu
-                    ['<Tab>'] = cmp_action.luasnip_supertab(),
-                    ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
-                    -- ['<Tab>'] = function(fallback)
-                    --     if cmp.visible() then
-                    --         cmp.select_next_item()
-                    --     elseif luasnip.expand_or_jumpable() then
-                    --         luasnip.expand_or_jump()
-                    --     elseif vim.fn.col('.') == 1 or vim.fn.getline('.'):sub(vim.fn.col('.') - 1, vim.fn.col('.') - 1):match('%s') then
-                    --         fallback()  -- Aplica la indentación normal
-                    --     else
-                    --         cmp.complete()
-                    --     end
-                    -- end,
-                    -- ['<S-Tab>'] = function(fallback)
-                    --     if cmp.visible() then
-                    --         cmp.select_prev_item()
-                    --     elseif luasnip.jumpable(-1) then
-                    --         luasnip.jump(-1)
-                    --     else
-                    --         fallback()  -- Aplica el comportamiento predeterminado
-                    --     end
-                    -- end,
-                }),
-                snippet = {
-                    expand = function(args)
-                        vim.snippet.expand(args.body)
-                    end,
-                },
-            })
+            -- Autocompletion
+            require('mini.snippets').setup({})
+            require('mini.completion').setup({})
 
             vim.diagnostic.config({
                 signs = {

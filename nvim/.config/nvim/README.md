@@ -452,7 +452,9 @@ Se recomiendo *'junegunn/fzf', { 'do': { -> fzf#install() } }* para garantizar q
 
 #### Sintanxis Y Completado LSP:
 
-Migre a LSP depués de usar COC por mucho tiempo, para ello he usado [lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim) ya que permite integrar de una manera muy sencilla LSP con mason, lspconfig y mason-slpconfig, de igual manera integra cmp y Snippets con LuaSnip. Hasta el momento es la manera más sencilla de integrar estas herramientas.
+Migre a LSP depués de usar COC por mucho tiempo, para ello he usado [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig/)
+
+> Hasta 01/09/2025 use [lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim) ya que permite integrar de una manera muy sencilla LSP con mason, lspconfig y mason-slpconfig, de igual manera integra cmp y Snippets con LuaSnip. Hasta el momento es la manera más sencilla de integrar estas herramientas, sin embargo ha sido marcado como `dead` y se sugiere usar, directamente, `nvim-lspconfig`.
 
 - `lua/core/plugins/lsp/`: las especificaciones del plugin las defino en esta carpeta,
   
@@ -463,24 +465,47 @@ Migre a LSP depués de usar COC por mucho tiempo, para ello he usado [lsp-zero.n
 - `:Mason` Me permite acceder al menú de control de los servidores LSP, instalar, actualizar, eliminar y listar. Aunque al definir el archivo `servers` los servidores se instalan automáticamente en el inicio de nvim, preguntando si se dea instalar el listado.
 
 - Maps por default:
+
+    - `Ctrl+w`d: Muestra información del diagnóstico.
+
+    - `Ctrl-]`: Se mueve a la definición del símbolo bajo el cursor.
+
+    - `gq`:  Este es el operador de formateo. Cuando sea posible, solicitará al servidor de lenguaje para realizar el formato.
+
+    - `[d`: Vaya a la previa depuración en el archivo actual.
+
+    - `]d`: Vaya a la siguiente depuración en el archivo actual.
+
+    - `grr`: Lista todos los referencias al símbolo bajo el cursor en el área de búsqueda rápida. Consulte :help vim.lsp.buf.references().
+
+    - `gri`: Lista todos los implementadores para el símbolo bajo el cursor en el área de búsqueda rápida. Consulte :help vim.lsp.buf.implementation().
+
+    - `grn`: Renombra todas las referencias al símbolo bajo el cursor. Consulte :help vim.lsp.buf.rename().
+
+    - `gra`: Selecciona un código acción disponible en la posición actual del cursor. Consulte :help vim.lsp.buf.code_action().
+
+    - `gO`: Lista todos los símbolos en el buffer actual. Consulte :help vim.lsp.buf.document_symbol().
+
+    - `Ctrl-s`: Muestra la información de signatura sobre el símbolo bajo el cursor en una ventana flotante. Consulte :help vim.lsp.buf.signature_help(). Si ya existe un mapeo para esta tecla, este función no se vincula.
   
-  - `K`:  Muestra información del simbolo en cursor. Ver [:help vim.lsp.buf.hover()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.hover()).
-  
-  - `gd`: Ir a la definición del simbolo en cursor. Ver [:help vim.lsp.buf.definition()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.definition()).
-  
-  - `gD`: Salta a la declaración. Algonos servidores no lo implementan esta función. Ver [:help vim.lsp.buf.declaration()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.declaration()).
-  
-  - `gi`: Lista todas las implementaciones para el símbolo bajo el cursor en la ventana quickfix. Ver [:help vim.lsp.buf.implementation()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.implementation()).
-  
-  - `go`: Salta a la definición del tipo del símbolo bajo el cursor. Ver [:help vim.lsp.buf.type_definition()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.type_definition()).
-  
-  - `gr`: Lista todas las referencias al símbolo bajo el cursor en la ventana quickfix. Ver [:help vim.lsp.buf.references()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.references()).
-  
-  - `<Ctrl-k>`: Muestra información de firma sobre el símbolo situado bajo el cursor en una ventana flotante.. Ver [:help vim.lsp.buf.signature_help()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.signature_help()). 
-  
-  - `<F2>`: Cambia el nombre de todas las referencias al símbolo situado bajo el cursor. Ver [:help vim.lsp.buf.rename()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.rename()). TODO: Cambiar key, entra en conflicto con Kitty
-  
-  - `<Ctrl-F4>`: Selecciona una acción de código disponible en la posición actual del cursor. Ver [:help vim.lsp.buf.code_action()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.code_action()).
+    - `K`:  Muestra información del simbolo en cursor. Ver [:help vim.lsp.buf.hover()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.hover()).
+    
+    - `gd`: Ir a la definición del simbolo en cursor. Ver [:help vim.lsp.buf.definition()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.definition()).
+    
+    - `gD`: Salta a la declaración. Algunos servidores no lo implementan esta función. Ver [:help vim.lsp.buf.declaration()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.declaration()).
+    
+    - `gi`: Lista todas las implementaciones para el símbolo bajo el cursor en la ventana quickfix. Ver [:help vim.lsp.buf.implementation()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.implementation()).
+    
+    - `go`: Salta a la definición del tipo del símbolo bajo el cursor. Ver [:help vim.lsp.buf.type_definition()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.type_definition()).
+    
+    - `gr`: Lista todas las referencias al símbolo bajo el cursor en la ventana quickfix. Ver [:help vim.lsp.buf.references()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.references()).
+    
+    - `<Ctrl-k>`: Muestra información de firma sobre el símbolo situado bajo el cursor en una ventana flotante.. Ver [:help vim.lsp.buf.signature_help()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.signature_help()). 
+    
+    - `<F2>`: Cambia el nombre de todas las referencias al símbolo situado bajo el cursor. Ver [:help vim.lsp.buf.rename()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.rename()). TODO: Cambiar key, entra en conflicto con Kitty
+    
+    - `<Ctrl-F4>`: Selecciona una acción de código disponible en la posición actual del cursor. Ver [:help vim.lsp.buf.code_action()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.code_action()).
+
 
 ##### Sintaxis con treesitter
 
