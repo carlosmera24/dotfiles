@@ -11,12 +11,8 @@ end
 return {
     ["emmet_ls"] = function()
         -- Blade requiere configuración adicional agregada para LSP con la función setup_emmet_for_blade() 
-
-        local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
         return {
             flags = lsp_flags,
-            capabilities = capabilities,
             filetypes = {
                 "html",
                 "php",
@@ -69,11 +65,11 @@ return {
     ["svelte"] = default, --css, scss, less, js, html,
     ["tailwindcss"] = default, --css
     ["cssls"] = default, --css
+    -- ["ts_ls"] = default, -- js
     ["ts_ls"] = default, -- js
-    -- ["volar"] = default, --vue
-    -- Vue, instala vetur-vls, requiere configuración en init.lua para mason
-    -- require('lspconfig').vls.setup({})
-    ["vuels"] = default, --vue
+
+    -- Vue, requiere instalación manual desde mason de vue-language-server
+
     ["intelephense"] = default, -- php
     ["phpactor"] = function()
         return {

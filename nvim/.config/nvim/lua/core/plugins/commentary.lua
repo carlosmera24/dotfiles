@@ -1,5 +1,6 @@
 return {
-    {
+    -- Remplazado por mini-comment de mini-nvim
+    --[[ {
         'numToStr/Comment.nvim',
         keys = {
             { 'gcc', mode = {"n","v"}, desc = "Line-comment toggle keymap" },
@@ -17,5 +18,5 @@ return {
                 },
             })
         end
-    }
+    } ]]
 }

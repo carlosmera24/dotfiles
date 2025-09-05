@@ -532,7 +532,9 @@ Migre a LSP depués de usar COC por mucho tiempo, para ello he usado [neovim/nvi
 
 ###### Comentarios
 
-> Con el cambio de `vim-commentary` a `Comment` no veo necesario el uso del plugin `nvim-ts-context-commentstring`, ya que `Comment` integró coporte para `treesitter`, sin embargo opto por dejarlo como una dependencia por si necesito realizar algún caso de uso avanzado, aunque hasta el momento me funciona con `vue` perfectamente.
+Actualmente estoy usando `mini-comment` de mini-nvim, ya que este último lo he integrado en LSP y proporciona varios plugins utiles
+
+> Con el cambio de `vim-commentary` a `Comment` no veo necesario el uso del plugin `nvim-ts-context-commentstring`, ya que `Comment` integró soporte para `treesitter`, sin embargo opto por dejarlo como una dependencia por si necesito realizar algún caso de uso avanzado, aunque hasta el momento me funciona con `vue` perfectamente.
 
 Para integrar correctamente los comentarios, en conjunto con **vim-commentary** se instala [nvim-ts-context-comentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring), definido y configurado en el mismo archivo del plugin (`plugins/treesitter.lua`), esto añade soporte para VUE de manera correcta
 

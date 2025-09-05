@@ -1,117 +1,14 @@
--- Función para iniciar Emmet en archivos blade
-local function setup_emmet_for_blade()
-    vim.api.nvim_create_autocmd("BufEnter", {
-        pattern = {"*.blade.php"},
-        callback = function()
-            vim.lsp.start({
-                name = "emmet_ls",
-                cmd = { "emmet-ls", "--stdio" },
-                filetypes = { "blade" },
-            })
-        end,
-    })
-end
-
 return {
-    {
-        'neovim/nvim-lspconfig',
-        dependencies = {
-            -- Manage installation of language servers
-            {'williamboman/mason.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
+    'neovim/nvim-lspconfig',
+    dependencies = {
+        -- Manage installation of language servers
+        {'williamboman/mason.nvim'},
+        {'williamboman/mason-lspconfig.nvim'},
 
-            -- Autocompletion
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'hrsh7th/cmp-buffer'},
-            {'hrsh7th/cmp-path'},
-            {'saadparwaiz1/cmp_luasnip'},
-            {'hrsh7th/cmp-nvim-lua'},
-
-            -- Snippets
-            { 'nvim-mini/mini.nvim', version = false },
-        },
-        config = function()
-            -- Reserve a space in the gutter
-            -- This will avoid an annoying layout shift in the screen
-            vim.opt.signcolumn = 'yes'
-
-            -- Add cmp_nvim_lsp capabilities settings to lspconfig
-            -- This should be executed before you configure any language server
-            local lspconfig_defaults = require('lspconfig').util.default_config
-            lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-                'force',
-                lspconfig_defaults.capabilities,
-                require('cmp_nvim_lsp').default_capabilities()
-            )
-
-            -- This is where you enable features that only work
-            -- if there is a language server active in the file
-            vim.api.nvim_create_autocmd('LspAttach', {
-                desc = 'LSP actions',
-                callback = function(event)
-                    local opts = {buffer = event.buf}
-
-                    vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-                    vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
-                    vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
-                    vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
-                    vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
-                    vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-                    vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-                    vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-                    vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
-                    vim.keymap.set('n', '<c-F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-                end,
-            })
-
-            require('mason').setup({})
-
-            local lspconfig = require("lspconfig")
-            local mason_servers = {}
-            local servers = require("core.plugins.lsp.servers")
-
-            -- Verificar si el servidor esta instalado, sino lo agrega al listado para ser instalado
-            for server, _ in pairs(servers) do
-                local cmd = lspconfig[server].document_config.default_config.cmd[1]
-                if vim.fn.executable(cmd) == 0 then
-                    table.insert(mason_servers, server)
-                end
-            end
-
-            require('mason-lspconfig').setup{
-                ensure_installed = mason_servers,
-                handlers = {
-                    function(server_name)
-                        require('lspconfig')[server_name].setup({})
-                    end,
-                },
-            }
-
-            -- Autocompletion
-            require('mini.snippets').setup({})
-            require('mini.completion').setup({})
-
-            vim.diagnostic.config({
-                signs = {
-                    text = {
-                        [vim.diagnostic.severity.ERROR] = '✘',
-                        [vim.diagnostic.severity.WARN] = '▲',
-                        [vim.diagnostic.severity.HINT] = '⚑',
-                        [vim.diagnostic.severity.INFO] = '»',
-                    },
-                },
-            })
-
-            -- Setup emmet for blade files
-            setup_emmet_for_blade()
-
-            -- Vue setup, required for vetur-vls 
-            require('lspconfig').vls.setup({
-                cmd = { "vls" },
-                filetypes = { "vue" },
-                flags = { debounce_text_changes = 150 },
-            })
-        end
-    }
+        -- Snippets cargado en archivo separado mini-nvim.lua
+        { 'nvim-mini/mini.nvim', version = false },
+    },
+    config = function()
+        require('core.plugins.lsp.config').setup()
+    end
 }
