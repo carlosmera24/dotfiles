@@ -65,11 +65,9 @@ return {
     ["svelte"] = default, --css, scss, less, js, html,
     ["tailwindcss"] = default, --css
     ["cssls"] = default, --css
-    -- ["ts_ls"] = default, -- js
     ["ts_ls"] = default, -- js
-
-    -- Vue, requiere instalación manual desde mason de vue-language-server
-
+    -- Requiere configuración manual de ts_ls agregada a config.lua
+    ["vue_ls"] = default, --vue
     ["intelephense"] = default, -- php
     ["phpactor"] = function()
         return {

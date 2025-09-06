@@ -1,14 +1,14 @@
 return {
-    'neovim/nvim-lspconfig',
+    "mason-org/mason-lspconfig.nvim",
     dependencies = {
         -- Manage installation of language servers
-        {'williamboman/mason.nvim'},
-        {'williamboman/mason-lspconfig.nvim'},
+        { "mason-org/mason.nvim", opts = {} },
+        "neovim/nvim-lspconfig",
 
         -- Snippets cargado en archivo separado mini-nvim.lua
         { 'nvim-mini/mini.nvim', version = false },
     },
-    config = function()
+    opts = function()
         require('core.plugins.lsp.config').setup()
     end
 }

@@ -35,7 +35,7 @@ local function setup_emmet_for_blade()
     })
 end
 
--- Función para confiugrar vue y tl_sl
+-- Función para confiugrar tl_sl y solucionar error `Could not find ts-ls...` al abrir archivos .vue
 local function setup_tl_sl_vue()
     local mason_path = vim.fn.stdpath('data') .. '/mason'  -- ~/.local/share/nvim/mason
     local vue_server_path = mason_path .. '/packages/vue-language-server/node_modules/@vue/language-server'
@@ -65,39 +65,72 @@ local function setup_tl_sl_vue()
     }
 end
 
+-- Función para configurar vue(vue_ls)
+local function setup_vue_ls()
+    lspconfig.vue_ls.setup {
+        init_options = {
+            vue = {
+                hybridMode = false,
+            },
+        },
+        filetypes = { "vue" },
+        flags = lsp_flags,
+        capabilities = capabilities,
+}
+end
 
 -- Configuración pincipal
 local M = {}
 
 M.setup = function()
-    -- 1. Configurar Mason
-    require("mason").setup()
+    -- Configurar Mason
+    require("mason").setup({
+        ui = {
+            icons = {
+                package_installed = "✓",
+                package_pending = "➜",
+                package_uninstalled = "✗"
+            }
+        }
+    })
     require("mason-lspconfig").setup({
         ensure_installed = vim.tbl_keys(servers),
         handlers = {}
     })
 
-    -- 2. Configurar cada servidor
+    -- Configurar cada servidor
     for server, config_fn in pairs(servers) do
-        local setup_opts = type(config_fn) == "function" and config_fn() or {}
+        -- excluir vue_ls y ts_ls (los configuramos manualmente después)
+        if server ~= "vue_ls" and server ~= "ts_ls" then
+            local setup_opts = type(config_fn) == "function" and config_fn() or {}
 
-        -- Asegurarse de que capabilities esté fusionado
-        setup_opts.capabilities = vim.tbl_deep_extend('force', capabilities, setup_opts.capabilities or {})
+            -- Asegurarse de que capabilities esté fusionado
+            setup_opts.capabilities = vim.tbl_deep_extend(
+                "force",
+                capabilities,
+                setup_opts.capabilities or {}
+            )
 
-        -- Asegurar flags
-        setup_opts.flags = vim.tbl_deep_extend('force', lsp_flags, setup_opts.flags or {})
+            -- Asegurar flags
+            setup_opts.flags = vim.tbl_deep_extend(
+                "force",
+                lsp_flags,
+                setup_opts.flags or {}
+            )
 
-        -- Aplicar configuración
-        lspconfig[server].setup(setup_opts)
+            -- Aplicar configuración
+            lspconfig[server].setup(setup_opts)
+        end
     end
 
-    -- 3. tl_sl vue
+    -- Configurar tl_sl y vue
     setup_tl_sl_vue()
+    setup_vue_ls()
 
-    -- 4. Emmet para Blade
+    -- Emmet para Blade
     setup_emmet_for_blade()
 
-    -- 5. Diagnostics
+    -- Diagnostics
     vim.diagnostic.config({
         signs = {
             text = {
