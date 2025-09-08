@@ -32,6 +32,19 @@ return {
             -- One of 'left', 'right', 'none'.
             tabpage_section = 'left',
         })
+
+        -- Autopairs
+        require('mini.pairs').setup({})
+
+        -- Notify
+        require('mini.notify').setup({})
+
+        -- Keys
+        local map_multistep = require('mini.keymap').map_multistep
+
+        map_multistep('i', '<Tab>',   { 'pmenu_next' })
+        map_multistep('i', '<S-Tab>', { 'pmenu_prev' })
+        map_multistep('i', '<CR>',    { 'pmenu_accept' })
     end
 }
 

@@ -37,8 +37,8 @@ return {
                 },
                 {
                     desc = " Files",
-                    group = "file",
-                    action = "Number",
+                    group = "Number",
+                    action = "Yazi",
                     key = "f",
                 },
                 {

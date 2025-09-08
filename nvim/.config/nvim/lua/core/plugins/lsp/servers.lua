@@ -66,7 +66,8 @@ return {
     ["tailwindcss"] = default, --css
     ["cssls"] = default, --css
     ["ts_ls"] = default, -- js
-    -- Requiere configuración manual de ts_ls agregada a config.lua
+    -- Requiere configuración manual de ts_ls y vue_ls agregada a config.lua
+    -- Instalación manual desde Mason  (1° Vez) de vue-language-server
     ["vue_ls"] = default, --vue
     ["intelephense"] = default, -- php
     ["phpactor"] = function()
