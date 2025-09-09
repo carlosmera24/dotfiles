@@ -98,34 +98,32 @@ M.setup = function()
         handlers = {}
     })
 
-    -- Configurar cada servidor
-    for server, config_fn in pairs(servers) do
-        -- excluir vue_ls y ts_ls (los configuramos manualmente después)
-        if server ~= "vue_ls" and server ~= "ts_ls" then
-            local setup_opts = type(config_fn) == "function" and config_fn() or {}
+    -- Realizar la configuración de cada servidor después de que esté cargado todo
+    vim.api.nvim_create_autocmd("User", {
+        pattern = "LspAttached",
+        callback = function()
+            -- Configurar cada servidor
+            for server, config_fn in pairs(servers) do
+                if server ~= "vue_ls" and server ~= "ts_ls" then
+                    local setup_opts = type(config_fn) == "function" and config_fn() or {}
+                    setup_opts.capabilities = vim.tbl_deep_extend("force", capabilities, setup_opts.capabilities or {})
+                    setup_opts.flags = vim.tbl_deep_extend("force", lsp_flags, setup_opts.flags or {})
 
-            -- Asegurarse de que capabilities esté fusionado
-            setup_opts.capabilities = vim.tbl_deep_extend(
-                "force",
-                capabilities,
-                setup_opts.capabilities or {}
-            )
+                    if lspconfig[server] then
+                        lspconfig[server].setup(setup_opts)
+                    else
+                        vim.notify("Servidor " .. server .. " no encontrado en lspconfig", vim.log.levels.WARN)
+                    end
+                end
+            end
 
-            -- Asegurar flags
-            setup_opts.flags = vim.tbl_deep_extend(
-                "force",
-                lsp_flags,
-                setup_opts.flags or {}
-            )
-
-            -- Aplicar configuración
-            lspconfig[server].setup(setup_opts)
+            -- Configurar vue_ls
+            setup_vue_ls()
         end
-    end
+    })
 
-    -- Configurar tl_sl y vue
+    -- Configurar ts_ls para el uso de vue
     setup_tl_sl_vue()
-    setup_vue_ls()
 
     -- Emmet para Blade
     setup_emmet_for_blade()
