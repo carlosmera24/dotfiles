@@ -39,6 +39,21 @@ return {
         -- Notify
         require('mini.notify').setup({})
 
+        -- Highlight patterns in text (like TODO, HACK, NOTE, FIXME, etc.)
+        local hipatterns = require('mini.hipatterns')
+        hipatterns.setup({
+            highlighters = {
+                -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
+                fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
+                hack  = { pattern = '%f[%w]()HACK()%f[%W]',  group = 'MiniHipatternsHack'  },
+                todo  = { pattern = '%f[%w]()TODO()%f[%W]',  group = 'MiniHipatternsTodo'  },
+                note  = { pattern = '%f[%w]()NOTE()%f[%W]',  group = 'MiniHipatternsNote'  },
+
+                -- Highlight hex color strings (`#rrggbb`) using that color
+                hex_color = hipatterns.gen_highlighter.hex_color(),
+            },
+        })
+
         -- Keys
         local map_multistep = require('mini.keymap').map_multistep
 
