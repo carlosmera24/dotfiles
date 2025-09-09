@@ -54,6 +54,9 @@ return {
             },
         })
 
+        -- Indent scope (Visualize and work)
+        require('mini.indentscope').setup({})
+
         -- Keys
         local map_multistep = require('mini.keymap').map_multistep
 
