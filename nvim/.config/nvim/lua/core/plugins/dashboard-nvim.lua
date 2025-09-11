@@ -26,25 +26,25 @@ return {
                 {
                     desc = ' Lazy',
                     group = 'DiagnosticHint',
-                    action = 'Lazy',
+                    action = ':Lazy',
                     key = 'l'
                 },
                 {
                     desc = ' Mason Update',
                     group = 'DiagnosticHint',
-                    action = 'Mason',
+                    action = ':Mason',
                     key = 'm'
                 },
                 {
                     desc = " Files",
                     group = "Number",
-                    action = "Yazi",
+                    action = ":Yazi",
                     key = "f",
                 },
                 {
                     desc = ' Search Files',
                     group = 'Label',
-                    action = 'Telescope find_files',
+                    action = ':Telescope find_files',
                     key = 's',
                 },
             },
