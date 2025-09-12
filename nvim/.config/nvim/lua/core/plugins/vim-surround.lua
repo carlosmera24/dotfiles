@@ -1,8 +1,9 @@
 return {
-    {
-        'tpope/vim-surround',
-        keys = {
-            { '<leader>S', mode = "v" }
-        }
-    }
+    -- Reemplazado por mini-surround
+    -- {
+    --     'tpope/vim-surround',
+    --     keys = {
+    --         { '<leader>S', mode = "v" }
+    --     }
+    -- }
 }

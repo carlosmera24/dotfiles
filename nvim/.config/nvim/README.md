@@ -237,6 +237,8 @@ Dentro de las opciones que tenemos para configurar los plugins:
 
 #### BufTabLine:
 
+> Reemplazado por `mni.tabline`, dado que estaba generando errores con `checkhealth`
+
 [GitHub](https://github.com/ap/vim-buftabline) [Vim Awesome](https://vimawesome.com/plugin/buftabline) Tras no usar *Vim AirLine* es necesario tener otro tab para mostrar los buffers activos, esta funcionalidad la permite este plugin, sencillo y práctico, para iniciar solo basta con la instalación
 
 #### Vim Airline:
@@ -331,13 +333,19 @@ cd ~/Library/Fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complet
 
 #### Auto-Pairs:
 
+> Reemplazado por `min.pairs`.
+
 [Vim Awesome](https://vimawesome.com/plugin/auto-pairs) [GitHub](https://github.com/jiangmiao/auto-pairs) Autocompleta comillas, llaves, parentesis, etc, muy util.
 
 #### vim-closetag:
 
+> No usado actualmente
+
 [GitHub](https://github.com/alvan/vim-closetag) Cierra etiquetas automáticamente.
 
 #### vim-surround:
+
+> Reemplazado por `mini.surround`
 
 [GitHub](https://github.com/tpope/vim-surround) Permite encapsular o encerrar palabras o selección en comillas, parentesis, llaves, etc, para su uso se debe seleccionar lo deseado -1 caracter  y luego presionar `<leader>+S` y presionar el  `caracter_deseado` 
 
@@ -420,7 +428,7 @@ Plug 'junegunn/fzf.vim'
 
 Se recomiendo *'junegunn/fzf', { 'do': { -> fzf#install() } }* para garantizar que tengamos la última versión de **FZF**
 
-#### 5. Maps:
+##### 5. Maps:
 
 - `leader+t`: Buscar archivos
 
@@ -433,11 +441,12 @@ Se recomiendo *'junegunn/fzf', { 'do': { -> fzf#install() } }* para garantizar q
 1. **Fugitive.vim**: [Vim Awesome](https://vimawesome.com/plugin/fugitive-vim) [GitHub](https://github.com/tpope/vim-fugitive) Integra comandos para el uso de git, además se integra muy bien con **Airline**, se puede invocar utilizando `:G` o `:Git` para visualizar el estado e información del proyecto actual, a su vez se complementa con todos los comandos de git, ejemplo: `:G status`.
 
 2. **vim-gitgutter:** [Vim Awesome](https://vimawesome.com/plugin/vim-gitgutter) [GitHub](https://github.com/airblade/vim-gitgutter) Resalta dentro de los archivos los cambios realizados.
-> Reemplazado por **gitsings.nvim**
+   
+   > Reemplazado por **gitsings.nvim**
 
 3. **gitsings.nvim**: [GitHub](https://github.com/lewis6991/gitsigns.nvim) Resalta dentro de los archivos los cambios realizados y permite interactuar con ellos. Los maps que he definido son:
-
 - 
+
 - `leader+hi`: Visualiza los cambios(hunk) de la lìnea
 
 - `leader+hp`: Visualiza todos los cambios(hunks)
@@ -465,47 +474,46 @@ Migre a LSP depués de usar COC por mucho tiempo, para ello he usado [neovim/nvi
 - `:Mason` Me permite acceder al menú de control de los servidores LSP, instalar, actualizar, eliminar y listar. Aunque al definir el archivo `servers` los servidores se instalan automáticamente en el inicio de nvim, preguntando si se dea instalar el listado.
 
 - Maps por default:
-
-    - `Ctrl+w`d: Muestra información del diagnóstico.
-
-    - `Ctrl-]`: Se mueve a la definición del símbolo bajo el cursor.
-
-    - `gq`:  Este es el operador de formateo. Cuando sea posible, solicitará al servidor de lenguaje para realizar el formato.
-
-    - `[d`: Vaya a la previa depuración en el archivo actual.
-
-    - `]d`: Vaya a la siguiente depuración en el archivo actual.
-
-    - `grr`: Lista todos los referencias al símbolo bajo el cursor en el área de búsqueda rápida. Consulte :help vim.lsp.buf.references().
-
-    - `gri`: Lista todos los implementadores para el símbolo bajo el cursor en el área de búsqueda rápida. Consulte :help vim.lsp.buf.implementation().
-
-    - `grn`: Renombra todas las referencias al símbolo bajo el cursor. Consulte :help vim.lsp.buf.rename().
-
-    - `gra`: Selecciona un código acción disponible en la posición actual del cursor. Consulte :help vim.lsp.buf.code_action().
-
-    - `gO`: Lista todos los símbolos en el buffer actual. Consulte :help vim.lsp.buf.document_symbol().
-
-    - `Ctrl-s`: Muestra la información de signatura sobre el símbolo bajo el cursor en una ventana flotante. Consulte :help vim.lsp.buf.signature_help(). Si ya existe un mapeo para esta tecla, este función no se vincula.
   
-    - `K`:  Muestra información del simbolo en cursor. Ver [:help vim.lsp.buf.hover()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.hover()).
-    
-    - `gd`: Ir a la definición del simbolo en cursor. Ver [:help vim.lsp.buf.definition()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.definition()).
-    
-    - `gD`: Salta a la declaración. Algunos servidores no lo implementan esta función. Ver [:help vim.lsp.buf.declaration()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.declaration()).
-    
-    - `gi`: Lista todas las implementaciones para el símbolo bajo el cursor en la ventana quickfix. Ver [:help vim.lsp.buf.implementation()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.implementation()).
-    
-    - `go`: Salta a la definición del tipo del símbolo bajo el cursor. Ver [:help vim.lsp.buf.type_definition()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.type_definition()).
-    
-    - `gr`: Lista todas las referencias al símbolo bajo el cursor en la ventana quickfix. Ver [:help vim.lsp.buf.references()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.references()).
-    
-    - `<Ctrl-k>`: Muestra información de firma sobre el símbolo situado bajo el cursor en una ventana flotante.. Ver [:help vim.lsp.buf.signature_help()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.signature_help()). 
-    
-    - `<F2>`: Cambia el nombre de todas las referencias al símbolo situado bajo el cursor. Ver [:help vim.lsp.buf.rename()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.rename()). TODO: Cambiar key, entra en conflicto con Kitty
-    
-    - `<Ctrl-F4>`: Selecciona una acción de código disponible en la posición actual del cursor. Ver [:help vim.lsp.buf.code_action()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.code_action()).
-
+  - `Ctrl+w`d: Muestra información del diagnóstico.
+  
+  - `Ctrl-]`: Se mueve a la definición del símbolo bajo el cursor.
+  
+  - `gq`:  Este es el operador de formateo. Cuando sea posible, solicitará al servidor de lenguaje para realizar el formato.
+  
+  - `[d`: Vaya a la previa depuración en el archivo actual.
+  
+  - `]d`: Vaya a la siguiente depuración en el archivo actual.
+  
+  - `grr`: Lista todos los referencias al símbolo bajo el cursor en el área de búsqueda rápida. Consulte :help vim.lsp.buf.references().
+  
+  - `gri`: Lista todos los implementadores para el símbolo bajo el cursor en el área de búsqueda rápida. Consulte :help vim.lsp.buf.implementation().
+  
+  - `grn`: Renombra todas las referencias al símbolo bajo el cursor. Consulte :help vim.lsp.buf.rename().
+  
+  - `gra`: Selecciona un código acción disponible en la posición actual del cursor. Consulte :help vim.lsp.buf.code_action().
+  
+  - `gO`: Lista todos los símbolos en el buffer actual. Consulte :help vim.lsp.buf.document_symbol().
+  
+  - `Ctrl-s`: Muestra la información de signatura sobre el símbolo bajo el cursor en una ventana flotante. Consulte :help vim.lsp.buf.signature_help(). Si ya existe un mapeo para esta tecla, este función no se vincula.
+  
+  - `K`:  Muestra información del simbolo en cursor. Ver [:help vim.lsp.buf.hover()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.hover()).
+  
+  - `gd`: Ir a la definición del simbolo en cursor. Ver [:help vim.lsp.buf.definition()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.definition()).
+  
+  - `gD`: Salta a la declaración. Algunos servidores no lo implementan esta función. Ver [:help vim.lsp.buf.declaration()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.declaration()).
+  
+  - `gi`: Lista todas las implementaciones para el símbolo bajo el cursor en la ventana quickfix. Ver [:help vim.lsp.buf.implementation()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.implementation()).
+  
+  - `go`: Salta a la definición del tipo del símbolo bajo el cursor. Ver [:help vim.lsp.buf.type_definition()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.type_definition()).
+  
+  - `gr`: Lista todas las referencias al símbolo bajo el cursor en la ventana quickfix. Ver [:help vim.lsp.buf.references()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.references()).
+  
+  - `<Ctrl-k>`: Muestra información de firma sobre el símbolo situado bajo el cursor en una ventana flotante.. Ver [:help vim.lsp.buf.signature_help()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.signature_help()). 
+  
+  - `<F2>`: Cambia el nombre de todas las referencias al símbolo situado bajo el cursor. Ver [:help vim.lsp.buf.rename()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.rename()). TODO: Cambiar key, entra en conflicto con Kitty
+  
+  - `<Ctrl-F4>`: Selecciona una acción de código disponible en la posición actual del cursor. Ver [:help vim.lsp.buf.code_action()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.code_action()).
 
 ##### Sintaxis con treesitter
 
@@ -530,7 +538,7 @@ Migre a LSP depués de usar COC por mucho tiempo, para ello he usado [neovim/nvi
 
 > Para `blade` (Laravel) no hay un soporte directo, por lo que me es necesario usar un plugin adicional, **vim-blade**.
 
-###### Comentarios
+#### Comentarios
 
 Actualmente estoy usando `mini-comment` de mini-nvim, ya que este último lo he integrado en LSP y proporciona varios plugins utiles
 
@@ -538,7 +546,7 @@ Actualmente estoy usando `mini-comment` de mini-nvim, ya que este último lo he 
 
 Para integrar correctamente los comentarios, en conjunto con **vim-commentary** se instala [nvim-ts-context-comentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring), definido y configurado en el mismo archivo del plugin (`plugins/treesitter.lua`), esto añade soporte para VUE de manera correcta
 
-##### Plugins para sintaxis
+#### Plugins para sintaxis
 
 > Reemplazados por treesitter, excepto **vim-blade** ya que no hay un soporte official o de terceros para treesitter
 
@@ -860,7 +868,6 @@ Este plugin integra `yazi` dentro de NeoVim, lo podemos encontrar en el [link](h
 
 - `<c-\>`: Cambiar al directorio actual (cwd )
 
-
 #### Asistentes IA / Autocompletado
 
 ##### Codeium
@@ -950,6 +957,44 @@ Hasta la fecha, he probado muy superficialmente Avante [Github](https://github.c
 ###### Providers:
 
 - `Gemini`: Es necesario generar un API para Gemini AI Studio y agregarla al `bashrc` o `zhrc` como `export GEMINI_API_KEY=`
+
+#### Mini-Nvim
+
+[GitHub](https://github.com/nvim-mini/mini.nvim) Librería de más de 40 plugins de gran utilidad, lo he instalado y cada plugin adicional habilitado según los requerimientos:
+
+- `mini.snippets` y `completion`: Utilizados para el completado con LSP.
+
+- `mini.icons`: Opcional para snippets y completion.
+
+- `mini.tabline`: Visializa los buffers abiertos como pestañas.
+
+- `mini.pairs`: Auto-pairs, cierra grupos específicos como parentesis, comillas, llaves, etc.
+
+- `mini.notify`: Sencillo sistema de notificación.
+
+- `mini.hipatterns`: Resalta en color las palabras claves `FIXME`, `HACK`, `TODO` y `NOTE`.
+
+- `mini.identscope`: Visualiza la identación de la zona que se está trabajando.
+
+- `mini.splitjoin`: Permite generar saltos de lineas para grupos seleccionados, por ejemplo: Texto separado por comas pasarlo a lineas separadas.
+  
+  | Map  | Descripción                                              |
+  | ---- | -------------------------------------------------------- |
+  | `gS` | Seleccionada la región, realiza un toggle sobre el split |
+  |      |                                                          |
+
+- `mini.keymap`: Permite definir o ajustar el mapeo, es útil para definir el map de snippets y completion.
+
+- `mini.surround`: Permite encapsular o encerrar palabras o selección en comillas, parentesis, llaves, etc,
+  
+  | Map       | Descripción                      |
+  | --------- | -------------------------------- |
+  | `sa`      | Modo visual, permite agregar     |
+  | `sd`      | Borrar                           |
+  | `sf` `sF` | Buscar, mover izquierda, derecha |
+  | `sh`      | Resaltar                         |
+
+- 
 
 ### Temas
 

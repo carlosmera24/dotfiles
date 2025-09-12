@@ -57,6 +57,12 @@ return {
         -- Indent scope (Visualize and work)
         require('mini.indentscope').setup({})
 
+        -- Split and join arguments
+        require('mini.splitjoin').setup({})
+
+        -- Surround
+        require('mini.surround').setup({})
+
         -- Keys
         local map_multistep = require('mini.keymap').map_multistep
 
