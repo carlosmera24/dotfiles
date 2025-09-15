@@ -382,7 +382,7 @@ Esta opción es la mejor y la recomendada para usar sistemas livianos como es el
 
 ```shell
 sudo pacman -S pass 
-paru -S pass-secret-service
+paru -S pass-secret-service-bin
 ```
 
 > Esto requiere tener desinstalado `gnome-keyring` ya que entra en conflicto con `pass-secret-service`, adicionalmente es importante limpiar servicios que apunten a gnome-keyring:
@@ -450,7 +450,7 @@ He probaado tanto `lightDM` como `GDM`, ambos reconocen y trabajan con sway sin 
 sudo pacman -S nwg-hello
 ```
 
-2. Editar la configuración de `greetd` en `~/.config/greetd/greetd.toml`, modificando la linea `command` por:
+2. Editar la configuración de `greetd` en `/etc/greetd/config.toml`, modificando la linea `command` por:
 
 ```toml
 command = "sway -c /etc/nwg-hello/sway-config"
