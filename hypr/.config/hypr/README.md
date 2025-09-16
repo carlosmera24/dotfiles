@@ -88,17 +88,50 @@ Por si solo, hyperlad no tiene un gestor de contraseñas, sin embargo, hay algun
 
 ### gonme-keyring
 
+> Sigo usándolo actualmente
+
 Es funcional y está pensado para uso de `gnome` o `cinnamon`, basta con instalar:
 
 ```shell
-sudo pacman -S gnome-keyring
+sudo pacman -S gnome-keyring libsecret
 ```
 
-Se integra muy bien con gestores de inicio de sesión como `lightdm` o `gdm`, permitiendo que se inicie automáticamente el servicio al inicio de sesión y no solicitar contraseña para activar la gestión de las contraseñas al abrir cualquier programa que lo requiera.
+Se integra muy bien con gestores de inicio de sesión como `lightdm` o `gdm`, permitiendo que se inicie automáticamente el servicio al inicio de sesión y no solicitar contraseña para activar la gestión de las contraseñas al abrir cualquier programa que lo requiera, en cuanto a `nwg-hello` no tiene integración, por lo que pedirá contraseña cuando se abra una aplicación que requiera integrar con la gestión de contraseñas pero se puede solucionar modificado la configuración de PAM.
+
+#### Configuración de PAM (nwg-hello)
+
+La documentación de [ArchLinux](https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step) sugiere editar `/etc/pam.d/login` para aquellos displays manager que no tienen el soporte automático, para el caso de `nwg-hello` debe ser `/etc/pam.d/greetd` ya que usa `greetd`; para ello se atrega  `auth optional pam_gnome_keyring.so` al final de la sección auth y `session optional pam_gnome_keyring.so auto_start` al findal dela sección session:
+
+```toml
+#%PAM-1.0
+
+auth       required     pam_securetty.so
+auth       requisite    pam_nologin.so
+auth       include      system-local-login
+
+#gnome-keyring Krlos
+auth       optional     pam_gnome_keyring.so
+#---
+
+account    include      system-local-login
+session    include      system-local-login
+
+#gnome-keyring Krlos
+session    optional     pam_gnome_keyring.so auto_start
+#---
+```
+> He dejado las marcas con el comentario `gnome-keyring Krlos` para que se pueda identificar
 
 ### pass y pass-secret-service
 
-Esta opción es la mejor y la recomendada para usar sistemas livianos como es el caso de `sway`, de esta manera no dependemos de aplicaciones complejas, además no requiere que tenga integración con gestores de inicio de sesión, como es el caso de `nwg-hello`, el cual no se integra con ningún gestor de contraseñas (gnome-keyring, kwallet). Para su instalación debemos seguir unos pasos:
+Esta opción es la mejor y la recomendada para usar sistemas livianos como es el caso de `sway` y `hyprland`, de esta manera no dependemos de aplicaciones complejas, además no requiere que tenga integración con gestores de inicio de sesión, como es el caso de `nwg-hello`, el cual no se integra con ningún gestor de contraseñas (gnome-keyring, kwallet).
+
+> NOTE: **Problemas de integración**:
+> - Cada inicio de aplicaciones que requieren gestión de contraseñas, pide la contraseña, eso no es problema, pero no guarda en cache las sesiones, lo que obliga a iniciar sesión para Google en el caso de navegadores.
+> - La solicitud de la contrseña para abrir el gestor no da espera para iniciar la aplicación que lo requiere, es decir, en el caso de Navegadores solicita la contraseña, pero se abre antes el navegador, lo que no permite integrarse bien y cargar las contraseñas correctamente.
+> - La solcitud de la contraseña genera una carga lenta en las aplicaciones, se demora demasiado en cargar o no carga (Brave)
+
+Para su instalación debemos seguir unos pasos:
 
 1. Instalar `pass` y `pass-secret-service`, este último lo encontramos en AUR
 
@@ -131,10 +164,10 @@ pass init ABC12345
 
 > Esto creará el directorio `~/.password-store` donde se almacenarán las contraseñas.
 
-3. Iniciar el servicio de `pass-secret-service`, para esto basta con ejecutar `pass-secret-service -d &`, lo agregamos a la configuración de sway como:
+3. Iniciar el servicio de `pass-secret-service`, para esto basta con ejecutar `pass-secret-service &`, lo agregamos a la configuración de hyprland como:
 
 ```vim
-exec-once = pass-secret-service -d
+exec-once = pass-secret-service
 ```
 
 4. Pruebas:
@@ -160,6 +193,10 @@ secret-tool lookup test key
 
 5. Al reiniciar el sistema debería funcionar sin problemas, se puede probar aplicaciones que requieren el uso del gestor de contraseñas y debería acceder sin pedir autenticación.
 
+### KeePassXC
+
+> No lo he probado, pero debería funcionar igual que `pass-secret-service`, se sugiere que tiene una mejor integración, sin embargo require configuración adicional y archivos para la base de datos, actualmente uso KeePassXC para almacenar y gestionar mis contraseñas personales
+
 ## Gestor de inicio de sesión o login
 
 He probaado tanto `lightDM` como `GDM`, ambos reconocen y trabajan con sway sin problemas. Sin embargo, he optado por usar un gestor optimizado para `Wayland`, tal es el caso de [nwg-hello](https://github.com/nwg-piotr/nwg-hello) que hace parte del proyecto [nwg-shell](https://nwg-piotr.github.io/nwg-shell) que tiene varias aplicaciones que optimizadas para `Wayland`,las cuales estàn basadas en GTK3-based, lo que lo hace muy liviano; en `ArchLinux` hace parte de `nwg-shell`.
@@ -175,7 +212,7 @@ sudo pacman -S nwg-hello
 2. Editar la configuración de `greetd` en `/etc/greetd/config.toml`, modificando la linea `command` por:
 
 ```toml
-command = "sway -c /etc/nwg-hello/sway-config"
+command = "Hyprland -c /etc/nwg-hello/hyprland.conf"
 ```
 
 3. Iniciar el servicio de `greetd`:

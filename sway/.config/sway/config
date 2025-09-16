@@ -32,7 +32,7 @@ seat seat0 xcursor_theme elementary 16
 
 ### Run applications on startup
 # pass-secret-service with pass for store password
-exec --no-startup-id pass-secret-service -d
+exec --no-startup-id pass-secret-service
 
 # Network tray icon on waybar
 exec nm-applet
