@@ -31,8 +31,6 @@ output * bg ~/.config/wallpapers/anime_city_1952x1120.jpg fill
 seat seat0 xcursor_theme elementary 16
 
 ### Run applications on startup
-# pass-secret-service with pass for store password
-exec --no-startup-id pass-secret-service
 
 # Network tray icon on waybar
 exec nm-applet
