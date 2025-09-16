@@ -323,14 +323,6 @@ La pagina de ArchLinux para [Desktop notifications](https://wiki.archlinux.org/t
 
 Estos paquetes pueden ser instalados desde pacman, basta con agregar la ejecución de mako al inicio de sway desde su archivo de configuración. El directorio de configuración de mako es `~/.config/mako/` el cual esta manejado con stow.
 
-## Display Manager
-
-Como gestores de inicio de sesión he utilizado tanto `lightDM` y `GDM`, ambos reconocen y trabajan con sway sin problemas.
-
-### GDM
-
-Es necesario verificar que el archivo `/etc/gdm/custom.conf` no tenga `WaylandEnable` como false, si es así, no se visualizará las opciones que involucren a wayland y por ende, tampoco sway
-
 ## Captura/compartir pantalla - Navegadores
 
 He experimentado en Brave, durante una reunión en Google Meet, que no me era posible compartir ventanas o aplicaciones, solo me dejaba compartir pestañas, indagando, esto es un comportamiento para los navegadores que requieren unos permisos adicionales, en mi caso, basto con instalar:
@@ -376,7 +368,7 @@ Se integra muy bien con gestores de inicio de sesión como `lightdm` o `gdm`, pe
 
 #### Configuración de PAM (nwg-hello)
 
-La documentación de [ArchLinux](https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step) sugiere editar `/etc/pam.d/login` para aquellos displays manager que no tienen el soporte automático, para el caso de `nwg-hello` debe ser `/etc/pam.d/greetd` ya que usa `greetd`; para ello se atrega  `auth optional pam_gnome_keyring.so` al final de la sección auth y `session optional pam_gnome_keyring.so auto_start` al findal dela sección session:
+La documentación de [ArchLinux](https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step) sugiere editar `/etc/pam.d/login` para aquellos displays manager que no tienen el soporte automático, para el caso de `nwg-hello` debe ser `/etc/pam.d/greetd` ya que usa `greetd`; para ello se atrega  `auth optional pam_gnome_keyring.so` al final de la sección auth y `session optional pam_gnome_keyring.so auto_start` al final de la sección session:
 
 ```toml
 #%PAM-1.0
@@ -403,6 +395,7 @@ session    optional     pam_gnome_keyring.so auto_start
 Esta opción es la mejor y la recomendada para usar sistemas livianos como es el caso de `sway`, de esta manera no dependemos de aplicaciones complejas, además no requiere que tenga integración con gestores de inicio de sesión, como es el caso de `nwg-hello`, el cual no se integra con ningún gestor de contraseñas (gnome-keyring, kwallet).
 
 > NOTE: **Problemas de integración**:
+>
 > - Cada inicio de aplicaciones que requieren gestión de contraseñas, pide la contraseña, eso no es problema, pero no guarda en cache las sesiones, lo que obliga a iniciar sesión para Google en el caso de navegadores.
 > - La solicitud de la contrseña para abrir el gestor no da espera para iniciar la aplicación que lo requiere, es decir, en el caso de Navegadores solicita la contraseña, pero se abre antes el navegador, lo que no permite integrarse bien y cargar las contraseñas correctamente.
 > - La solcitud de la contraseña genera una carga lenta en las aplicaciones, se demora demasiado en cargar o no carga (Brave)
@@ -467,9 +460,13 @@ secret-tool lookup test key
 
 5. Al reiniciar el sistema debería funcionar sin problemas, se puede probar aplicaciones que requieren el uso del gestor de contraseñas y debería acceder sin pedir autenticación.
 
-## Gestor de inicio de sesión o login
+## Display Manager
 
-He probaado tanto `lightDM` como `GDM`, ambos reconocen y trabajan con sway sin problemas. Sin embargo, he optado por usar un gestor optimizado para `Wayland`, tal es el caso de [nwg-hello](https://github.com/nwg-piotr/nwg-hello) que hace parte del proyecto [nwg-shell](https://nwg-piotr.github.io/nwg-shell) que tiene varias aplicaciones que optimizadas para `Wayland`,las cuales estàn basadas en GTK3-based, lo que lo hace muy liviano; en `ArchLinux` hace parte de `nwg-shell`.
+Como gestores de inicio de sesión he utilizado tanto `lightDM` y `GDM`, ambos reconocen y trabajan con sway sin problemas. Sin embargo, he optado por usar un gestor optimizado para `Wayland`, tal es el caso de [nwg-hello](https://github.com/nwg-piotr/nwg-hello) que hace parte del proyecto [nwg-shell](https://nwg-piotr.github.io/nwg-shell) que tiene varias aplicaciones que optimizadas para `Wayland`,las cuales estàn basadas en GTK3-based, lo que lo hace muy liviano; en `ArchLinux` hace parte de `nwg-shell`.
+
+### GDM
+
+Es necesario verificar que el archivo `/etc/gdm/custom.conf` no tenga `WaylandEnable` como false, si es así, no se visualizará las opciones que involucren a wayland y por ende, tampoco sway 
 
 ### Instalar nwg-hello
 

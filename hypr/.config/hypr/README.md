@@ -100,7 +100,7 @@ Se integra muy bien con gestores de inicio de sesión como `lightdm` o `gdm`, pe
 
 #### Configuración de PAM (nwg-hello)
 
-La documentación de [ArchLinux](https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step) sugiere editar `/etc/pam.d/login` para aquellos displays manager que no tienen el soporte automático, para el caso de `nwg-hello` debe ser `/etc/pam.d/greetd` ya que usa `greetd`; para ello se atrega  `auth optional pam_gnome_keyring.so` al final de la sección auth y `session optional pam_gnome_keyring.so auto_start` al findal dela sección session:
+La documentación de [ArchLinux](https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step) sugiere editar `/etc/pam.d/login` para aquellos displays manager que no tienen el soporte automático, para el caso de `nwg-hello` debe ser `/etc/pam.d/greetd` ya que usa `greetd`; para ello se agrega  `auth optional pam_gnome_keyring.so` al final de la sección auth y `session optional pam_gnome_keyring.so auto_start` al final de la sección session:
 
 ```toml
 #%PAM-1.0
@@ -128,6 +128,7 @@ Esta opción es la mejor y la recomendada para usar sistemas livianos como es el
 
 > NOTE: **Problemas de integración**:
 > - Cada inicio de aplicaciones que requieren gestión de contraseñas, pide la contraseña, eso no es problema, pero no guarda en cache las sesiones, lo que obliga a iniciar sesión para Google en el caso de navegadores.
+>
 > - La solicitud de la contrseña para abrir el gestor no da espera para iniciar la aplicación que lo requiere, es decir, en el caso de Navegadores solicita la contraseña, pero se abre antes el navegador, lo que no permite integrarse bien y cargar las contraseñas correctamente.
 > - La solcitud de la contraseña genera una carga lenta en las aplicaciones, se demora demasiado en cargar o no carga (Brave)
 
