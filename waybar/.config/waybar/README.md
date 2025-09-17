@@ -16,9 +16,9 @@ El archivo de estilos se encuentra en `~/.config/waybar/style.css`.
 
 ## Fuentes
 
-Mi estilo tiene definido el uso de la fuente `Font Awesome 5 Free`, por tal razón es necesario instalar el paquete `font-awesome` para poder utilizarlo.
+Mi estilo tiene definido el uso de la fuente `Ubuntu Nerd Font` y `Font Awesome 5 Free`, por tal razón es necesario instalar el paquete `font-awesome` para poder utilizarlo.
 
 ```bash
-paru -S ttf-font-awesome-5
+paru -S ttf-ubuntu-nerd ttf-font-awesome-5
 ```
-> O yay `yay -S ttf-font-awesome-5` paquete de AUR
+> O yay `yay -S ttf-font-awesome-5` paquete de AUR y `sudo pacman -S ttf-ubuntu-nerd`
