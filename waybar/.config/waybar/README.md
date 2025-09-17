@@ -13,3 +13,12 @@ El archivo de configuración está ubicado en `~/.config/waybar/config.jsonc`, l
 ## Estilos
 
 El archivo de estilos se encuentra en `~/.config/waybar/style.css`.
+
+## Fuentes
+
+Mi estilo tiene definido el uso de la fuente `Font Awesome 5 Free`, por tal razón es necesario instalar el paquete `font-awesome` para poder utilizarlo.
+
+```bash
+paru -S ttf-font-awesome-5
+```
+> O yay `yay -S ttf-font-awesome-5` paquete de AUR

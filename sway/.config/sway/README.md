@@ -17,15 +17,15 @@ Instalará un par de dependencias y estamos listos para ejecutarla, lo cual se p
 Mi instalación recomendada o en un solo comando, después de recopilar toda mi configuración y dependencias:
 
 ```shell
-sudo pacman -S sway waybar gtklock swayidle swaybg wofi foot networkmanager network-manager-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkm adapta-nokto-gtk-theme gnome-keyring
+sudo pacman -S sway waybar gtklock swayidle swaybg wofi foot networkmanager network-manager-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkm adapta-nokto-gtk-theme gnome-keyring libsecret
 ```
 
 ```shell
-yay -S wlogout numix-icon-theme-circle
+yay -S wlogout numix-icon-theme-circle ttf-font-awesome-5
 ```
 
 ```shell
-paru -S wlogout numix-icon-theme-circle
+paru -S wlogout numix-icon-theme-circle ttf-font-awesome-5
 ```
 
 ## Configuración
@@ -361,7 +361,7 @@ Por si solo, hyperlad no tiene un gestor de contraseñas, sin embargo, hay algun
 Es funcional y está pensado para uso de `gnome` o `cinnamon`, basta con instalar:
 
 ```shell
-sudo pacman -S gnome-keyring
+sudo pacman -S gnome-keyring libsecret
 ```
 
 Se integra muy bien con gestores de inicio de sesión como `lightdm` o `gdm`, permitiendo que se inicie automáticamente el servicio al inicio de sesión y no solicitar contraseña para activar la gestión de las contraseñas al abrir cualquier programa que lo requiera, en cuanto a `nwg-hello` no tiene integración, por lo que pedirá contraseña cuando se abra una aplicación que requiera integrar con la gestión de contraseñas pero se puede solucionar modificado la configuración de PAM.
