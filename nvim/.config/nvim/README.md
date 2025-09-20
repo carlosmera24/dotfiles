@@ -691,6 +691,8 @@ Inicialmente usé **nvim-comment** citado en el siguiente punto, pero no me fue 
 
 #### Colorizer:
 
+> Reemplazado por mini.hipatterns
+
   [GitHub]([GitHub - chrisbra/Colorizer: color hex codes and color names](https://github.com/chrisbra/Colorizer) Resaltar los colores con su color correspondiente:
 
 - `:ColorHighlight`: Resaltar colores `<Alt+c><Alt+h>`
@@ -972,7 +974,7 @@ Hasta la fecha, he probado muy superficialmente Avante [Github](https://github.c
 
 - `mini.notify`: Sencillo sistema de notificación.
 
-- `mini.hipatterns`: Resalta en color las palabras claves `FIXME`, `HACK`, `TODO` y `NOTE`.
+- `mini.hipatterns`: Resalta en color las palabras claves `FIXME`, `HACK`, `TODO` y `NOTE`. He realizado unos ajustes para resaltar palabras en inglés, formato rgb/rgba y formato hsl/hsla
 
 - `mini.identscope`: Visualiza la identación de la zona que se está trabajando.
 
