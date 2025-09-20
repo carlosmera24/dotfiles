@@ -145,3 +145,154 @@ M.setup = function()
 end
 
 return M
+
+-------- Nueva configuración para nvim-lspconfig 3.0 para migrar lspconfig a vim.lsp.config 
+---Descomentar y eliminar las lienas superiores, anterior configuración
+---
+-- local servers = require("core.plugins.lsp.servers")
+--
+-- local lsp_flags = {
+--     debounce_text_changes = 150,
+-- }
+--
+-- -- Inicializar capabilities con mini.completion (o cmp si está presente)
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- local cmp_lsp_status, cmp_lsp = pcall(require, 'cmp_nvim_lsp')
+-- if cmp_lsp_status then
+--     capabilities = cmp_lsp.default_capabilities(capabilities)
+-- end
+--
+-- -- Asegurar que documentSymbol esté habilitado
+-- capabilities.textDocument.documentSymbol = {
+--   dynamicRegistration = false,
+--   symbolKind = {
+--     valueSet = vim.tbl_values(vim.lsp.protocol.SymbolKind)
+--   }
+-- }
+--
+-- -- Función para iniciar Emmet en archivos blade
+-- local function setup_emmet_for_blade()
+--     vim.api.nvim_create_autocmd("BufEnter", {
+--         pattern = {"*.blade.php"},
+--         callback = function()
+--             vim.lsp.start({
+--                 name = "emmet_ls",
+--                 cmd = { "emmet-ls", "--stdio" },
+--                 filetypes = { "blade" },
+--                 capabilities = capabilities,
+--                 flags = lsp_flags,
+--             })
+--         end,
+--     })
+-- end
+--
+-- -- Función para configurar ts_ls con soporte para Vue
+-- local function setup_ts_ls_vue()
+--     local mason_path = vim.fn.stdpath('data') .. '/mason'  -- ~/.local/share/nvim/mason
+--     local vue_server_path = mason_path .. '/packages/vue-language-server/node_modules/@vue/language-server'
+--
+--     if vim.fn.isdirectory(vue_server_path) == 0 then
+--         vim.notify('Vue language server plugin no encontrado en: ' .. vue_server_path, vim.log.levels.WARN)
+--         return
+--     end
+--
+--     vim.lsp.config["ts_ls"] = {
+--         init_options = {
+--             plugins = {
+--                 {
+--                     name = '@vue/typescript-plugin',
+--                     location = vue_server_path,
+--                     languages = { 'vue' },
+--                 },
+--             },
+--         },
+--         filetypes = {
+--             'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue'
+--         },
+--         flags = lsp_flags,
+--         capabilities = capabilities,
+--     }
+--     vim.lsp.start(vim.lsp.config["ts_ls"])
+-- end
+--
+-- -- Función para configurar vue_ls
+-- local function setup_vue_ls()
+--     vim.lsp.config["vue_ls"] = {
+--         init_options = {
+--             vue = {
+--                 hybridMode = false,
+--             },
+--         },
+--         filetypes = { "vue" },
+--         flags = lsp_flags,
+--         capabilities = capabilities,
+--     }
+--     vim.lsp.start(vim.lsp.config["vue_ls"])
+-- end
+--
+-- -- Configuración principal
+-- local M = {}
+--
+-- M.setup = function()
+--     -- Configurar Mason
+--     require("mason").setup({
+--         ui = {
+--             icons = {
+--                 package_installed = "✓",
+--                 package_pending = "➜",
+--                 package_uninstalled = "✗",
+--             }
+--         }
+--     })
+--
+--     require("mason-lspconfig").setup({
+--         ensure_installed = vim.tbl_keys(servers),
+--         handlers = {}
+--     })
+--
+--     -- Configurar servidores cuando un buffer se adjunta a LSP
+--     vim.api.nvim_create_autocmd("User", {
+--         pattern = "LspAttached",
+--         callback = function()
+--             for server, config_fn in pairs(servers) do
+--                 if server ~= "vue_ls" and server ~= "ts_ls" then
+--                     local setup_opts = type(config_fn) == "function" and config_fn() or {}
+--                     setup_opts.capabilities = vim.tbl_deep_extend("force", capabilities, setup_opts.capabilities or {})
+--                     setup_opts.flags = vim.tbl_deep_extend("force", lsp_flags, setup_opts.flags or {})
+--
+--                     -- Guardar configuración en vim.lsp.config
+--                     vim.lsp.config[server] = setup_opts
+--
+--                     -- Iniciar el servidor
+--                     vim.lsp.start(vim.lsp.config[server])
+--                 end
+--             end
+--
+--             -- Configurar vue_ls
+--             setup_vue_ls()
+--         end,
+--     })
+--
+--     -- Configurar ts_ls con soporte Vue
+--     setup_ts_ls_vue()
+--
+--     -- Emmet para Blade
+--     setup_emmet_for_blade()
+--
+--     -- Configuración de diagnostics
+--     vim.diagnostic.config({
+--         signs = {
+--             text = {
+--                 [vim.diagnostic.severity.ERROR] = '✘',
+--                 [vim.diagnostic.severity.WARN]  = '▲',
+--                 [vim.diagnostic.severity.HINT]  = '⚑',
+--                 [vim.diagnostic.severity.INFO]  = '»',
+--             },
+--         },
+--         virtual_text = true,
+--         underline = true,
+--         update_in_insert = false,
+--     })
+-- end
+--
+-- return M
