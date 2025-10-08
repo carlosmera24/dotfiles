@@ -33,17 +33,17 @@ return {
     },
     opts = {
         language = "Spanish",
-        strategies = {
-            chat = {
-                adapter = "ollama",
-            },
-            inline = {
-                adapter = "ollama",
-            },
-            cmd = {
-                adapter = "ollama",
-            }
-        },
+        -- strategies = {
+        --     chat = {
+        --         adapter = "ollama",
+        --     },
+        --     inline = {
+        --         adapter = "ollama",
+        --     },
+        --     cmd = {
+        --         adapter = "ollama",
+        --     }
+        -- },
         adapters = {
             ollama = function()
                 return require("codecompanion.adapters").extend("ollama", {
