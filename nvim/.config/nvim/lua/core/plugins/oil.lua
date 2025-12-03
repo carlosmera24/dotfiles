@@ -12,6 +12,11 @@ return {
     },
     cmd = { "Oil" },
     config = function()
-        require("oil").setup()
+        require("oil").setup({
+            float = {
+                padding = 2,
+                border = "rounded", -- "none", "single", "double", "rounded"
+            }
+        })
     end
 }
