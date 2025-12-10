@@ -35,30 +35,30 @@ return {
         language = "Spanish",
         strategies = {
             chat = {
-                adapter = { 
+                adapter = {
                     name = "ollama",
                     model = "qwen2.5-coder:1.5b",
                 },
             },
             inline = {
-                adapter = { 
+                adapter = {
                     name = "ollama",
                     model = "qwen2.5-coder:1.5b",
                 },
             },
             cmd = {
-                adapter = { 
+                adapter = {
                     name = "ollama",
                     model = "qwen2.5-coder:1.5b",
                 },
             }
         },
         adapters = {
-            -- ollama = function()
-            --     return require("codecompanion.adapters").extend("ollama", {
-            --         model = "qwen2.5-coder:1.5b",
-            --     })
-            -- end
+            ollama = function()
+                return require("codecompanion.adapters").extend("ollama", {
+                    model = "qwen2.5-coder:1.5b",
+                })
+            end
         },
         display = {
             chat = {
