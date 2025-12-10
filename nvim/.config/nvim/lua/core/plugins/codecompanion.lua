@@ -33,23 +33,32 @@ return {
     },
     opts = {
         language = "Spanish",
-        -- strategies = {
-        --     chat = {
-        --         adapter = "ollama",
-        --     },
-        --     inline = {
-        --         adapter = "ollama",
-        --     },
-        --     cmd = {
-        --         adapter = "ollama",
-        --     }
-        -- },
-        adapters = {
-            ollama = function()
-                return require("codecompanion.adapters").extend("ollama", {
+        strategies = {
+            chat = {
+                adapter = { 
+                    name = "ollama",
                     model = "qwen2.5-coder:1.5b",
-                })
-            end
+                },
+            },
+            inline = {
+                adapter = { 
+                    name = "ollama",
+                    model = "qwen2.5-coder:1.5b",
+                },
+            },
+            cmd = {
+                adapter = { 
+                    name = "ollama",
+                    model = "qwen2.5-coder:1.5b",
+                },
+            }
+        },
+        adapters = {
+            -- ollama = function()
+            --     return require("codecompanion.adapters").extend("ollama", {
+            --         model = "qwen2.5-coder:1.5b",
+            --     })
+            -- end
         },
         display = {
             chat = {
