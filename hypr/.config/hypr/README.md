@@ -78,20 +78,21 @@ En mi caso tengo la instalación y configuración con pipewire dado que también
 ```shell
 XDG_SESSION_TYPE=x11 brave & disown 
 ```
+
+>Actulamente he instalado `xdk-desktop-portal-hyperland` para capturar ventanas en OBS Studio, y ne probado, con los dos servicios activos (wlr y hyprland) y no es necesario correr brave en modo x11
+
 ### Vídeo en llamadas
 
 Para habilitar la cámara en las vídeo llamadas, es necesario instalar `v4l2loopback-dkm` el cual habilita el vídeo para aplicaciones de streaming, como Meet, Telegram, etc, una vez instalado y reinicado el sistema es detectada la cámara automáticamente.
 
 ## OBS Studio
 
-Para capturar ventanas es necesario tener instalado `xdg-desktop-portal-hyprland`.
+Para capturar ventanas es necesario tener instalado `xdg-desktop-portal-hyprland`. 
 
-Es necesario validar que no se esté ejecutando otros servicios de `xdg-desktop-portal` como `wlr` o `gtk`, en ese caso se debe detener e iniciar solo hyperland, esto a nivel de usuario:
+>En mis pruebas puede trabajar sin problemas con los servicios `wlr` y `gtk`, no hay problemas con `hyprland`
 
 ```shell
-systemctl --user status xdg-desktop-portal{,-wlr,-gtk}
-systemctl --user stop xdg-desktop-portal{,-wlr,-gtk}
-systemctl --user start xdg-desktop-portal-hyprland
+systemctl --user status xdg-desktop-portal{,-wlr,-gtk, -hyprland}
 ```
 
 ## Gestión de contraseñas
