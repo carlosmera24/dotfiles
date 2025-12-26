@@ -42,7 +42,7 @@ Instalarà las dependencias necesarias:
 Mi instalación recomendada o en un solo comando, después de recopilar toda mi configuración y dependencias:
 
 ```shell
-sudo pacman -S hyprland waybar gtklock swayidle swaybg wofi foot networkmanager network-manager-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkm adapta-nokto-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd
+sudo pacman -S hyprland waybar gtklock swayidle swaybg wofi foot networkmanager network-manager-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkm adapta-nokto-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd
 ```
 
 ```shell
@@ -81,6 +81,18 @@ XDG_SESSION_TYPE=x11 brave & disown
 ### Vídeo en llamadas
 
 Para habilitar la cámara en las vídeo llamadas, es necesario instalar `v4l2loopback-dkm` el cual habilita el vídeo para aplicaciones de streaming, como Meet, Telegram, etc, una vez instalado y reinicado el sistema es detectada la cámara automáticamente.
+
+## OBS Studio
+
+Para capturar ventanas es necesario tener instalado `xdg-desktop-portal-hyprland`.
+
+Es necesario validar que no se esté ejecutando otros servicios de `xdg-desktop-portal` como `wlr` o `gtk`, en ese caso se debe detener e iniciar solo hyperland, esto a nivel de usuario:
+
+```shell
+systemctl --user status xdg-desktop-portal{,-wlr,-gtk}
+systemctl --user stop xdg-desktop-portal{,-wlr,-gtk}
+systemctl --user start xdg-desktop-portal-hyprland
+```
 
 ## Gestión de contraseñas
 
