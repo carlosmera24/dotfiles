@@ -213,7 +213,7 @@ secret-tool lookup test key
 
 ## Gestor de inicio de sesión o login
 
-He probaado tanto `lightDM` como `GDM`, ambos reconocen y trabajan con sway sin problemas. Sin embargo, he optado por usar un gestor optimizado para `Wayland`, tal es el caso de [nwg-hello](https://github.com/nwg-piotr/nwg-hello) que hace parte del proyecto [nwg-shell](https://nwg-piotr.github.io/nwg-shell) que tiene varias aplicaciones que optimizadas para `Wayland`,las cuales estàn basadas en GTK3-based, lo que lo hace muy liviano; en `ArchLinux` hace parte de `nwg-shell`.
+He probaado tanto `lightDM` como `GDM`, ambos reconocen y trabajan con hyprland sin problemas. Sin embargo, he optado por usar un gestor optimizado para `Wayland`, tal es el caso de [nwg-hello](https://github.com/nwg-piotr/nwg-hello) que hace parte del proyecto [nwg-shell](https://nwg-piotr.github.io/nwg-shell) que tiene varias aplicaciones que optimizadas para `Wayland`,las cuales estàn basadas en GTK3-based, lo que lo hace muy liviano; en `ArchLinux` hace parte de `nwg-shell`.
 
 ### Instalar nwg-hello
 
@@ -226,8 +226,10 @@ sudo pacman -S nwg-hello
 2. Editar la configuración de `greetd` en `/etc/greetd/config.toml`, modificando la linea `command` por:
 
 ```toml
-command = "Hyprland -c /etc/nwg-hello/hyprland.conf"
+command = "/usr/bin/start-hyprland -- -c /etc/nwg-hello/hyprland.conf"
 ```
+
+> Con la nueva versión de Hyprland (0.53), se debe iniciar con `start-hyprland` en lugar de `Hyprland`
 
 3. Iniciar el servicio de `greetd`:
 
