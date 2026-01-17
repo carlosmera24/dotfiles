@@ -237,3 +237,14 @@ command = "/usr/bin/start-hyprland -- -c /etc/nwg-hello/hyprland.conf"
 sudo systemctl enable  greetd
 ```
 > Previamente se debe deshabilitar `lightDM` o `GDM` con `systemctl disable lightdm.service` o `systemctl disable gdm.service`
+
+## Botón de apagado
+
+Mi configuración intercepta el botón de apagado y visualiza el menú `wlogout`, pero para que funcione es necesario desactivar la intercepción del botón desde `logind`, para ello se debe editar el archivo `/etc/systemd/logind.conf` y agregar o configurar:
+
+```toml
+[Login]
+# Disable the power button
+HandlePowerKey=ignore
+```
+ Se debe reiniciar el sistema para que se apliquen los cambios.
