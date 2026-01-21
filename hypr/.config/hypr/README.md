@@ -118,12 +118,13 @@ La documentación de [ArchLinux](https://wiki.archlinux.org/title/GNOME/Keyring#
 ```toml
 #%PAM-1.0
 
-auth       required     pam_securetty.so
-auth       requisite    pam_nologin.so
+#auth       required     pam_securetty.so
+#auth       requisite    pam_nologin.so
+auth       required     pam_env.so
 auth       include      system-local-login
 
 #gnome-keyring Krlos
-auth       optional     pam_gnome_keyring.so
+auth       required     pam_gnome_keyring.so
 #---
 
 account    include      system-local-login
