@@ -109,7 +109,7 @@ Es funcional y está pensado para uso de `gnome` o `cinnamon`, basta con instala
 sudo pacman -S gnome-keyring libsecret
 ```
 
-Se integra muy bien con gestores de inicio de sesión como `lightdm` o `gdm`, permitiendo que se inicie automáticamente el servicio al inicio de sesión y no solicitar contraseña para activar la gestión de las contraseñas al abrir cualquier programa que lo requiera, en cuanto a `nwg-hello` no tiene integración, por lo que pedirá contraseña cuando se abra una aplicación que requiera integrar con la gestión de contraseñas pero se puede solucionar modificado la configuración de PAM.
+Se integra muy bien con gestores de inicio de sesión como `lightdm` o `gdm`, permitiendo que se inicie automáticamente el servicio al inicio de sesión y no solicitar contraseña para activar la gestión de las contraseñas al abrir cualquier programa que lo requiera, en cuanto a `nwg-hello` no tiene integración, por lo que pedirá contraseña cuando se abra una aplicación que requiera integrar con la gestión de contraseñas, la siguiente configuración de PAM permite reducir la solicitud de la contraseña, aunque la seguirá pidiendo porque nwg-hello no tiene un sistema de integración completo, ya que no pasa la contraseña de sesión a PAM.
 
 #### Configuración de PAM (nwg-hello)
 
@@ -118,23 +118,29 @@ La documentación de [ArchLinux](https://wiki.archlinux.org/title/GNOME/Keyring#
 ```toml
 #%PAM-1.0
 
-#auth       required     pam_securetty.so
-#auth       requisite    pam_nologin.so
-auth       required     pam_env.so
+auth       requisite    pam_nologin.so
 auth       include      system-local-login
-
-#gnome-keyring Krlos
-auth       required     pam_gnome_keyring.so
+#Gnome Keyring
+auth       optional     pam_gnome_keyring.so
 #---
-
 account    include      system-local-login
 session    include      system-local-login
-
-#gnome-keyring Krlos
+#Gnome Keyring
 session    optional     pam_gnome_keyring.so auto_start
-#---
+#----
+password   include      system-local-login
 ```
-> He dejado las marcas con el comentario `gnome-keyring Krlos` para que se pueda identificar
+> He dejado las marcas con el comentario `gnome-keyring` para que se pueda identificar
+
+#### Pruebas
+
+Actualmente la integración no es perfecta, mantiene la contraseña solicitada por 24 horas, es decir, no pasa la contraseña del login, cada cierto tiempo la solicitará de nuevo.
+Se puede validar con:
+
+```shell
+ps aux | grep gnome-keyring
+```
+Se debería ver `login`, actualmente solo se visualiza cuando se ha iniciado la contraseña y se ha reiniciado el sistema, esto nos indica que no nay una implementación completa con PAM.
 
 ### pass y pass-secret-service
 
@@ -214,9 +220,53 @@ secret-tool lookup test key
 
 ## Gestor de inicio de sesión o login
 
-He probaado tanto `lightDM` como `GDM`, ambos reconocen y trabajan con hyprland sin problemas. Sin embargo, he optado por usar un gestor optimizado para `Wayland`, tal es el caso de [nwg-hello](https://github.com/nwg-piotr/nwg-hello) que hace parte del proyecto [nwg-shell](https://nwg-piotr.github.io/nwg-shell) que tiene varias aplicaciones que optimizadas para `Wayland`,las cuales estàn basadas en GTK3-based, lo que lo hace muy liviano; en `ArchLinux` hace parte de `nwg-shell`.
+He probado tanto `lightDM` como `GDM` y `nwg-hello`, los cuales se integran sin problemas con Wayland.
 
-### Instalar nwg-hello
+> Actualmente uso `nwg-hello` el cuál está optimizado para `Wayland`.
+
+### lightDM
+
+1. Instalar `lightDM`:
+
+```shell
+sudo pacman -S lightdm
+```
+
+2. Iniciar el servicio de `lightDM`:
+
+```shell
+sudo systemctl enable  lightdm
+```
+
+3. Archivo de configuración:
+
+```shell
+sudo lightdm --show-config
+```
+
+4. Habilitar lista de usuarios:
+
+Editar el archivo de configuración y agregar:
+
+```toml
+[Seat:*]
+greeter-hide-users = false
+```
+
+5. Personalización:
+
+- Instalar `lightdm-gtk-greeter-settings`
+
+```shell
+sudo pacman -S lightdm-gtk-greeter-settings
+```
+> En Hyprland no se puede autenticar correctamente, por lo que es necesario realizar la configuración manualmente
+
+- 
+
+### nwg-hello
+
+Gestor optimizado para `Wayland`, [nwg-hello](https://github.com/nwg-piotr/nwg-hello) que hace parte del proyecto [nwg-shell](https://nwg-piotr.github.io/nwg-shell) que tiene varias aplicaciones que optimizadas para `Wayland`,las cuales estàn basadas en GTK3-based, lo que lo hace muy liviano; en `ArchLinux` hace parte de `nwg-shell`.
 
 1. Instalar nwg-hello:
 
@@ -238,6 +288,16 @@ command = "/usr/bin/start-hyprland -- -c /etc/nwg-hello/hyprland.conf"
 sudo systemctl enable  greetd
 ```
 > Previamente se debe deshabilitar `lightDM` o `GDM` con `systemctl disable lightdm.service` o `systemctl disable gdm.service`
+
+4. Personalización:
+
+Editar el archivo `/etc/nwg-hello/nwg-hello.css`, por ejemplo, he modificado el fondo de pantalla:
+
+```css
+window {
+	background-image: url("/usr/share/backgrounds/archlinux/awesome.png"); background-size: auto 100%
+}
+```
 
 ## Botón de apagado
 
