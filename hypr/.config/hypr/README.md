@@ -132,15 +132,28 @@ password   include      system-local-login
 ```
 > He dejado las marcas con el comentario `gnome-keyring` para que se pueda identificar
 
+Por último, es importante agregar el inicio de `gnome-keyring` al inicio de `Hyprland` para ello se agrega al archivo de configuración:
+
+```conf
+exec-once = gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg
+exec-once = dbus-update-activation-environment --systemd SSH_AUTH_SOCK DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+```
+
+> Otra opción es mover el inicio del servicio a systemd-user:
+>
+>```shell
+>systemctl --user enable gnome-keyring-daemon.service
+>```
+
 #### Pruebas
 
-Actualmente la integración no es perfecta, mantiene la contraseña solicitada por 24 horas, es decir, no pasa la contraseña del login, cada cierto tiempo la solicitará de nuevo.
 Se puede validar con:
 
 ```shell
 ps aux | grep gnome-keyring
 ```
-Se debería ver `login`, actualmente solo se visualiza cuando se ha iniciado la contraseña y se ha reiniciado el sistema, esto nos indica que no nay una implementación completa con PAM.
+Se debería ver `/usr/bin/gnome-keyring-daemon --daemonize --login`,y en el monitor de servicios (htop) también debe listar `gnome-keyring` con el indicativo de `login`.
+>De esta manera, gnome-keyring está activo y con la contraseña desde el inicio de sesión.
 
 ### pass y pass-secret-service
 
