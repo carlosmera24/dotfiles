@@ -56,6 +56,7 @@ paru -S wlogout numix-icon-theme-circle ttf-font-awesome-5
 ## Configuración
 
 La ruta de configuración será `~/.config/hypr/`, inicialmente, la primera vez que se inicie hyperlad, creará el archivo de configuración por defecto como `hyprland.conf`, en él encontraremos toda la configuración básica y la referencia a la documentación para cada sección.
+> Cualquier problema con la configuración, se pude consultar el repositorio [GitHub](https://github.com/hyprwm/Hyprland) y ubicar el directorio `example`, `hyprland.conf`
 
 ### Terminal
 
