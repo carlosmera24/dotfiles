@@ -373,22 +373,26 @@ La documentación de [ArchLinux](https://wiki.archlinux.org/title/GNOME/Keyring#
 ```toml
 #%PAM-1.0
 
-auth       required     pam_securetty.so
 auth       requisite    pam_nologin.so
 auth       include      system-local-login
-
-#gnome-keyring Krlos
+#Gnome Keyring
 auth       optional     pam_gnome_keyring.so
 #---
-
 account    include      system-local-login
 session    include      system-local-login
-
-#gnome-keyring Krlos
+#Gnome Keyring
 session    optional     pam_gnome_keyring.so auto_start
-#---
+#----
+password   include      system-local-login
 ```
-> He dejado las marcas con el comentario `gnome-keyring Krlos` para que se pueda identificar
+> He dejado las marcas con el comentario `gnome-keyring` para que se pueda identificar
+
+Por último, es importante agregar el inicio de `gnome-keyring` al inicio de `Hyprland` para ello se agrega al archivo de configuración:
+
+```toml
+exec = gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg
+exec = dbus-update-activation-environment --systemd SSH_AUTH_SOCK DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+```
 
 ### pass y pass-secret-service
 
