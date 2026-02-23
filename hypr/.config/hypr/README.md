@@ -42,20 +42,20 @@ Instalarà las dependencias necesarias:
 Mi instalación recomendada o en un solo comando, después de recopilar toda mi configuración y dependencias:
 
 ```shell
-sudo pacman -S hyprland waybar gtklock swayidle swaybg wofi foot networkmanager network-manager-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkms adapta-nokto-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd
+sudo pacman -S hyprland waybar gtklock swayidle swaybg wofi foot networkmanager network-manager-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkms adapta-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd
 ```
 
-> Parece que adapta-nokto-gtk-theme, wf-recoder cambiaron
+> Parece que adapta-nokto-gtk-theme cambio a adapta-gtk-theme, wf-recoder no está disponible en estos momentos
 
 ```shell
 yay -S wlogout numix-icon-theme-circle ttf-font-awesome-5
 ```
 
 ```shell
-paru -S wlogout numix-icon-theme-circle ttf-font-awesome-5
+paru -S wlogout numix-icon-theme-pack-git  ttf-font-awesome-5
 ```
 
-> numix-icon-theme-circle cambio
+> numix-icon-theme-circle cambió, es necesario instalar `numix-icon-theme-pack-git`
 
 ## Configuración
 
@@ -114,11 +114,13 @@ Es funcional y está pensado para uso de `gnome` o `cinnamon`, basta con instala
 sudo pacman -S gnome-keyring libsecret
 ```
 
-Se integra muy bien con gestores de inicio de sesión como `lightdm` o `gdm`, permitiendo que se inicie automáticamente el servicio al inicio de sesión y no solicitar contraseña para activar la gestión de las contraseñas al abrir cualquier programa que lo requiera, en cuanto a `nwg-hello` no tiene integración, por lo que pedirá contraseña cuando se abra una aplicación que requiera integrar con la gestión de contraseñas, la siguiente configuración de PAM permite reducir la solicitud de la contraseña, aunque la seguirá pidiendo porque nwg-hello no tiene un sistema de integración completo, ya que no pasa la contraseña de sesión a PAM.
+Se integra muy bien con gestores de inicio de sesión como `lightdm` o `gdm`, permitiendo que se inicie automáticamente el servicio al inicio de sesión y no solicitar contraseña para activar la gestión de las contraseñas al abrir cualquier programa que lo requiera, en cuanto a `nwg-hello` no tiene integración, por lo que pedirá contraseña cuando se abra una aplicación que requiera integrar con la gestión de contraseñas, la siguiente configuración de PAM permite eliminar la solicitud de la contraseña.
 
 #### Configuración de PAM (nwg-hello)
 
 La documentación de [ArchLinux](https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step) sugiere editar `/etc/pam.d/login` para aquellos displays manager que no tienen el soporte automático, para el caso de `nwg-hello` debe ser `/etc/pam.d/greetd` ya que usa `greetd`; para ello se agrega  `auth optional pam_gnome_keyring.so` al final de la sección auth y `session optional pam_gnome_keyring.so auto_start` al final de la sección session:
+
+>~/etc/pam.d/greetd~ es importante aplicarlo en este archivo, sin embargo, lo he agregado, al mismo tiempo, a login y funciona, pero es vital activar la casilla para autologin en el dialogo de contraseña de gnome-keyring.
 
 ```toml
 #%PAM-1.0
