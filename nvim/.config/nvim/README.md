@@ -43,8 +43,8 @@ Para tener un mayor control y libertad de la configuración, así como el tipo y
    
    ```shell
    sudo pacman -S neovim
-   ```
-   
+   ```   
+
    **Mac** Utilizamos el instalado de **Brew**, partiendo de él ejecutamos:
    
    ```shell
@@ -518,6 +518,12 @@ Migre a LSP depués de usar COC por mucho tiempo, para ello he usado [neovim/nvi
 ##### Sintaxis con treesitter
 
 [Nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) Permite inegrar el resaltado de sintaxis implementando [Treesitter](https://tree-sitter.github.io/tree-sitter/). Este plugin permite ir anexando los lenguajes que se quieren tener e incluso excluir, todo está en su documentación oficial, toda la configuración la he definido en el archivo `plugins/treesitter.lua`
+
+- Importante instalar, adicionalmente:
+
+    ```shell
+    paru -S luarocks lua51 make unzip tree-sitter-cli-github-bin
+    ```
 
 - El listado de lenguajes se definen en la variable u opción `ensure_installed`, los leguajes requeridos para el funcionamiento de nvim son `c`, `lua`,`vim`
 

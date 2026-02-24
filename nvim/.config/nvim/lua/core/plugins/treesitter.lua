@@ -1,7 +1,7 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        version = false, -- last release is way too old and doesn't work on Windows
+        version = false,
         build = ":TSUpdate",
         event = { "BufReadPost", "BufNewFile" },
         dependencies = {
@@ -79,9 +79,10 @@ return {
                 "python",
                 "yaml",
             },
+            auto_install = true,
         },
         config = function(_,opts)
-            require("nvim-treesitter.configs").setup(opts)
+            require("nvim-treesitter").setup(opts)
        end
     },
 }
