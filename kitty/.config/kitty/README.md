@@ -116,7 +116,9 @@ Para recargar la configuración sin tener que reiniciar **kitty**, es decir, sin
 
 ### 2. Fuentes
 
-He habilitado el uso de **Fira Code** con **Lingatures**, es importante instalar las fuentes:
+Actualmente estoy utilizando `JetBrains Mono`, anteriormente usaba de **Fira Code** con **Lingatures**, es importante instalar las fuentes:
+
+- JetBrains Mono
 
 - Noto Emoji
 
@@ -132,7 +134,7 @@ He habilitado el uso de **Fira Code** con **Lingatures**, es importante instalar
 
 ```shell
 #ArchLinux
-sudo pacman -S noto-fonts-emoji ttf-fira-code otf-droid-nerd ttf-firacode-nerd otf-cascadia-code 
+sudo pacman -S ttf-jetbrains-mono noto-fonts-emoji ttf-fira-code otf-droid-nerd ttf-firacode-nerd otf-cascadia-code 
 #Actualizar fuentes
 fc-cache -v
 #Listar o usar con | grep [Name]
@@ -144,7 +146,7 @@ fc-list
 Instalación con homebrew:
 
 ```shell
-brew install font-noto-color-emoji font-fira-code font-droid-sans-mono-nerd-font font-fira-code-nerd-font font-cascadia-code
+brew install font-jetbrains-mono font-noto-color-emoji font-fira-code font-droid-sans-mono-nerd-font font-fira-code-nerd-font font-cascadia-code
 ```
 
 Actualizar la lista de fuentes:
@@ -161,6 +163,7 @@ fc-list
 
 Es necesario y recomendable descargar las fuentes desde el repositorio oficial e instalar individualmente:
 
+- [JetBrains Mono](https://www.jetbrains.com/lp/mono)
 - [Noto Emoji](https://fonts.google.com/noto/specimen/Noto+Emoji)
 - [Fira Code](https://github.com/tonsky/FiraCode/releases)
 - [Droid Sans M](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/DroidSansMono.zip)

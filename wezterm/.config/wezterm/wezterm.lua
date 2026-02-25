@@ -9,31 +9,36 @@ local config = wezterm.config_builder()
 -- For example, changing the color scheme:
 config.color_scheme = 'Tokyo Night'
 
-config.font = wezterm.font('Fira Code' , { weight="Medium", stretch="Normal", italic=false })
+-- config.font = wezterm.font('Fira Code' , { weight="Medium", stretch="Normal", italic=false })
+config.font = wezterm.font('JetBrains Mono' , { weight="Medium", stretch="Normal", italic=false })
 config.font_rules = {
-    -- Fuente normal (Fira Code Medium)
+    -- Fuente normal
     {
         intensity = "Normal",
         italic = false,
-        font = wezterm.font("Fira Code", { weight = "Medium", stretch = "Normal", italic = false }),
+        -- font = wezterm.font("Fira Code", { weight = "Medium", stretch = "Normal", italic = false }),
+        font = wezterm.font("JetBrains Mono", { weight = "Medium", stretch = "Normal", italic = false }),
     },
-    -- Fuente en negrita (Cascadia Code Bold)
+    -- Fuente en negrita
     {
         intensity = "Bold",
         italic = false,
-        font = wezterm.font("Cascadia Code", { weight = "Bold", stretch = "Normal", italic = false }),
+        -- font = wezterm.font("Cascadia Code", { weight = "Bold", stretch = "Normal", italic = false }),
+        font = wezterm.font("JetBrains Mono", { weight = "Bold", stretch = "Normal", italic = false }),
     },
-    -- Fuente en cursiva (Cascadia Code Italic)
+    -- Fuente en cursiva
     {
         intensity = "Normal",
         italic = true,
-        font = wezterm.font("Cascadia Code", { weight = "Regular", stretch = "Normal", italic = true }),
+        -- font = wezterm.font("Cascadia Code", { weight = "Regular", stretch = "Normal", italic = true }),
+        font = wezterm.font("JetBrains Mono", { weight = "Regular", stretch = "Normal", italic = true }),
     },
-    -- Fuente en negrita y cursiva (Cascadia Code Bold Italic)
+    -- Fuente en negrita y cursiva
     {
         intensity = "Bold",
         italic = true,
-        font = wezterm.font("Cascadia Code", { weight = "Bold", stretch = "Normal", italic = true }),
+        -- font = wezterm.font("Cascadia Code", { weight = "Bold", stretch = "Normal", italic = true }),
+        font = wezterm.font("JetBrains Mono", { weight = "Bold", stretch = "Normal", italic = true }),
     },
 }
 
