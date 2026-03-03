@@ -465,11 +465,23 @@ Migre a LSP depués de usar COC por mucho tiempo, para ello he usado [neovim/nvi
 
 > Hasta 01/09/2025 use [lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim) ya que permite integrar de una manera muy sencilla LSP con mason, lspconfig y mason-slpconfig, de igual manera integra cmp y Snippets con LuaSnip. Hasta el momento es la manera más sencilla de integrar estas herramientas, sin embargo ha sido marcado como `dead` y se sugiere usar, directamente, `nvim-lspconfig`.
 
+
 - `lua/core/plugins/lsp/`: las especificaciones del plugin las defino en esta carpeta,
   
   - `init.lua` para definir los requerimientos a instalar y la configuración del plugin.
   
   - `servers.lua` definición de los servidores LSP que deseo que se instalen automáticamente al ejecutar Mason, los servidores diponibles se pueden listar en [nvim-lsp](https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md)
+
+  - `phpactor`: Para tener la integración completa de `php`, es importante tener instalado `phpactor` y habilitar la extensión `iconv`
+
+    ```shell
+    paru -S phpactor-bin
+    ```
+
+    ```vim
+    # sudo vim /etc/php/php.ini 
+    extension=iconv
+    ```
 
 - `:Mason` Me permite acceder al menú de control de los servidores LSP, instalar, actualizar, eliminar y listar. Aunque al definir el archivo `servers` los servidores se instalan automáticamente en el inicio de nvim, preguntando si se dea instalar el listado.
 
