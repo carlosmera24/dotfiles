@@ -55,7 +55,7 @@ yay -S wlogout numix-icon-theme-circle ttf-font-awesome-5 volantes-cursors
 paru -S wlogout numix-icon-theme-pack-git  ttf-font-awesome-5 volantes-cursors
 ```
 
-> numix-icon-theme-circle cambió, es necesario instalar `numix-icon-theme-pack-git`, `vlantes-cursors` se puede [descargar](https://www.pling.com/p/1356095/) y copiar a `/usr/share/icons`, recargar con `sudo gtk-update-icon-cache -f -t /usr/share/icons/`
+> numix-icon-theme-circle cambió, es necesario instalar `numix-icon-theme-pack-git`, `vlantes-cursors` se puede [descargar](https://www.pling.com/p/1356095/) y copiar a `/usr/share/icons`, `~/.icons/` o `~/.local/share/icons/` recargar con `sudo gtk-update-icon-cache -f -t /usr/share/icons/`
 
 ## Configuración
 
