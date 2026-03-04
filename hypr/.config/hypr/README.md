@@ -48,14 +48,14 @@ sudo pacman -S hyprland waybar gtklock swayidle swaybg wofi foot networkmanager 
 > Parece que adapta-nokto-gtk-theme cambio a adapta-gtk-theme, wf-recoder no está disponible en estos momentos
 
 ```shell
-yay -S wlogout numix-icon-theme-circle ttf-font-awesome-5
+yay -S wlogout numix-icon-theme-circle ttf-font-awesome-5 volantes-cursors
 ```
 
 ```shell
-paru -S wlogout numix-icon-theme-pack-git  ttf-font-awesome-5
+paru -S wlogout numix-icon-theme-pack-git  ttf-font-awesome-5 volantes-cursors
 ```
 
-> numix-icon-theme-circle cambió, es necesario instalar `numix-icon-theme-pack-git`
+> numix-icon-theme-circle cambió, es necesario instalar `numix-icon-theme-pack-git`, `vlantes-cursors` se puede [descargar](https://www.pling.com/p/1356095/) y copiar a `/usr/share/icons`, recargar con `sudo gtk-update-icon-cache -f -t /usr/share/icons/`
 
 ## Configuración
 
