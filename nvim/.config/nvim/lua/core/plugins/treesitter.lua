@@ -3,7 +3,6 @@ return {
         "nvim-treesitter/nvim-treesitter",
         version = false,
         build = ":TSUpdate",
-        event = { "BufReadPost", "BufNewFile" },
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects",
             {
@@ -44,14 +43,6 @@ return {
                     },
                 },
             },
-            --[[ JoosepAlviste/nvim-ts-context-commentstring genera:
-            context_commentstring nvim-treesitter module is deprecated, use use require('ts_context_commentstring').setup {}
-            and set vim.g.skip_ts_context_commentstring_module = true to speed up loading instead.
-            This feature will be removed in ts_context_commentstring version in the future ]]
-            --[[ context_commentstring = {
-                enable = true,
-                enable_autocmd = true,
-            }, ]]
             incremental_selection = {
                 enable = true,
                 keymaps = {

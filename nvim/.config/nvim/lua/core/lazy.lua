@@ -10,7 +10,9 @@ if not vim.loop.fs_stat(lazypath) then
         lazypath,
     })
 end
+
 vim.opt.rtp:prepend(lazypath)
+
 -- preparación de lazy y su configuración
 -- Los plugins se define y configurar en lua/core/plugins-settings
 if vim.loop.fs_stat(lazypath) then
