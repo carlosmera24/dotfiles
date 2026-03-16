@@ -42,7 +42,7 @@ Instalarà las dependencias necesarias:
 Mi instalación recomendada o en un solo comando, después de recopilar toda mi configuración y dependencias:
 
 ```shell
-sudo pacman -S hyprland waybar gtklock swayidle swaybg wofi foot networkmanager network-manager-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkms adapta-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd
+sudo pacman -S hyprland waybar gtklock swayidle swaybg wofi foot networkmanager network-manager-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkms adapta-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd nwg-drawer nwg-hello
 ```
 
 > Parece que adapta-nokto-gtk-theme cambio a adapta-gtk-theme, wf-recoder no está disponible en estos momentos
@@ -318,6 +318,12 @@ window {
 	background-image: url("/usr/share/backgrounds/archlinux/awesome.png"); background-size: auto 100%
 }
 ```
+
+## Menu - Aplicaciones
+
+Mi configuración usa `wofi` como menu principal, el cual se puede acceder con la combinación `Super+d` o `Super+space`, en mis `dotfiles` se encuentra la configuración y descripción. 
+
+Adicionalmente, como segundo menu de aplicaciones tengo `nwg-drawer`, accedido a través de `Ctrl+Super+d` o `Ctrl+Super+space`, detalles y configuración en mis `dotfiles`
 
 ## Botón de apagado
 

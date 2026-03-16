@@ -34,6 +34,7 @@ A continuación describo las herramientas o aplicaciones que estoy gestionando c
 | Kitty       | kitty     | `~/.dotfiles/kitty/.config/kitty`         | `~/.config/kitty`     |
 | Mako        | mako      | `~/.dotfiles/mako/.config/mako`           | `~/.config/mako`      |
 | NeoVim      | nvim      | `~/.dotfiles/nvim/.config/nvim`           | `~/.config/nvim`      |
+| nwg-drawer  |nwg-drawer | `~/.dotfiles/nwg-drawer/.config/nwg-drawer` | `~/.config/nwg-drawer` |
 | Sway        | sway      | `~/.dotfiles/sway/.config/sway`           | `~/.config/sway`      |
 | Swaylock    | swaylock  | `~/.dotfiles/swaylock/.config/swaylock`   | `~/.config/swaylock`  |
 | tmux        | tmux      | `~/.dotfiles/tmux/.tmux`                  | `~/.tmux`             |
@@ -52,49 +53,59 @@ tree -La 3
 .
 ├── README.md
 ├── alacritty
-│   └── .config
-│       └── alacritty
+│   └── .config
+│       └── alacritty
 ├── foot
 │   └── .config
 │       └── foot
 ├── gtklock
 │   └── .config
 │       └── gtklock
+├── hypr
+│   └── .config
+│       └── hypr
 ├── kitty
-│   └── .config
-│       └── kitty
+│   └── .config
+│       └── kitty
+├── .luarc.json
 ├── mako
 │   └── .config
 │       └── mako
 ├── nvim
-│   └── .config
-│       └── nvim
+│   └── .config
+│       └── nvim
+├── nwg-drawer
+│   └── .config
+│       └── nwg-drawer
+├── README.md
 ├── sway
-│   └── .config
-│       └── sway
+│   └── .config
+│       └── sway
 ├── swaylock
-│   └── .config
-│       └── swaylock
+│   └── .config
+│       └── swaylock
 ├── tmux
-│   ├── .config
-│   │   └── tmux
+│   ├── .config
+│   │   └── tmux
+│   ├── README.md
+│   └── .tmux.conf
 ├── wallpapers
 │   └── .config
 │       └── wallpapers
 ├── waybar
-│   └── .config
-│       └── waybar
-├── wlogout
 │   └── .config
-│       └── wlogout
+│       └── waybar
 ├── wezterm
 │   └── .config
 │       └── wezterm
+├── wlogout
+│   └── .config
+│       └── wlogout
 ├── wofi
 │   └── .config
 │       └── wofi
-├── yazi
-|    └── .config
+└── yazi
+    └── .config
         └── yazi
 ```
 
