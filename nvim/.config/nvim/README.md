@@ -537,6 +537,12 @@ Migre a LSP depués de usar COC por mucho tiempo, para ello he usado [neovim/nvi
     paru -S luarocks lua51 make unzip tree-sitter-cli-github-bin
     ```
 
+    >`Macos`
+    >```shell
+    >brew install luarocks pngpaste
+    >```
+    > lua51 puede ser instalado con MacPort, pero no lo he testeado aún
+
 - El listado de lenguajes se definen en la variable u opción `ensure_installed`, los leguajes requeridos para el funcionamiento de nvim son `c`, `lua`,`vim`
 
 - Keys map:
