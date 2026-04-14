@@ -42,7 +42,7 @@ Instalarà las dependencias necesarias:
 Mi instalación recomendada o en un solo comando, después de recopilar toda mi configuración y dependencias:
 
 ```shell
-sudo pacman -S hyprland waybar gtklock swayidle swaybg wofi foot networkmanager network-manager-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkms adapta-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd nwg-drawer nwg-hello
+sudo pacman -S hyprland waybar hyprlock hypridle swaybg wofi foot networkmanager network-manager-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkms adapta-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd nwg-drawer nwg-hello
 ```
 
 > Parece que adapta-nokto-gtk-theme cambio a adapta-gtk-theme, wf-recoder no está disponible en estos momentos
@@ -335,3 +335,15 @@ Mi configuración intercepta el botón de apagado y visualiza el menú `wlogout`
 HandlePowerKey=ignore
 ```
  Se debe reiniciar el sistema para que se apliquen los cambios.
+
+## Bloqueo de pantalla
+
+Al venir de `sway`, había estado usando esa misma configuración, la cual usa `swayidle` y `gtklock`, la descripción y configuración se encuentra en mis dotfiles de `sway` como tal. Pero dado que que uso `hyprland`, opté por usar recursos propios de él, como lo son `hypridle` y `hyprlock`, los archivos de configuración están en el mismo directorio de `hypr` correspondientes a `hypridle.conf` y `hyprlock.conf`
+
+El usar `hypridle` me permite inhibir el bloqueo de pantalla cuando una aplicación reproduce contenido multimedia de una forma más práctica y sin tanta configuración.
+
+La instalación es sencilla, basta con ejecutar:
+
+```shell
+sudo pacman -S hypridle hyprlock
+```

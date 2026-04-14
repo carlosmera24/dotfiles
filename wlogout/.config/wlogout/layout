@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "gtklock",
+    "action": "[ -n \"$HYPRLAND_INSTANCE_SIGNATURE\" ] && hyprlock || gtklock"
     "text" : "Lock",
     "keybind" : "l"
 }
