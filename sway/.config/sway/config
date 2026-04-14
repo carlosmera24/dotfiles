@@ -57,11 +57,18 @@ output HDMI-A-1 resolution 1920x1080@74.973Hz position 1920,0
 #
 # Example configuration:
 # 10 minutos bloquea la pantalla y a los 15 minutos apaga las pantallas
+# exec swayidle -w \
+#          timeout 600 'gtklock' \
+#          timeout 900 'swaymsg "output * power off"' \
+#          resume 'swaymsg "output * power on"' \
+#          before-sleep 'gtklock'
+#Bloquea la pantalla detectando si no hay reproducción multimedia
 exec swayidle -w \
-         timeout 600 'gtklock' \
-         timeout 900 'swaymsg "output * power off"' \
-         resume 'swaymsg "output * power on"' \
-         before-sleep 'gtklock'
+    timeout 600 '[ "$(playerctl status 2>/dev/null)" != "Playing" ] && gtklock' \
+    timeout 900 'swaymsg "output * power off"' \
+    resume 'swaymsg "output * power on"' \
+    before-sleep 'gtklock'
+
 # This will lock your screnn after 5 minutes of inactivity,then turn off
 # your displays after another 10 minutes, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
