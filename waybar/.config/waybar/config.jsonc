@@ -119,7 +119,8 @@
             "car": "",
             "default": ["", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "hyprpwcenter"
+        // "on-click": "pavucontrol"
     },
     "custom/spotify": {
         "format": " {}",

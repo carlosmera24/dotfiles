@@ -42,7 +42,7 @@ Instalarà las dependencias necesarias:
 Mi instalación recomendada o en un solo comando, después de recopilar toda mi configuración y dependencias:
 
 ```shell
-sudo pacman -S hyprland waybar hyprlock hypridle swaybg wofi foot networkmanager network-manager-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkms adapta-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd nwg-drawer nwg-hello
+sudo pacman -S hyprland waybar hyprlock hypridle hyprpaper hyprlauncher foot networkmanager network-manager-applet archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkms adapta-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd nwg-drawer nwg-hello hyprpolkitagent hyprpwcenter
 ```
 
 > Parece que adapta-nokto-gtk-theme cambio a adapta-gtk-theme, wf-recoder no está disponible en estos momentos
@@ -67,6 +67,27 @@ La ruta de configuración será `~/.config/hypr/`, inicialmente, la primera vez 
 Por defecto, hyprland usa `kitty` como terminal, sin embargo, dado que `foot` es una terminal creada para Wayland, la he configurado como terminal por defecto, la cual tiene como atajo de teclado `Super+q`.
 
 > De momento estoy usando los servicios y complementos que tengo instalados con sway, de tal manera que la configuración sea compatible o la conserve, solo he tenido que ajustar waybar
+
+## Wallpapers
+
+Inicialmente usé `swaybg` ya que venía de usar `sway` y me bastaba agregar la siguiente linea a la configuración de `hyprland.conf`:
+
+```toml
+[general]
+exec-once = swaybg -i ~/.config/wallpapers/cyberpunk-anime-city-art_2000x1192.jpg -m fill
+```
+
+Sin embargo, buscando usar aplicaciones nativas de hyprland, he optado por usar `hyprpaper`, su instalación es sencilla:
+
+```shell
+sudo pacman -S hyprpaper
+```
+
+Y su configuración se encuentra en `~/.config/hypr/hyprpaper.conf` y basta con reemplazar la ejecución de `swaybg` en la configuración de `hyprland` por:
+
+```toml
+exec-once = hyprpaper
+```
 
 ## Vídeo llamadas
 
@@ -321,8 +342,20 @@ window {
 
 ## Menu - Aplicaciones
 
-Mi configuración usa `wofi` como menu principal, el cual se puede acceder con la combinación `Super+d` o `Super+space`, en mis `dotfiles` se encuentra la configuración y descripción. 
+> Inicialmente usé `wofi` pero pase a usar `hyprlauncher` para tener aplicaciones nativas de Hyprland
+> en mis `dotfiles` se encuentra la configuración y descripción
 
+### Hyprlauncher (Principal)
+
+ `hyprlauncher` se puede acceder con la combinación `Super+d` o `Super+space`. La instalación es sencilla:
+
+```shell
+sudo pacman -S hyprlauncher
+```
+
+Su configuración se encuentra en `~/.config/hypr/hyprlauncher.conf` y el thema se aplica de manera general con `~/.config/hypr/hyprtoolkit.conf`, para lo cual he usado el tema de `Catppuccin  Macchiato Blue`
+
+### nwg-drawer (Segundario)
 Adicionalmente, como segundo menu de aplicaciones tengo `nwg-drawer`, accedido a través de `Ctrl+Super+d` o `Ctrl+Super+space`, detalles y configuración en mis `dotfiles`
 
 ## Botón de apagado
