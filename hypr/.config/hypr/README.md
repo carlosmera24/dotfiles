@@ -42,7 +42,7 @@ Instalarà las dependencias necesarias:
 Mi instalación recomendada o en un solo comando, después de recopilar toda mi configuración y dependencias:
 
 ```shell
-sudo pacman -S hyprland waybar hyprlock hypridle hyprpaper hyprlauncher foot networkmanager network-manager-applet archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkms adapta-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd nwg-drawer nwg-hello hyprpolkitagent hyprpwcenter
+sudo pacman -S hyprland waybar hyprlock hypridle hyprpaper hyprlauncher foot networkmanager network-manager-applet archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkms adapta-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd nwg-drawer nwg-hello hyprpolkitagent
 ```
 
 > Parece que adapta-nokto-gtk-theme cambio a adapta-gtk-theme, wf-recoder no está disponible en estos momentos
