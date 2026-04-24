@@ -58,15 +58,15 @@ window#waybar {
     font-weight: bold;
 }
 
-#battery {
-}
+/* #battery { */
+/* } */
 
 #battery icon {
     color: red;
 }
 
-#battery.charging {
-}
+/* #battery.charging { */
+/* } */
 
 @keyframes blink {
     to {
@@ -84,29 +84,35 @@ window#waybar {
     animation-direction: alternate;
 }
 
-#cpu {
-}
-
-#memory {
-}
-
-#network {
-}
-
 #network.disconnected {
     background: #f53c3c;
-}
-
-#pulseaudio {
-}
-
-#pulseaudio.muted {
 }
 
 #custom-spotify {
     color: rgb(102, 220, 105);
 }
 
-#tray {
+#keyboard-state {
+    color: #fff;
+    font-weight: bold;
 }
+
+/* #cpu { */
+/* } */
+
+/* #memory { */
+/* } */
+
+/* #network { */
+/* } */
+
+/* #pulseaudio { */
+/* } */
+
+/* #pulseaudio.muted { */
+/* } */
+
+
+/* #tray { */
+/* } */
 

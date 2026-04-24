@@ -22,3 +22,13 @@ Mi estilo tiene definido el uso de la fuente `Ubuntu Nerd Font` y `Font Awesome 
 paru -S ttf-ubuntu-nerd ttf-font-awesome-5
 ```
 > O yay `yay -S ttf-font-awesome-5` paquete de AUR y `sudo pacman -S ttf-ubuntu-nerd`
+
+## Detección eventos del teclado
+
+He agregado la detección de eventos del teclado para visualizar cuando se habilita la `mayusculas` y `números` en la barra de estado. Para ello es necesario tener permisos para leer los dispositivos de entrada, para ello agregamos nuestro usuario al grupo `input`:
+
+```bash
+sudo usermod -aG input $USER
+```
+
+Después de esto es importante reiniciar el sistema.

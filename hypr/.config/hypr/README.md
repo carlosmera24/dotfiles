@@ -57,6 +57,13 @@ paru -S wlogout numix-icon-theme-pack-git  ttf-font-awesome-5 volantes-cursors
 
 > numix-icon-theme-circle cambió, es necesario instalar `numix-icon-theme-pack-git`, `vlantes-cursors` se puede [descargar](https://www.pling.com/p/1356095/) y copiar a `/usr/share/icons`, `~/.icons/` o `~/.local/share/icons/` recargar con `sudo gtk-update-icon-cache -f -t /usr/share/icons/`
 
+Agregar usuario a los grupos necesarios:
+
+```bash
+sudo usermod -aG input $USER
+```
+
+
 ## Configuración
 
 La ruta de configuración será `~/.config/hypr/`, inicialmente, la primera vez que se inicie hyperlad, creará el archivo de configuración por defecto como `hyprland.conf`, en él encontraremos toda la configuración básica y la referencia a la documentación para cada sección.
