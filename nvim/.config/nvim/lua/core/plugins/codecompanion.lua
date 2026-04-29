@@ -1,3 +1,13 @@
+-- Models disponibles o testeados, require correr
+-- `ollama pull [modelo]`, esto para la primera vez
+local models = {
+    qwen2_5 = "qwen2.5-coder:1.5b",
+    deepseek_coder = "deepseek-coder:1.3b"
+}
+
+-- Modeo a utilizar
+local model = models.deepseek_coder
+
 return {
     "olimorris/codecompanion.nvim",
     dependencies = {
@@ -37,26 +47,26 @@ return {
             chat = {
                 adapter = {
                     name = "ollama",
-                    model = "qwen2.5-coder:1.5b",
+                    model = model,
                 },
             },
             inline = {
                 adapter = {
                     name = "ollama",
-                    model = "qwen2.5-coder:1.5b",
+                    model = model,
                 },
             },
             cmd = {
                 adapter = {
                     name = "ollama",
-                    model = "qwen2.5-coder:1.5b",
+                    model = model,
                 },
             }
         },
         adapters = {
             ollama = function()
                 return require("codecompanion.adapters").extend("ollama", {
-                    model = "qwen2.5-coder:1.5b",
+                    model = model,
                 })
             end
         },
