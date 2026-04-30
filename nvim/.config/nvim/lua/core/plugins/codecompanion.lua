@@ -13,7 +13,7 @@ return {
     dependencies = {
         -- Estas dependencias ya están incluidas por telescope y separado
         -- "nvim-lua/plenary.nvim",
-        -- "nvim-treesitter/nvim-treesitter",
+        "nvim-treesitter/nvim-treesitter",
 
         -- Plugin para renderizar Markdown en Neovim
         {
@@ -43,37 +43,27 @@ return {
     },
     opts = {
         language = "Spanish",
-        strategies = {
+        opts = {
+            send_code = true,
+        },
+        interactions = {
             chat = {
-                adapter = {
-                    name = "ollama",
-                    model = model,
-                },
+                adapter = "ollama",
+                model = model,
             },
             inline = {
-                adapter = {
-                    name = "ollama",
-                    model = model,
-                },
+                adapter = "ollama",
+                model = model,
             },
             cmd = {
-                adapter = {
-                    name = "ollama",
-                    model = model,
-                },
+                adapter = "ollama",
+                model = model,
             }
-        },
-        adapters = {
-            ollama = function()
-                return require("codecompanion.adapters").extend("ollama", {
-                    model = model,
-                })
-            end
         },
         display = {
             chat = {
-                -- show_settings = true,
-                -- show_tools_processing = true,
+                -- show_settings = true, -- Genera error con YAML y treesitter
+                show_tools_processing = true,
                 window = {
                     layout = "vertical",
                     position = "right",
@@ -86,9 +76,9 @@ return {
                 prompt = "Prompt ", -- Prompt used for interactive LLM calls
                 provider = "telescope", -- Can be "default", "telescope", "fzf_lua", "mini_pick" or "snacks". If not specified, the plugin will autodetect installed providers.
                 opts = {
-                    show_default_actions = true, -- Show the default actions in the action palette?
-                    show_default_prompt_library = true, -- Show the default prompt library in the action palette?
                     title = "CodeCompanion actions", -- The title of the action palette
+                    show_preset_actions = true, -- Show the default actions in the action palette?
+                    show_preset_prompts = true, -- Show the default prompt library in the action palette?
                 },
             },
             inline = {
