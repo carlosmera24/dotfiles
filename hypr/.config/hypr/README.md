@@ -112,7 +112,7 @@ En mi caso tengo la instalación y configuración con pipewire dado que también
 XDG_SESSION_TYPE=x11 brave & disown 
 ```
 
->Actulamente he instalado `xdk-desktop-portal-hyperland` para capturar ventanas en OBS Studio, y ne probado, con los dos servicios activos (wlr y hyprland) y no es necesario correr brave en modo x11
+>Actulamente he instalado `xdg-desktop-portal-hyperland` para capturar ventanas en OBS Studio, y ne probado, con los dos servicios activos (wlr y hyprland) y no es necesario correr brave en modo x11, sin embargo, si al seleccionar alguna aplicación a compartir, esta no se comparte, dicha aplicación sería necesario correrla en x11, mas no brave
 
 ### Vídeo en llamadas
 
