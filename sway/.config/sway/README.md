@@ -58,6 +58,9 @@ sudo pacman -S wofi
 
 Y definimos la variable `$menu`:
 
+### nwg-drawer (Segundario)
+Adicionalmente, como segundo menu de aplicaciones tengo `nwg-drawer`, accedido a través de `Ctrl+Super+d` o `Ctrl+Super+space`, detalles y configuración en mis `dotfiles`
+
 ```vim
 set $menu wofi --show drun
 ```
