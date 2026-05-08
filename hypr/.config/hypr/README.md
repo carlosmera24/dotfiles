@@ -390,14 +390,14 @@ sudo pacman -S hypridle hyprlock
 
 ## Notifiación de batería
 
-He creado un `script` para visualizar notificaciones de batería baja o cargada, el cual se encuentra en el directorio `~/.config/hypr/scripts/` bajo el nombre `baterry-notify.sh`, ya que tengo instalado `mako`, el script lo usará para visualizar las notificaciones al 30, 20 y 10% de la batería o el 100% cuando carga; adicionalmente, al 80% visualizo una notificación como recomendación para parar la carga y así cuidar la batería. Es importante darle permisos de ejecución:
+He creado un `script` para visualizar notificaciones de batería baja o cargada, el cual se encuentra en el directorio `~/.config/myscripts/` bajo el nombre `baterry-notify.sh`, ya que tengo instalado `mako`, el script lo usará para visualizar las notificaciones al 30, 20 y 10% de la batería o el 100% cuando carga; adicionalmente, al 80% visualizo una notificación como recomendación para parar la carga y así cuidar la batería. Es importante darle permisos de ejecución:
 
 ```shell
-chmod +x ~/.config/hypr/scripts/battery-notify.sh
+chmod +x ~/.config/myscripts/battery-notify.sh
 ```
 
-El script se inicia con la configuración de `hyprland`:
+El script se inicia con la configuración de `sway`:
 
 ```toml
-exec-once = ~/.config/hypr/scripts/battery-notify.sh
+exec-once = ~/.config/myscripts/battery-notify.sh
 ```

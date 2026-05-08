@@ -44,7 +44,7 @@ exec = gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg
 exec = dbus-update-activation-environment --systemd SSH_AUTH_SOCK DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 #Notificaciòn de baterìa
-exec = ~/.config/sway/scripts/battery-notify.sh
+exec = ~/.config/myscripts/battery-notify.sh
 
 #
 # Example configuration:

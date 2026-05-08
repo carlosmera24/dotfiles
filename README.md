@@ -33,8 +33,9 @@ A continuación describo las herramientas o aplicaciones que estoy gestionando c
 | gtklock     | gtklock   | `~/.dotfiles/gtklock/.config/gtklock`     | `~/.config/gtklock`   |
 | Kitty       | kitty     | `~/.dotfiles/kitty/.config/kitty`         | `~/.config/kitty`     |
 | Mako        | mako      | `~/.dotfiles/mako/.config/mako`           | `~/.config/mako`      |
+| My Scripts  | myscripts | `~/.dotfiles/myscripts/.config/myscripts` | `~/.config/myscripts` |
 | NeoVim      | nvim      | `~/.dotfiles/nvim/.config/nvim`           | `~/.config/nvim`      |
-| nwg-drawer  |nwg-drawer | `~/.dotfiles/nwg-drawer/.config/nwg-drawer` | `~/.config/nwg-drawer` |
+| nwg-drawer  |nwg-drawer | `~/.dotfiles/nwg-drawer/.config/nwg-drawer`| `~/.config/nwg-drawer`|
 | Sway        | sway      | `~/.dotfiles/sway/.config/sway`           | `~/.config/sway`      |
 | Swaylock    | swaylock  | `~/.dotfiles/swaylock/.config/swaylock`   | `~/.config/swaylock`  |
 | tmux        | tmux      | `~/.dotfiles/tmux/.tmux`                  | `~/.tmux`             |
@@ -71,6 +72,9 @@ tree -La 3
 ├── mako
 │   └── .config
 │       └── mako
+├── myscripts
+│   └── .config
+│       └── myscripts
 ├── nvim
 │   └── .config
 │       └── nvim
