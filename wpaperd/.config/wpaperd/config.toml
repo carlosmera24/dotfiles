@@ -1,0 +1,21 @@
+# Settings by default
+[default]
+mode = "center"
+
+#Any monitor
+[any]
+path = "~/.config/wallpapers/unix_1920x1080.jpg"
+
+#Desktop
+[DVI-D-1]
+path = "~/.config/wallpapers/dev-anime-music-desktop-setup_002_1672x941.png"
+
+[HDMI-A-1]
+path = "~/.config/wallpapers/"
+duration = "30m"
+
+#Laptop
+[eDP-1]
+path = "~/.config/wallpapers/"
+sorting = "random"
+duration = "15m"

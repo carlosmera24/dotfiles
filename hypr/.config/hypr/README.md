@@ -42,7 +42,7 @@ Instalarà las dependencias necesarias:
 Mi instalación recomendada o en un solo comando, después de recopilar toda mi configuración y dependencias:
 
 ```shell
-sudo pacman -S hyprland waybar hyprlock hypridle hyprpaper hyprlauncher foot networkmanager network-manager-applet archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkms adapta-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd nwg-drawer nwg-hello hyprpolkitagent
+sudo pacman -S hyprland waybar hyprlock hypridle wpaperd hyprlauncher foot networkmanager network-manager-applet archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkms adapta-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd nwg-drawer nwg-hello hyprpolkitagent
 ```
 
 > Parece que adapta-nokto-gtk-theme cambio a adapta-gtk-theme, wf-recoder no está disponible en estos momentos
@@ -77,6 +77,10 @@ Por defecto, hyprland usa `kitty` como terminal, sin embargo, dado que `foot` es
 
 ## Wallpapers
 
+> Actualmente he optado por usar `wpaperd`, dado que la visualización aleatoria es nativa y más eficiente
+
+### swaybg
+
 Inicialmente usé `swaybg` ya que venía de usar `sway` y me bastaba agregar la siguiente linea a la configuración de `hyprland.conf`:
 
 ```toml
@@ -84,7 +88,9 @@ Inicialmente usé `swaybg` ya que venía de usar `sway` y me bastaba agregar la 
 exec-once = swaybg -i ~/.config/wallpapers/cyberpunk-anime-city-art_2000x1192.jpg -m fill
 ```
 
-Sin embargo, buscando usar aplicaciones nativas de hyprland, he optado por usar `hyprpaper`, su instalación es sencilla:
+### hyprpaper
+
+Buscando usar aplicaciones nativas de hyprland, he optado por usar `hyprpaper`, su instalación es sencilla:
 
 ```shell
 sudo pacman -S hyprpaper
@@ -94,6 +100,21 @@ Y su configuración se encuentra en `~/.config/hypr/hyprpaper.conf` y basta con 
 
 ```toml
 exec-once = hyprpaper
+```
+
+### wpaperd
+
+Esta aplicación permite gestionar el modo aleatorio de mejor manera, y cada vez que incia el sistema el fondo será realmente aleatorio, cosa que no sucede con `hyprpaper`, ya que sin usar un script adecuado, el archivo inicial siempre será el mismo.
+Por esta razón he optado por usar `wpaperd`, su instalación es sencilla:
+
+```shell
+sudo pacman -S wpaperd
+```
+
+Y su configuración se encuentra en `~/.config/hypr/wpaperd.conf` y basta con reemplazar la ejecución de `hyprpaper` en la configuración de `hyprland` por:
+
+```toml
+exec-once = wpaperd
 ```
 
 ## Vídeo llamadas

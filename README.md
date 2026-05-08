@@ -43,6 +43,7 @@ A continuación describo las herramientas o aplicaciones que estoy gestionando c
 | Waybar      | waybar    | `~/.dotfiles/waybar/.config/waybar`       | `~/.config/waybar`    |
 | WezTerm     | wezterm   | `~/.dotfiles/wezterm/.config/wezterm`     | `~/.config/wezterm`   |
 | wofi        | wofi      | `~/.dotfiles/wofi/.config/wofi`           | `~/.config/wofi`      |
+| Wpaperd     | wpaperd    | `~/.dotfiles/wpaperd/.config/wpaperd`     | `~/.config/wpaperd`   |
 | yazi        | yazi      | `~/.dotfiles/yazi/.config/yazi`           | `~/.config/yazi`      |
 
 ## Árbol de directorio
@@ -108,6 +109,9 @@ tree -La 3
 ├── wofi
 │   └── .config
 │       └── wofi
+├── wpaperd
+│   └── .config
+│       └── wpaperd
 └── yazi
     └── .config
         └── yazi
