@@ -58,7 +58,12 @@ window#waybar {
 #clock {
     font-weight: bold;
 }
-
+#clock:hover {
+    color: #c0caf5;
+}
+tooltip {
+    background-color: #4c4f69;
+}
 /* #battery { */
 /* } */
 

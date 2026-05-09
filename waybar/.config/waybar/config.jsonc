@@ -1,5 +1,6 @@
 {
     "layer": "top", // Waybar at top layer
+    "output": "!HDMI-A-1", // Show on all monitors, except this one 
     "position": "top", // Waybar at the bottom of your screen
     "height": 24, // Waybar height
     // "width": 1366, // Waybar width
@@ -80,7 +81,26 @@
     "clock": {
         "format": "{:%A, %d de %B · %H:%M}",
         "format-alt": "{:%Y-%m-%d %H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
+        "calendar": {
+            "mode"          : "month",
+            "mode-mon-col"  : 3,
+            "on-scroll"     : 1,
+            "format": {
+                "months":   "<span color='#8caaee'><b>{}</b></span>",
+                "days":     "<span color='#e6e9ef'><b>{}</b></span>",
+                "weeks":    "<span color='#85c1dc'><b>W{}</b></span>",
+                "weekdays": "<span color='#81c8be'><b>{}</b></span>",
+                "today":    "<span color='#e78284'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
     },
     "cpu": {
         "format": "{usage}% "
