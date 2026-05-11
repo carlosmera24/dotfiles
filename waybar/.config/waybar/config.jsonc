@@ -1,6 +1,6 @@
 {
     "layer": "top", // Waybar at top layer
-    "output": "!HDMI-A-1", // Show on all monitors, except this one 
+    // "output": "!HDMI-A-1", // Show on all monitors, except this one 
     "position": "top", // Waybar at the bottom of your screen
     "height": 24, // Waybar height
     // "width": 1366, // Waybar width
