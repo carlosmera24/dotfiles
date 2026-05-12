@@ -69,6 +69,8 @@ sudo usermod -aG input $USER
 La ruta de configuración será `~/.config/hypr/`, inicialmente, la primera vez que se inicie hyperlad, creará el archivo de configuración por defecto como `hyprland.conf`, en él encontraremos toda la configuración básica y la referencia a la documentación para cada sección.
 > Cualquier problema con la configuración, se pude consultar el repositorio [GitHub](https://github.com/hyprwm/Hyprland) y ubicar el directorio `example`, `hyprland.conf`
 
+Actualmente `hyperland`  a migrado su configuración a `lua` por lo que el archivo cambia a `hyprland.lua`
+
 ### Terminal
 
 Por defecto, hyprland usa `kitty` como terminal, sin embargo, dado que `foot` es una terminal creada para Wayland, la he configurado como terminal por defecto, la cual tiene como atajo de teclado `Super+q`.

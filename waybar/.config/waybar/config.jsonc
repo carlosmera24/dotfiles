@@ -52,22 +52,18 @@
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
-    "hyprland/workspaces": {
-        "format": "{icon}",
-        "on-scroll-up": "hyprctl dispatch workspace e+1",
-        "on-scroll-down": "hyprctl dispatch workspace e-1",
-        "format-icons": {
-            "1:web": "",
-            "2:code": "",
-            "3:term": "",
-            "4:work": "",
-            "5:music": "",
-            "6:docs": "",
-            "urgent": "",
-            "focused": "",
-            "default": ""
-        }
-    },
+"hyprland/workspaces": {
+    "format": "{icon}",
+    "hide-active": true,
+    "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'",
+    "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
+    "format-icons": {
+        "active": "",
+        "urgent": "",
+        "focused": "",
+        "default": ""
+    }
+},
     "hyprland/window": {
         "separate-outputs": true
     },
