@@ -34,20 +34,21 @@ window#waybar {
 #workspaces button {
     padding: 0 5px;
     background: transparent;
-    color: white;
-    border-top: 2px solid transparent;
+    color: #eff1f5;
 }
 
 #workspaces button.focused,
 #workspaces button.active
 {
-    color: #c9545d;
-    border-top: 2px solid #c9545d;
+    color: #04a5e5;
+    border-top: 2px solid #04a5e5;
 }
-
+#workspaces buton.urgent{
+    color: #f9e2af;
+}
 #mode {
     background: #64727D;
-    border-bottom: 3px solid white;
+    border-bottom: 3px solid #eff1f5;
 }
 
 #clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #mode {
@@ -68,7 +69,7 @@ tooltip {
 /* } */
 
 #battery icon {
-    color: red;
+    color: #e64553;
 }
 
 /* #battery.charging { */
@@ -76,13 +77,13 @@ tooltip {
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
+        background-color: #eff1f5;
         color: black;
     }
 }
 
 #battery.warning:not(.charging) {
-    color: white;
+    color: #eff1f5;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -95,11 +96,11 @@ tooltip {
 }
 
 #custom-spotify {
-    color: rgb(102, 220, 105);
+    color: #40a02b;
 }
 
 #keyboard-state {
-    color: #fff;
+    color: #eff1f5;
     font-weight: bold;
 }
 

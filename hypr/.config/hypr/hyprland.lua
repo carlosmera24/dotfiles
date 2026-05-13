@@ -44,7 +44,6 @@ hl.monitor({
     position = "auto",
     scale    = "auto",
 })
-
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
@@ -88,6 +87,10 @@ hl.on("hyprland.start", function ()
 
   -- Notificador personalizado de batería baja
   hl.exec_cmd("~/.config/myscripts/battery-notify.sh")
+
+  -- Definir workspace por default, solución alternativa para no usar default:true en workspaces,
+  -- ya que genera conflicto entre equipos, y solo tomará como default el primer workspace definido
+  hl.exec_cmd("hyprctl dispatch 'hl.dsp.focus({ workspace = 1 })'")
 end)
 
 
@@ -201,38 +204,6 @@ hl.animation({ leaf = "workspaces",    enabled = true,  speed = 1.94, bezier = "
 hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 1.21, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "quick" })
-
-------------------
---- Workspaces ---
-------------------
--- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
--- "Smart gaps" / "No gaps when only"
--- uncomment all if you wish to use that.
--- hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
--- hl.workspace_rule({ workspace = "f[1]",   gaps_out = 0, gaps_in = 0 })
--- hl.window_rule({
---     name  = "no-gaps-wtv1",
---     match = { float = false, workspace = "w[tv1]" },
---     border_size = 0,
---     rounding    = 0,
--- })
--- hl.window_rule({
---     name  = "no-gaps-f1",
---     match = { float = false, workspace = "f[1]" },
---     border_size = 0,
---     rounding    = 0,
--- })
--- Desktop set workspaces
-hl.window_rule({
-    workspace = "1", monitor = "DVI-D-1"
-})
-hl.window_rule({
-    workspace = "2", monitor = "HDMI-A-1"
-})
--- Laptop set workspaces
-hl.window_rule({
-    workspace = 1, monitor = "eDP-1"
-})
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({
@@ -374,8 +345,8 @@ hl.bind(mainMod .." + SHIFT + Q", hl.dsp.window.close())
 local dialogExit = [[
     swaynag --background cad3f5 --text 24273a \
     --button-background 939ab7 --border 6e738d --button-text 24273a \
-    -m 'Salir. Cerrar la sesión de Hyprland?' \
-    -B 'Si, salir' 'hyprctl dispatch exit'
+    -m "Salir. Cerrar la sesión de Hyprland?" \
+    -B "Si, salir" "hyprctl dispatch 'hl.dsp.exit()'"
 ]]
 
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(dialogExit))
@@ -570,4 +541,36 @@ hl.window_rule({
 
     move  = "20 monitor_h-120",
     float = true,
+})
+
+------------------
+--- Workspaces ---
+------------------
+-- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
+-- "Smart gaps" / "No gaps when only"
+-- uncomment all if you wish to use that.
+-- hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
+-- hl.workspace_rule({ workspace = "f[1]",   gaps_out = 0, gaps_in = 0 })
+-- hl.window_rule({
+--     name  = "no-gaps-wtv1",
+--     match = { float = false, workspace = "w[tv1]" },
+--     border_size = 0,
+--     rounding    = 0,
+-- })
+-- hl.window_rule({
+--     name  = "no-gaps-f1",
+--     match = { float = false, workspace = "f[1]" },
+--     border_size = 0,
+--     rounding    = 0,
+-- })
+-- Desktop set workspaces
+hl.workspace_rule({
+    workspace = "1", monitor = "DVI-D-1"
+})
+hl.workspace_rule({
+    workspace = "2", monitor = "HDMI-A-1"
+})
+-- Laptop set workspaces
+hl.workspace_rule({
+    workspace = "1", monitor = "eDP-1"
 })
