@@ -43,7 +43,7 @@ window#waybar {
     color: #04a5e5;
     border-top: 2px solid #04a5e5;
 }
-#workspaces buton.urgent{
+#workspaces button.urgent{
     color: #f9e2af;
 }
 #mode {
