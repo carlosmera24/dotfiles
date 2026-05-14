@@ -77,4 +77,20 @@ return {
         }
     end,
     ["pyright"] = default, -- python
+    ["kotlin_lsp"] = function()
+        return {
+            flags = lsp_flags,
+            filetypes = { "kotlin" },
+            cmd_env = {
+                JAVA_HOME = "/usr/lib/jvm/java-25-openjdk",
+            },
+            settings = {
+            kotlin = {
+                indexing = {
+                    enabled = true,
+                },
+            },
+        },
+        }
+    end
 }
