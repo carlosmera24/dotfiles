@@ -571,6 +571,6 @@ hl.workspace_rule({
     workspace = "2", monitor = "HDMI-A-1"
 })
 -- Laptop set workspaces
-hl.workspace_rule({
-    workspace = "1", monitor = "eDP-1"
-})
+-- hl.workspace_rule({
+--     workspace = "", monitor = "eDP-1"
+-- })
