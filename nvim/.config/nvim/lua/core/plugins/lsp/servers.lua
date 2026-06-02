@@ -101,5 +101,21 @@ return {
             },
         },
         }
+    end,
+    ['lemminx'] = function()
+        return {
+            flags = lsp_flags,
+            filetypes = { "xml" },
+            schemas = {
+                {
+                    fileMatch = { "*.xml" },
+                    -- Links LemMinX to the official Android schema layout
+                    url = "https://githubusercontent.com"
+                },
+                completion = {
+                    autoCloseTags = true,
+                }
+            }
+        }
     end
 }
