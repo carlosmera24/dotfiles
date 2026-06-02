@@ -23,13 +23,22 @@ return {
                 "scss",
                 "less",
                 "blade",
-                "vue"
+                "vue",
+                "xml"
             },
             init_options = {
                 html = {
                     options = {
                         ["bem.enabled"] = true, -- Opcional: habilita soporte para BEM
                     },
+                },
+                xml = {
+                    options = {
+                        ["output.indent"] = "    ",  -- Indentación con espacios
+                        ["output.tagCase"] = "lower", -- Etiquetas en minúsculas
+                        ["output.attributeCase"] = "lower", -- Atributos en minúsculas
+                    },
+                    snippets = {}, -- Puedes agregar snippets personalizados aquí
                 },
                 embeddedLanguages = {
                     blade = "html"
