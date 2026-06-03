@@ -1,6 +1,6 @@
 -- NOTE: Avante no está funcionando con ollama en modo local, y a la fecha no hay solución,
 -- Omito su uso y continuo usando codecompanion
--- return {
+return {
 --     {
 --         "yetone/avante.nvim",
 --           build = vim.fn.has("win32") ~= 0
@@ -120,4 +120,4 @@
 --             },
 --         },
 --     }
--- }
+}
