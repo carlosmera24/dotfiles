@@ -86,6 +86,8 @@ return {
         }
     end,
     ["pyright"] = default, -- python
+    -- kotlin_language_server no toma la configuración del JDK definido, siempre usa el por defecto
+    -- kotlin_lsp This build of intellij-server has expired. 
     ["kotlin_lsp"] = function()
         return {
             flags = lsp_flags,
@@ -94,12 +96,12 @@ return {
                 JAVA_HOME = "/usr/lib/jvm/java-25-openjdk",
             },
             settings = {
-            kotlin = {
-                indexing = {
-                    enabled = true,
+                kotlin = {
+                    indexing = {
+                        enabled = true,
+                    },
                 },
             },
-        },
         }
     end,
     ['lemminx'] = function()

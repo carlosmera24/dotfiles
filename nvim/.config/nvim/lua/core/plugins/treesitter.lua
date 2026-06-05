@@ -69,6 +69,7 @@ return {
                 "vue",
                 "python",
                 "yaml",
+                "xml",
             },
             auto_install = true,
         },
