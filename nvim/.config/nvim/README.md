@@ -992,7 +992,7 @@ Hasta la fecha, he probado muy superficialmente Avante [Github](https://github.c
 
 - `mini.icons`: Opcional para snippets y completion.
 
-- `mini.tabline`: Visializa los buffers abiertos como pestañas.
+- `mini.tabline`: Visualiza los buffers abiertos como pestañas.
 
 - `mini.pairs`: Auto-pairs, cierra grupos específicos como parentesis, comillas, llaves, etc.
 

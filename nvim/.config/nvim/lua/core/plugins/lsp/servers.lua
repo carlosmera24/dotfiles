@@ -86,8 +86,9 @@ return {
         }
     end,
     ["pyright"] = default, -- python
-    -- kotlin_language_server no toma la configuración del JDK definido, siempre usa el por defecto
-    -- kotlin_lsp This build of intellij-server has expired. 
+    -- kotlin_language_server no toma la configuración del JDK definido, siempre usa el por defecto,
+    -- Por otro lado, la misma pagina indica que el servidor oficial es kotlin_lsp
+    -- kotlin_lsp This build of intellij-server has expired, se debe esperar actualización del desarrollador 
     ["kotlin_lsp"] = function()
         return {
             flags = lsp_flags,
@@ -107,7 +108,7 @@ return {
     ['lemminx'] = function()
         return {
             flags = lsp_flags,
-            filetypes = { "xml" },
+            filetypes = { "xml", "xsd", "xsl", "xslt", "svg" },
             schemas = {
                 {
                     fileMatch = { "*.xml" },
