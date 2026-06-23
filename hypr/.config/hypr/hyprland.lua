@@ -91,6 +91,8 @@ hl.on("hyprland.start", function ()
   -- Definir workspace por default, solución alternativa para no usar default:true en workspaces,
   -- ya que genera conflicto entre equipos, y solo tomará como default el primer workspace definido
   hl.exec_cmd("hyprctl dispatch 'hl.dsp.focus({ workspace = 1 })'")
+  -- Snappy
+  hl.exec_cmd("snappy-switcher --daemon")
 end)
 
 
@@ -378,6 +380,13 @@ hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+----Snappy switcher----
+-- Alt+Tab (standard MRU)
+hl.bind(modAlt .." + Tab", hl.dsp.exec_cmd("snappy-switcher next --mod alt"))
+-- Super+Tab (workspace-filtered)
+hl.bind(mainMod .." + TAB", hl.dsp.exec_cmd("snappy-switcher next --workspace --mod super"))
+
 
 ----------------------------
 --- Focus/Move windows ------
