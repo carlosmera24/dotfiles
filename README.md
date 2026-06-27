@@ -32,6 +32,7 @@ A continuación describo las herramientas o aplicaciones que estoy gestionando c
 | Foot        | foot      | `~/.dotfiles/foot/.config/foot`           | `~/.config/foot`      |
 | gtklock     | gtklock   | `~/.dotfiles/gtklock/.config/gtklock`     | `~/.config/gtklock`   |
 | Kitty       | kitty     | `~/.dotfiles/kitty/.config/kitty`         | `~/.config/kitty`     |
+| LazyGit     | lazygit   | `~/.dotfiles/lazygit/.config/lazygit`     | `~/.config/lazygit`   |
 | Mako        | mako      | `~/.dotfiles/mako/.config/mako`           | `~/.config/mako`      |
 | My Scripts  | myscripts | `~/.dotfiles/myscripts/.config/myscripts` | `~/.config/myscripts` |
 | NeoVim      | nvim      | `~/.dotfiles/nvim/.config/nvim`           | `~/.config/nvim`      |
@@ -70,6 +71,9 @@ tree -La 3
 ├── kitty
 │   └── .config
 │       └── kitty
+├── lazygit
+│   └── .config
+│       └── lazygit
 ├── .luarc.json
 ├── mako
 │   └── .config

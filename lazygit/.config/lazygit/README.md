@@ -39,3 +39,9 @@ Ya que uso `stow` para gestionar mis dotfiles, es conveniente usar la misma conf
 ```bash
 export XDG_CONFIG_HOME=$HOME/.config
 ```
+
+O usar la definición del directoro especial para stow:
+
+```bash
+stow lazygit -D -t ~/Library/Application\ Support
+```
