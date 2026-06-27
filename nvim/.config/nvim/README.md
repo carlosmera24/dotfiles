@@ -1022,6 +1022,10 @@ Hasta la fecha, he probado muy superficialmente Avante [Github](https://github.c
 
 - 
 
+#### LazyGit
+
+[GitHub](https://github.com/kdheepak/lazygit.nvim) Plugin de `LazyGit` para Vim, se instala con `:LazyGit` y se abre con `:LazyGit`
+
 ### Temas
 
 Los temas se pueden consultar en https://vimcolorschemes.com/ y se define/configura en `core/plugins/colorscheme.lua`, actualmente uso **Tokyo Night moon**
