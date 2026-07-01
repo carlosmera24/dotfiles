@@ -33,6 +33,7 @@ return {
                 {
                     icon = "", title = "Keymaps", section = "keys", indent = 2, padding = 1,
                     { icon = "󰣇", desc = "Mason", action = ":Mason", key = "m" },
+                    { icon = "󰉓", desc = "Files with Yazi", action = ":Yazi", key = "y" },
                 },
                 { section = "startup" },
             }
