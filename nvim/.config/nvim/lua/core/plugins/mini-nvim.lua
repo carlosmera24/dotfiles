@@ -140,7 +140,7 @@ return {
         hipatterns_setup()
 
         -- Indent scope (Visualize and work)
-        require('mini.indentscope').setup({})
+        -- require('mini.indentscope').setup({})
 
         -- Split and join arguments
         require('mini.splitjoin').setup({})

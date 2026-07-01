@@ -1001,6 +1001,7 @@ Hasta la fecha, he probado muy superficialmente Avante [Github](https://github.c
 - `mini.hipatterns`: Resalta en color las palabras claves `FIXME`, `HACK`, `TODO` y `NOTE`. He realizado unos ajustes para resaltar palabras en inglés, formato rgb/rgba y formato hsl/hsla
 
 - `mini.identscope`: Visualiza la identación de la zona que se está trabajando.
+> Actualmente es reemplazada por snack.indent
 
 - `mini.splitjoin`: Permite generar saltos de lineas para grupos seleccionados, por ejemplo: Texto separado por comas pasarlo a lineas separadas.
   
@@ -1021,6 +1022,20 @@ Hasta la fecha, he probado muy superficialmente Avante [Github](https://github.c
   | `sh`      | Resaltar                         |
 
 - 
+
+#### Snack
+
+Dado que algunos de los plugins que uso, dependeen de [Snack](https://github.com/folke/snacks.nvim), He optado por crear una configuración propia para este plugin, y de manera independiente, creando su propio archivo.
+Dentro de los subplugins que he implementado están:
+
+- `Image`: Visualizador de imágenes, requerido por Yazi.
+- `bigfile`: Visualizador de archivos grandes.
+- `dashboard`: Dashboard de Neovim.
+- `indent`: Visualizador de identación.
+- `input`: Visualizador de inputs.
+- `picker`: Visualizador de pickers.
+- `quickfile`: Cuando ejecutas `nvim somefile.txt`, Neovim renderiza el archivo lo más rápido posible, antes de cargar tus plugins.
+- `scope`: Detección de ámbito, objetos de texto y saltos basados en treesitter o indentación
 
 #### LazyGit
 

@@ -5,30 +5,8 @@ return {
     dependencies = {
         -- check the installation instructions at
         -- https://github.com/folke/snacks.nvim
-        "folke/snacks.nvim",
-        ---@type snacks.Config
-        opts = {
-            image = {
-                formats = {
-                    "png",
-                    "jpg",
-                    "jpeg",
-                    "gif",
-                    "bmp",
-                    "webp",
-                    "tiff",
-                    "heic",
-                    "avif",
-                    "mp4",
-                    "mov",
-                    "avi",
-                    "mkv",
-                    "webm",
-                    "pdf",
-                },
-                force = true,
-            }
-        }
+        -- Global dependecies, load on snacks.lua
+        -- "folke/snacks.nvim",
     },
     keys = {
         -- 👇 in this section, choose your own keymappings!
