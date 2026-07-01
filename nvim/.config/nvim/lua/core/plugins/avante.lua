@@ -33,7 +33,7 @@ return {
                 },
                 gemini = {
                     endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
-                    model = "gemini-3.5-flash",
+                    model = "gemini-3.1-flash-lite",
                     extra_request_body = {
                         timeout = 30000,
                         temperature = 0.75,
