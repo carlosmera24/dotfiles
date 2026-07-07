@@ -34,14 +34,9 @@ Las rutas por defecto son:
 - **Linux**: `~/.config/lazygit/config.yml`
 - **MacOS**: `~/Library/Application\ Support/lazygit/config.yml`
 
-Ya que uso `stow` para gestionar mis dotfiles, es conveniente usar la misma configuración para Mac y Linux, para ello es necesario agregar al `zshrc` lo siguiente:
+Ya que uso `stow` para gestionar mis dotfiles, es conveniente usar la misma configuración para Mac y Linux, para ello es necesario agregar al `.zshrc` lo siguiente:
 
 ```bash
 export XDG_CONFIG_HOME=$HOME/.config
 ```
 
-O usar la definición del directoro especial para stow:
-
-```bash
-stow lazygit -D -t ~/Library/Application\ Support
-```
