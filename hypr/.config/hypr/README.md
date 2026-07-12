@@ -219,7 +219,6 @@ Esta opción es la mejor y la recomendada para usar sistemas livianos como es el
 
 > NOTE: **Problemas de integración**:
 > - Cada inicio de aplicaciones que requieren gestión de contraseñas, pide la contraseña, eso no es problema, pero no guarda en cache las sesiones, lo que obliga a iniciar sesión para Google en el caso de navegadores.
->
 > - La solicitud de la contrseña para abrir el gestor no da espera para iniciar la aplicación que lo requiere, es decir, en el caso de Navegadores solicita la contraseña, pero se abre antes el navegador, lo que no permite integrarse bien y cargar las contraseñas correctamente.
 > - La solcitud de la contraseña genera una carga lenta en las aplicaciones, se demora demasiado en cargar o no carga (Brave)
 
