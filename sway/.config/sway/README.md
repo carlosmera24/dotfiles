@@ -565,5 +565,5 @@ chmod +x ~/.config/myscripts/battery-notify.sh
 El script se inicia con la configuración de `sway`:
 
 ```toml
-exec-once = ~/.config/myscripts/battery-notify.sh
+exec_always --no-startup-id ~/.config/myscripts/battery-notify.sh &
 ```
