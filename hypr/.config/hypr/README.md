@@ -418,8 +418,8 @@ He creado un `script` para visualizar notificaciones de batería baja o cargada,
 chmod +x ~/.config/myscripts/battery-notify.sh
 ```
 
-El script se inicia con la configuración de `sway`:
+El script se inicia con la configuración de `hyprland`:
 
-```toml
-exec-once = ~/.config/myscripts/battery-notify.sh
+```lua
+  hl.exec_cmd("~/.config/myscripts/battery-notify.sh")
 ```
