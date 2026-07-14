@@ -283,6 +283,8 @@ Dentro de las opciones que tenemos para configurar los plugins:
 
 #### NVIM-TREE
 
+> Actualmente está deshabilitado, ya que uso el `yazi`, `oil` o `telescope explorer`
+
 [GitHub](https://github.com/nvim-tree/nvim-tree.lua) Reemplazando Nerd-Tree, de igual manera permite tener un arbol de directorios y archivos para explorar el poryecto actual, escrito en Lua.
 
 - `g?` permite listar las opciones sobre el archivo o directorio
