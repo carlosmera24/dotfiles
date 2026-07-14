@@ -371,7 +371,7 @@ Se integra muy bien con gestores de inicio de sesión como `lightdm` o `gdm`, pe
 
 #### Configuración de PAM (nwg-hello)
 
-La documentación de [ArchLinux](https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step) sugiere editar `/etc/pam.d/login` para aquellos displays manager que no tienen el soporte automático, para el caso de `nwg-hello` debe ser `/etc/pam.d/greetd` ya que usa `greetd`; para ello se atrega  `auth optional pam_gnome_keyring.so` al final de la sección auth y `session optional pam_gnome_keyring.so auto_start` al final de la sección session:
+La documentación de [ArchLinux](https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step) sugiere editar `/etc/pam.d/login` para aquellos displays manager que no tienen el soporte automático, para el caso de `nwg-hello` debe ser `/etc/pam.d/greetd` ya que usa `greetd`; para ello se atgrega  `auth optional pam_gnome_keyring.so` al final de la sección auth y `session optional pam_gnome_keyring.so auto_start` al final de la sección session:
 
 ```toml
 #%PAM-1.0
@@ -390,12 +390,22 @@ password   include      system-local-login
 ```
 > He dejado las marcas con el comentario `gnome-keyring` para que se pueda identificar
 
-Por último, es importante agregar el inicio de `gnome-keyring` al inicio de `Hyprland` para ello se agrega al archivo de configuración:
+Por último, es importante agregar el inicio de `gnome-keyring` al inicio de `sway` para ello se agrega al archivo de configuración:
 
 ```toml
 exec = gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg
 exec = dbus-update-activation-environment --systemd SSH_AUTH_SOCK DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 ```
+
+#### Pruebas
+
+Se puede validar con:
+
+```shell
+ps aux | grep gnome-keyring
+```
+Se debería ver `/usr/bin/gnome-keyring-daemon --daemonize --login`,y en el monitor de servicios (htop) también debe listar `gnome-keyring` con el indicativo de `login`.
+>De esta manera, gnome-keyring está activo y con la contraseña desde el inicio de sesión.
 
 ### pass y pass-secret-service
 
@@ -510,4 +520,50 @@ El script se inicia con la configuración de `sway`:
 
 ```toml
 exec = ~/.config/myscripts/battery-notify.sh
+```
+
+## Vídeo llamadas
+
+###  Captura/compartir pantalla - Navegadores
+
+Importante seguir la configuración que indicó en mi configuración de sway, para ello es importante instalar:
+
+```shell
+sudo pacman -S xdg-desktop-portal xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire
+```
+
+En mi caso tengo la instalación y configuración con pipewire dado que también uso sway, sin embargo, es importante saber que Wayland tiene un soporte limitado para compartir la pantalla, permitiendo compartir pestañas o toda la pantalla (escritorio o monitor), pero para compartir una aplicación en particular es necesario ejecutar en modo X11 el navegador o aplicación:
+
+```shell
+XDG_SESSION_TYPE=x11 brave & disown 
+```
+
+>Actulamente he instalado `xdg-desktop-portal-hyperland` para capturar ventanas en OBS Studio, y ne probado, con los dos servicios activos (wlr y hyprland) y no es necesario correr brave en modo x11, sin embargo, si al seleccionar alguna aplicación a compartir, esta no se comparte, dicha aplicación sería necesario correrla en x11, mas no brave
+
+### Vídeo en llamadas
+
+Para habilitar la cámara en las vídeo llamadas, es necesario instalar `v4l2loopback-dkm` el cual habilita el vídeo para aplicaciones de streaming, como Meet, Telegram, etc, una vez instalado y reinicado el sistema es detectada la cámara automáticamente.
+
+## OBS Studio
+
+Para capturar ventanas es necesario tener instalado `xdg-desktop-portal-hyprland`. 
+
+>En mis pruebas puede trabajar sin problemas con los servicios `wlr` y `gtk`, no hay problemas con `hyprland`
+
+```shell
+systemctl --user status xdg-desktop-portal{,-wlr,-gtk, -hyprland}
+```
+
+## Notifiación de batería
+
+He creado un `script` para visualizar notificaciones de batería baja o cargada, el cual se encuentra en el directorio `~/.config/myscripts/` bajo el nombre `baterry-notify.sh`, ya que tengo instalado `mako`, el script lo usará para visualizar las notificaciones al 30, 20 y 10% de la batería o el 100% cuando carga; adicionalmente, al 80% visualizo una notificación como recomendación para parar la carga y así cuidar la batería. Es importante darle permisos de ejecución:
+
+```shell
+chmod +x ~/.config/myscripts/battery-notify.sh
+```
+
+El script se inicia con la configuración de `sway`:
+
+```toml
+exec_always --no-startup-id ~/.config/myscripts/battery-notify.sh &
 ```

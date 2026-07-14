@@ -195,7 +195,7 @@ README.md
 Para desvincular o eliminar los dotsfiles de una aplicación en concreta, basta con ejecutar stow desde el directorio `.dotfiles`:
 
 ```shell
-stow alacritty -D
+stow -D alacritty 
 ```
 
 Si la aplicación tiene un directorio especial definido como target:
