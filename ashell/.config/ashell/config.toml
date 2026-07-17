@@ -11,7 +11,10 @@ visibility_mode = "MonitorSpecific"
 [modules]
 left = [ "Laucher", "Workspaces" ]
 center = [ "WindowTitle" ]
-right = [ "SystemInfo", ["Tray", "MediaPlayer", "CapsLockStatus"], ["Tempo", "Notifications", "Privacy", "Settings"] ]
+right = [ 
+    ["SystemInfo", "MediaPlayer"],
+    ["Tray", "Tempo", "CapsLockStatus", "Notifications", "Privacy", "Settings"]
+]
 
 [[CustomModule]]
 name = "Laucher"
@@ -24,6 +27,7 @@ name = "CapsLockStatus"
 type = "Text"
 icon = ""
 listen_cmd = "~/.config/myscripts/capslock-status.sh"
+indicator_format = "Icon"
 
 [media_player]
 max_title_length = 50
@@ -32,7 +36,7 @@ indicator_format = "Icon"
 [notifications]
 format = "%m/%d %H:%M"
 show_timestamps = true
-show_bodies = false
+show_bodies = true
 grouped = true
 toast = true
 toast_position = "top_right"
