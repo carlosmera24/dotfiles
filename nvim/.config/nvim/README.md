@@ -1043,6 +1043,10 @@ Dentro de los subplugins que he implementado están:
 
 [GitHub](https://github.com/kdheepak/lazygit.nvim) Plugin de `LazyGit` para Vim, se instala con `:LazyGit` y se abre con `:LazyGit`
 
+#### Caps Detect
+
+Un simple indicador de mayúscula activo. [GitHub](https://github.com/nikita-edel/capsdetect.nvim)
+
 ### Temas
 
 Los temas se pueden consultar en https://vimcolorschemes.com/ y se define/configura en `core/plugins/colorscheme.lua`, actualmente uso **Tokyo Night moon**
@@ -1054,6 +1058,7 @@ Los temas se pueden consultar en https://vimcolorschemes.com/ y se define/config
 5. atom-dark
 6. dracula
 7. VimHybrid
+
 
 ## Solución de Errores
 

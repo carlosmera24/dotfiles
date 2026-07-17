@@ -29,6 +29,7 @@ A continuación describo las herramientas o aplicaciones que estoy gestionando c
 | Herramienta | Raíz      | Ruta completa                             | Directorio final      |
 | ----------- | --------- | ----------------------------------------- | --------------------- |
 | Alacritty   | alacritty | `~/.dotfiles/alacritty/.config/alacritty` | `~/.config/alacritty` |
+| Ashell      | ashell | `~/.dotfiles/ashell/.config/ashell` | `~/.config/ashell` |
 | Foot        | foot      | `~/.dotfiles/foot/.config/foot`           | `~/.config/foot`      |
 | gtklock     | gtklock   | `~/.dotfiles/gtklock/.config/gtklock`     | `~/.config/gtklock`   |
 | Kitty       | kitty     | `~/.dotfiles/kitty/.config/kitty`         | `~/.config/kitty`     |
@@ -59,6 +60,9 @@ tree -La 3
 ├── alacritty
 │   └── .config
 │       └── alacritty
+├── ashell
+│   └── .config
+│       └── ashell
 ├── foot
 │   └── .config
 │       └── foot
