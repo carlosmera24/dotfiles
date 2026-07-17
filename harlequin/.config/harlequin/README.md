@@ -6,7 +6,7 @@
 
 A pesar de tener instalación nativa para Linux, lo recomendable es instalar desde `uv` de python:
 
-1. Installar `uv`:
+1. Instalar `uv`:
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -31,7 +31,7 @@ uv tool install 'harlequin[mysql]'
 
 Hay diferentes formas de usar o definir la configuración:
 
-- Crear un archivo por directorio de trabajo, donde se puede crear un archivo .harlequin.toml
+- Crear un archivo por directorio de trabajo, donde se puede crear un archivo `.harlequin.toml`
 - Crear un archivo global desde `~/.config/harlequin/config.toml`
 
 De igual manera, se puede usar el asistente para creación o actualización del archivo:

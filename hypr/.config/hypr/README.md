@@ -42,7 +42,7 @@ Instalarà las dependencias necesarias:
 Mi instalación recomendada o en un solo comando, después de recopilar toda mi configuración y dependencias:
 
 ```shell
-sudo pacman -S hyprland waybar hyprlock hypridle wpaperd hyprlauncher foot networkmanager network-manager-applet archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkms adapta-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd nwg-drawer nwg-hello hyprpolkitagent
+sudo pacman -S hyprland hyprlock hypridle wpaperd hyprlauncher foot networkmanager network-manager-applet archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkms adapta-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd nwg-drawer nwg-hello hyprpolkitagent
 ```
 
 > Parece que adapta-nokto-gtk-theme cambio a adapta-gtk-theme, wf-recoder no está disponible en estos momentos
@@ -61,6 +61,14 @@ Agregar usuario a los grupos necesarios:
 
 ```bash
 sudo usermod -aG input $USER
+
+```
+
+Permisos de scripts:
+
+```shell
+chmod +x ~/.config/myscripts/battery-notify.sh
+chmod +x ~/.config/myscripts/capslock-status.sh
 ```
 
 
@@ -74,8 +82,6 @@ Actualmente `hyperland`  a migrado su configuración a `lua` por lo que el archi
 ### Terminal
 
 Por defecto, hyprland usa `kitty` como terminal, sin embargo, dado que `foot` es una terminal creada para Wayland, la he configurado como terminal por defecto, la cual tiene como atajo de teclado `Super+q`.
-
-> De momento estoy usando los servicios y complementos que tengo instalados con sway, de tal manera que la configuración sea compatible o la conserve, solo he tenido que ajustar waybar
 
 ## Wallpapers
 
@@ -368,6 +374,10 @@ window {
 	background-image: url("/usr/share/backgrounds/archlinux/awesome.png"); background-size: auto 100%
 }
 ```
+
+## Barra de estado
+
+Inicialmente use `waybar`, pero dado problemas que tuve con el selector de `workspace`, he optado por usar `ashell`, el cual se integra mejor y corre más fluido con `Hyprland`.
 
 ## Menu - Aplicaciones
 
