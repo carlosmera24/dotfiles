@@ -32,6 +32,7 @@ A continuación describo las herramientas o aplicaciones que estoy gestionando c
 | Ashell      | ashell | `~/.dotfiles/ashell/.config/ashell` | `~/.config/ashell` |
 | Foot        | foot      | `~/.dotfiles/foot/.config/foot`           | `~/.config/foot`      |
 | gtklock     | gtklock   | `~/.dotfiles/gtklock/.config/gtklock`     | `~/.config/gtklock`   |
+| Harlequin     | harlequin   | `~/.dotfiles/harlequin/.config/harlequin`     | `~/.config/harlequin`   |
 | Kitty       | kitty     | `~/.dotfiles/kitty/.config/kitty`         | `~/.config/kitty`     |
 | LazyGit     | lazygit   | `~/.dotfiles/lazygit/.config/lazygit`     | `~/.config/lazygit`   |
 | Mako        | mako      | `~/.dotfiles/mako/.config/mako`           | `~/.config/mako`      |
@@ -69,6 +70,9 @@ tree -La 3
 ├── gtklock
 │   └── .config
 │       └── gtklock
+├── harlequin
+│   └── .config
+│       └── harlequin
 ├── hypr
 │   └── .config
 │       └── hypr

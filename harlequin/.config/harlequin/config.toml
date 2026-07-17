@@ -1,0 +1,15 @@
+default_profile = "base"
+
+[profiles.base]
+theme = "tokyo-night"
+limit = 100000
+keymap_name = ["vscode"]
+
+[profiles.unamula-local]
+theme = "tokyo-night"
+adapter = "mysql"
+host = "127.0.0.1"
+port = 3306
+user = "root"
+password = "K24c83M62r"
+database = "unamuladb"
