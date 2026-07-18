@@ -1,0 +1,46 @@
+[opener]
+edit = [
+    { run = 'nvim "$@"', desc = "Open in Neovim", block = true, for = "unix" }
+]
+markdown = [
+    { run = 'zettlr "$@"', desc = "Open in Zettlr", block = false, orphan = true, for = "unix" },
+    { run = 'apostrophe "$@"', desc = "Open in Apostrophe", block = false, orphan = true, for = "unix" },
+    { run = 'marktext "$@"', desc = "Open in MarkText", block = false, orphan = true, for = "unix" },
+]
+reveal = [
+    { run = 'nemo "%d"', desc = "Reveal in Nemo", block = false, for = "unix" },
+    { run = 'thunar "%d"', desc = "Reveal in Thunar"},
+    { run = 'open "%d"', desc = "Reveal in Finder", block = false, for = "macos" },
+]
+images = [
+    # Eye of Gnome
+    { run = 'eog "$@"', desc = "Open in Eye of Gnome", block = false, orphan = true, for = "unix" },
+    # Gimp
+    { run = 'gimp "$@"', desc = "Edit in Gimp", block = false, orphan = true, for = "unix" },
+    # Inkscape
+    { run = 'inkscape "$@"', desc = "Open in Inkscape", block = false, orphan = true, for = "unix" },
+    # Preview (macOS)
+    { run = 'open "$@"', desc = "Open in Preview", block = false, orphan = true, for = "macos" },
+]
+pdf = [
+    { run = 'evince "$@"', desc = "Open in Evince", block = false, orphan = true, for = "unix" },
+    # Preview (macOS)
+    { run = 'open "$@"', desc = "Open in Preview", block = false, orphan = true, for = "macos" },
+]
+
+[open]
+rules = [
+    # Mardown files
+    { url = "*.md", use = [ "edit", "markdown", "reveal" ] },
+    # Images
+    { mime = "image/*", use = [ "edit" ,"images", "reveal" ] },
+    # PDF
+    { mime = "application/pdf", use = [ "pdf", "edit", "reveal" ] },
+    
+    # NOTE: Add other mime types before this
+
+    # All files
+    { url = "*", use = [ "edit", "reveal" ] },
+    # Directories
+    { url = "*/", use = [ "reveal" ] },
+]
