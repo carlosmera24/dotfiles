@@ -37,4 +37,13 @@ Es importante dar permisos de ejecución al script:
 chmod +x ~/.config/myscripts/capslock-status.sh
 ```
 
+## Tray
 
+He encontrado un error que me indica que falló la inicialización del servicio:
+
+```text
+ERROR [ashell::services::tray] Failed to initialize tray service: org.freedesktop.DBus.Error.ServiceUnknown: The name is not activatable
+ERROR [ashell::services::tray] Tray service error
+```
+
+la solución es tener instalado `libdbusmenu-gtk3` e inicializado el servicio `/usr/lib/libdbusmenu-gtk3/status-notifier-watcher`, para ello he agregado su inicio en `hyprland`.
