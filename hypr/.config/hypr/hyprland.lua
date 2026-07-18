@@ -69,12 +69,19 @@ hl.on("hyprland.start", function ()
   -- hl.exec_cmd("nm-applet")
   -- hl.exec_cmd("ashell & nm-applet & mako")
 
+  -- Ashell y nm-applet
   hl.exec_cmd("ashell & nm-applet")
+
+  -- Activar notificaciones try para ashell 
+  hl.exec_cmd("/usr/lib/libdbusmenu-gtk3/status-notifier-watcher")
+
   -- Wallpaper --
   hl.exec_cmd("wpaperd")
+
   -- Bloqueo de pantalla --
   -- hypridle - cambio la gestión del bloqueo de pantalla para una integración más nativa
   hl.exec_cmd("hypridle")
+
   -- genome-keyring
   -- exec-once = sh -c 'eval "$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)"; export SSH_AUTH_SOCK'
   hl.exec_cmd("gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg")
