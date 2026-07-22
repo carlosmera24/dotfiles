@@ -67,13 +67,16 @@ hl.on("hyprland.start", function ()
   -- hl.exec_cmd(terminal)
   -- hl.exec_cmd("waybar & hyprpaper & firefox")
   -- hl.exec_cmd("nm-applet")
-  -- hl.exec_cmd("ashell & nm-applet & mako")
+  -- hl.exec_cmd("nm-applet & ashell &  mako")
 
-  -- Ashell y nm-applet
-  hl.exec_cmd("ashell & nm-applet & blueman-applet")
+  -- nm-applet y blueman-applet
+  hl.exec_cmd("nm-applet & blueman-applet")
 
   -- Activar notificaciones try para ashell 
   hl.exec_cmd("/usr/lib/libdbusmenu-gtk3/status-notifier-watcher")
+
+  -- Ashell
+  hl.exec_cmd("ashell")
 
   -- Wallpaper --
   hl.exec_cmd("wpaperd")
