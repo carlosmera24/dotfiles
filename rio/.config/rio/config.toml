@@ -1,5 +1,7 @@
 # See the full configuration reference: https://rioterm.com/docs/config
 theme = "dracula"
+# required to user current-working-directory
+use-fork = false
 
 [editor]
 program = "nvim"
@@ -26,6 +28,9 @@ style = "Bold Italic"
 
 [window]
 opacity = 0.96
+
+[navigation]
+current-working-directory = true
 
 [bindings]
 keys = [
