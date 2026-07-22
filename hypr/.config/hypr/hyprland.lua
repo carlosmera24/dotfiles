@@ -70,7 +70,7 @@ hl.on("hyprland.start", function ()
   -- hl.exec_cmd("ashell & nm-applet & mako")
 
   -- Ashell y nm-applet
-  hl.exec_cmd("ashell & nm-applet")
+  hl.exec_cmd("ashell & nm-applet & blueman-applet")
 
   -- Activar notificaciones try para ashell 
   hl.exec_cmd("/usr/lib/libdbusmenu-gtk3/status-notifier-watcher")
