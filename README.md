@@ -39,6 +39,7 @@ A continuación describo las herramientas o aplicaciones que estoy gestionando c
 | My Scripts  | myscripts | `~/.dotfiles/myscripts/.config/myscripts` | `~/.config/myscripts` |
 | NeoVim      | nvim      | `~/.dotfiles/nvim/.config/nvim`           | `~/.config/nvim`      |
 | nwg-drawer  |nwg-drawer | `~/.dotfiles/nwg-drawer/.config/nwg-drawer`| `~/.config/nwg-drawer`|
+| Rio | rio | `~/.dotfiles/rio/.config/rio` | `~/.config/rio` |
 | snappy-switcher | snappy-switcher | `~/.dotfiles/snappy-switcher/.config/snappy-switcher` | `~/.config/snappy-switcher`|
 | Sway        | sway      | `~/.dotfiles/sway/.config/sway`           | `~/.config/sway`      |
 | Swaylock    | swaylock  | `~/.dotfiles/swaylock/.config/swaylock`   | `~/.config/swaylock`  |
@@ -96,6 +97,9 @@ tree -La 3
 │   └── .config
 │       └── nwg-drawer
 ├── README.md
+├── rio
+│   └── .config
+│       └── rio
 ├── snappy-switcher
 │   └── .config
 │       └── snappy-switcher

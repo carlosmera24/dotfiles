@@ -1,0 +1,41 @@
+# See the full configuration reference: https://rioterm.com/docs/config
+theme = "dracula"
+
+[editor]
+program = "nvim"
+args = []
+
+[fonts]
+size = 18
+
+[fonts.regular]
+family = "Jetbrains Mono"
+style = "Medium"
+
+[fonts.bold]
+family = "Jetbrains Mono"
+style = "Bold"
+
+[fonts.italic]
+family = "Jetbrains Mono"
+style = "Italic"
+
+[fonts.bold_italic]
+family = "Jetbrains Mono"
+style = "Bold Italic"
+
+[window]
+opacity = 0.96
+
+[bindings]
+keys = [
+    #Split move
+    { key = "h", with ="control", action ="SelectNextSplit"},
+    { key = "h", with ="alt", action ="SelectNextSplit"},
+    { key = "right", with ="control", action ="SelectNextSplit"},
+    { key = "right", with ="alt", action ="SelectNextSplit"},
+    { key = "l", with ="control", action ="SelectPrevSplit"},
+    { key = "l", with ="alt", action ="SelectPrevSplit"},
+    { key = "left", with ="control", action ="SelectPrevSplit"},
+    { key = "left", with ="alt", action ="SelectPrevSplit"},
+]
