@@ -70,7 +70,8 @@ hl.on("hyprland.start", function ()
   -- hl.exec_cmd("nm-applet & ashell &  mako")
 
   -- nm-applet y blueman-applet
-  hl.exec_cmd("nm-applet & blueman-applet")
+  -- hl.exec_cmd("nm-applet & blueman-applet")
+  hl.exec_cmd("nm-applet")
 
   -- Activar notificaciones try para ashell 
   hl.exec_cmd("/usr/lib/libdbusmenu-gtk3/status-notifier-watcher")
@@ -90,9 +91,6 @@ hl.on("hyprland.start", function ()
 
   -- Cursor, requiere instalar volantes-cursor (AUR) o descargar y copiar en /usr/share/icons
   hl.exec_cmd("hyprctl setcursor volantes_cursors 24")
-
-  -- Polkit
-  hl.exec_cmd("systemctl --user start hyprpolkitagent")
 
   -- Notificador personalizado de batería baja
   hl.exec_cmd("~/.config/myscripts/battery-notify.sh")

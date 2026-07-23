@@ -202,11 +202,15 @@ Se integra muy bien con gestores de inicio de sesión como `lightdm` o `gdm`, pe
     ```
     > Esta configuración ha sido simplificada, tras varias pruebas, eliminado la linea `hl.exec_cmd("sh -c 'eval \"$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)\"; export SSH_AUTH_SOCK'`, ya que el inicio de `gnome-keyring-daemon` pasa a ser gestionado por `greetd` de `nwg-hello`.
     
-3. Por último, habilitar el inicio de:
+3. Por último, habilitar el inicio de `hyprpolkitagent`
+    > TODO: Validar, en mi laptop funconó sin instalarlo
+    > myql-workbench trabajo sin pedir contraseña y sin abrir brave
 
     ```shell
     systemctl --user enable hyprpolkitagent.service 
     ```
+
+    >  Está habilitado desde hyprland, no es necesario
 
 #### Pruebas
 

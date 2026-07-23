@@ -44,6 +44,13 @@ toast_timeout = 4000
 toast_limit = 5
 toast_max_height = 150
 
+[settings]
+audio_indicator_format = "IconAndPercentage"
+bluetooth_indicator_format = "IconAndValue"
+peripheral_battery_format = "Icon"
+lock_cmd = "hyprlock &"
+hibernate_cmd = "systemctl hibernate"
+
 # Tokyo Night - night
 [appearance]
 primary_color = "#7aa2f7"
