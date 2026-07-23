@@ -175,39 +175,38 @@ Se integra muy bien con gestores de inicio de sesión como `lightdm` o `gdm`, pe
 
 #### Configuración de PAM (nwg-hello)
 
-La documentación de [ArchLinux](https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step) sugiere editar `/etc/pam.d/login` para aquellos displays manager que no tienen el soporte automático, para el caso de `nwg-hello` debe ser `/etc/pam.d/greetd` ya que usa `greetd`; para ello se agrega  `auth optional pam_gnome_keyring.so` al final de la sección auth y `session optional pam_gnome_keyring.so auto_start` al final de la sección session:
+1. La documentación de [ArchLinux](https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step) sugiere editar `/etc/pam.d/login` para aquellos displays manager que no tienen el soporte automático, para el caso de `nwg-hello` debe ser `/etc/pam.d/greetd` ya que usa `greetd`; para ello se agrega  `auth optional pam_gnome_keyring.so` al final de la sección auth y `session optional pam_gnome_keyring.so auto_start` al final de la sección session:
 
->~/etc/pam.d/greetd~ es importante aplicarlo en este archivo, sin embargo, lo he agregado, al mismo tiempo, a login y funciona, pero es vital activar la casilla para autologin en el dialogo de contraseña de gnome-keyring.
+    >`/etc/pam.d/greetd` es importante aplicarlo en este archivo, sin embargo, lo he agregado, al mismo tiempo, a login y funciona, pero es vital activar la casilla para autologin en el dialogo de contraseña de gnome-keyring.
 
-```toml
-#%PAM-1.0
+    ```toml
+    #%PAM-1.0
 
-auth       requisite    pam_nologin.so
-auth       include      system-local-login
-#Gnome Keyring
-auth       optional     pam_gnome_keyring.so
-#---
-account    include      system-local-login
-session    include      system-local-login
-#Gnome Keyring
-session    optional     pam_gnome_keyring.so auto_start
-#----
-password   include      system-local-login
-```
-> He dejado las marcas con el comentario `gnome-keyring` para que se pueda identificar
+    auth       requisite    pam_nologin.so
+    auth       include      system-local-login
+    # Gnome Keyring Auth
+    auth       optional     pam_gnome_keyring.so
 
-Por último, es importante agregar el inicio de `gnome-keyring` al inicio de `Hyprland` para ello se agrega al archivo de configuración:
+    account    include      system-local-login
+    session    include      system-local-login
+    # Gnome Keyring Session
+    session    optional     pam_gnome_keyring.so auto_start
+    password   include      system-local-login
+    ```
+    > He dejado las marcas con el comentario `gnome-keyring` para que se pueda identificar
 
-```conf
-exec-once = gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg
-exec-once = dbus-update-activation-environment --systemd SSH_AUTH_SOCK DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-```
+2. Agregar a la configuración de `hyprland`:
 
-> Otra opción es mover el inicio del servicio a systemd-user:
->
->```shell
->systemctl --user enable gnome-keyring-daemon.service
->```
+    ```lua
+    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP DISPLAY SSH_AUTH_SOCK")
+    ```
+    > Esta configuración ha sido simplificada, tras varias pruebas, eliminado la linea `hl.exec_cmd("sh -c 'eval \"$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)\"; export SSH_AUTH_SOCK'`, ya que el inicio de `gnome-keyring-daemon` pasa a ser gestionado por `greetd` de `nwg-hello`.
+    
+3. Por último, habilitar el inicio de:
+
+    ```shell
+    systemctl --user enable hyprpolkitagent.service 
+    ```
 
 #### Pruebas
 
@@ -218,6 +217,9 @@ ps aux | grep gnome-keyring
 ```
 Se debería ver `/usr/bin/gnome-keyring-daemon --daemonize --login`,y en el monitor de servicios (htop) también debe listar `gnome-keyring` con el indicativo de `login`.
 >De esta manera, gnome-keyring está activo y con la contraseña desde el inicio de sesión.
+
+#### Problemas conocidos
+1. `MySql-Workbench`: Este programa siempre requiere que una aplicación con el motor de `Chrome` se inicie antes, esto para ingresar a bases de datos que tienen la contraseña guardada, en mi caso, abro `brave` primero y, luego, abro `mysql-workbench`.
 
 ### pass y pass-secret-service
 

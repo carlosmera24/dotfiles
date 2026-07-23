@@ -86,9 +86,7 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("hypridle")
 
   -- genome-keyring
-  -- exec-once = sh -c 'eval "$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)"; export SSH_AUTH_SOCK'
-  hl.exec_cmd("gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg")
-  hl.exec_cmd("dbus-update-activation-environment") --systemd SSH_AUTH_SOCK DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+  hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP DISPLAY SSH_AUTH_SOCK")
 
   -- Cursor, requiere instalar volantes-cursor (AUR) o descargar y copiar en /usr/share/icons
   hl.exec_cmd("hyprctl setcursor volantes_cursors 24")
