@@ -220,7 +220,35 @@ Se debería ver `/usr/bin/gnome-keyring-daemon --daemonize --login`,y en el moni
 >De esta manera, gnome-keyring está activo y con la contraseña desde el inicio de sesión.
 
 #### Problemas conocidos
-1. `MySql-Workbench`: Este programa siempre requiere que una aplicación con el motor de `Chrome` se inicie antes, esto para ingresar a bases de datos que tienen la contraseña guardada, en mi caso, abro `brave` primero y, luego, abro `mysql-workbench`.
+1. `MySql-Workbench`: Este programa siempre requiere que una aplicación con el motor de `Chrome` se inicie antes, esto para ingresar a bases de datos que tienen la contraseña guardada, en mi caso, abro `brave` primero y, luego, abro `mysql-workbench`, en mi caso, después de asegurarme que toda la configuración es correcta, comprobando que funcionaba en mi laptop pero no en mi equipo de escritorio, el error estaba en `~/.local/share/keyrings`:
+
+    - Crear una copia del directorio `~/.local/share/keyrings`
+    - Reiniciar el sistema
+    - Al ingresar, se creará un nuevo directorio, esto eliminará las contraseñas y será necesario volver a incluirlas.
+
+Las diferencias que evidencie están en:
+
+    - Correcto:
+
+    ```shell
+    ls ~/.local/share/keyrings -> login.keyring  user.keystore |
+    ```
+
+    - Problemático:
+
+    ```shell
+     ls ~/.local/share/keyrings_backup/
+    default  Depósito_de_claves_predeterminado.keyring  login.keyring  user.keystore
+    ```
+
+También es importante asegurarse que el servicio de `gnome-keyring` inicien desde `hyprland` y `pam`, para ello:
+    
+    ```shell
+    systemctl --user disable --now gnome-keyring-daemon.socket
+    systemctl --user disable --now gnome-keyring-daemon.service
+    systemctl --user mask gnome-keyring-daemon.service
+    ```
+
 
 ### pass y pass-secret-service
 
