@@ -92,12 +92,16 @@ hl.on("hyprland.start", function ()
   -- Cursor, requiere instalar volantes-cursor (AUR) o descargar y copiar en /usr/share/icons
   hl.exec_cmd("hyprctl setcursor volantes_cursors 24")
 
+  -- Hyprpolkit
+  hl.exec_cmd("systemctl --user enable hyprpolkitagent.service")
+
   -- Notificador personalizado de batería baja
   hl.exec_cmd("~/.config/myscripts/battery-notify.sh")
 
   -- Definir workspace por default, solución alternativa para no usar default:true en workspaces,
   -- ya que genera conflicto entre equipos, y solo tomará como default el primer workspace definido
   hl.exec_cmd("hyprctl dispatch 'hl.dsp.focus({ workspace = 1 })'")
+
   -- Snappy
   hl.exec_cmd("snappy-switcher --daemon")
 end)
