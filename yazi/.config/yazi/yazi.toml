@@ -4,17 +4,17 @@ edit = [
 ]
 markdown = [
     { run = 'zettlr "$@"', desc = "Open in Zettlr", block = false, orphan = true, for = "unix" },
-    { run = 'apostrophe "$@"', desc = "Open in Apostrophe", block = false, orphan = true, for = "unix" },
+    { run = 'apostrophe "$@"', desc = "Open in Apostrophe", block = false, orphan = true, for = "linux" },
     { run = 'marktext "$@"', desc = "Open in MarkText", block = false, orphan = true, for = "unix" },
 ]
 reveal = [
-    { run = 'nemo "%d"', desc = "Reveal in Nemo", block = false, for = "unix" },
-    { run = 'thunar "%d"', desc = "Reveal in Thunar"},
+    { run = 'nemo "%d"', desc = "Reveal in Nemo", block = false, for = "linux" },
+    { run = 'thunar "%d"', desc = "Reveal in Thunar", block = false, for = "linux" },
     { run = 'open "%d"', desc = "Reveal in Finder", block = false, for = "macos" },
 ]
 images = [
     # Eye of Gnome
-    { run = 'eog "$@"', desc = "Open in Eye of Gnome", block = false, orphan = true, for = "unix" },
+    { run = 'eog "$@"', desc = "Open in Eye of Gnome", block = false, orphan = true, for = "linux" },
     # Gimp
     { run = 'gimp "$@"', desc = "Edit in Gimp", block = false, orphan = true, for = "unix" },
     # Inkscape
@@ -23,7 +23,7 @@ images = [
     { run = 'open "$@"', desc = "Open in Preview", block = false, orphan = true, for = "macos" },
 ]
 pdf = [
-    { run = 'evince "$@"', desc = "Open in Evince", block = false, orphan = true, for = "unix" },
+    { run = 'evince "$@"', desc = "Open in Evince", block = false, orphan = true, for = "linux" },
     # Preview (macOS)
     { run = 'open "$@"', desc = "Open in Preview", block = false, orphan = true, for = "macos" },
 ]

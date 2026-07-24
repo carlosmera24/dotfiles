@@ -4,16 +4,22 @@
 ## Instalación
 ### Linux
 En `Arch` podemos instalar directamente desde el repositorio oficial:
+
 ```shell
 sudo pacman -S rio
 ```
+
 > Para el caso de GPU AMD, solicitará selección del repositorio correcto para el driver, en le caso de `AMD Radeon RX 550 / 550 Series \[Discrete]` lo recomendable es usar `vulkan-radeon`.
 
 ### MacOs
 Usar la instalación bajo `brew`:
+
 ```powershell
 brew install --cask rio
 ```
+
+> También se puede descargar el archivo `.dmg` desde la web oficial.
+
 ## Configuración
 La ruta de configuración, tanto para `linux` como `macos` es `~/.config/rio/config.toml`.
 
