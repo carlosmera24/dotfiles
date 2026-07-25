@@ -43,6 +43,8 @@ exec = dbus-update-activation-environment --systemd SSH_AUTH_SOCK DISPLAY WAYLAN
 
 #Notificaciòn de baterìa
 exec_always --no-startup-id ~/.config/myscripts/battery-notify.sh &
+#Exportar variable para uso de Wayland
+exec_always export WAYLAND_DISPLAY=wayland-1
 
 #
 # Example configuration:
