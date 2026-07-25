@@ -143,6 +143,14 @@ input "9610:144:SIN_Mec" {
 input "9610:144:SINO_WEALTH_Mec" {
     xkb_layout latam
 }
+
+# Deshatilitar mientras se usa el touchpad
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    tap_button_map lrm
+}
 #-----------------------
 ### Key bindings
 #-----------------------
@@ -175,6 +183,10 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec $menu
 bindsym $modAlt+f2 exec $menu
 bindsym $mod+space exec $menu
+
+#Habilitar/Inhabilitar el touchpad
+bindsym $mod+Shift+t exec ~/.config/myscripts/toggle-touchpad.sh
+# bindsym $mod+Shift+t exec, swaymsg input type:touchpad events toggle
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
