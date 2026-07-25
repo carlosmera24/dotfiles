@@ -42,17 +42,17 @@ Instalarà las dependencias necesarias:
 Mi instalación recomendada o en un solo comando, después de recopilar toda mi configuración y dependencias:
 
 ```shell
-sudo pacman -S hyprland waybar hyprlock hypridle wpaperd hyprlauncher foot networkmanager network-manager-applet archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkms adapta-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd nwg-drawer nwg-hello hyprpolkitagent
+sudo pacman -S hyprland hyprlock hypridle wpaperd hyprlauncher foot networkmanager network-manager-applet archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkms adapta-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd nwg-drawer nwg-hello hyprpolkitagent libdbusmenu-gtk3
 ```
 
 > Parece que adapta-nokto-gtk-theme cambio a adapta-gtk-theme, wf-recoder no está disponible en estos momentos
 
 ```shell
-yay -S wlogout numix-icon-theme-circle ttf-font-awesome-5 volantes-cursors
+yay -S ashell-bin wlogout numix-icon-theme-circle ttf-font-awesome-5 volantes-cursors
 ```
 
 ```shell
-paru -S wlogout numix-icon-theme-pack-git  ttf-font-awesome-5 volantes-cursors snappy-switcher
+paru -S ashell-bin wlogout numix-icon-theme-pack-git  ttf-font-awesome-5 volantes-cursors snappy-switcher
 ```
 
 > numix-icon-theme-circle cambió, es necesario instalar `numix-icon-theme-pack-git`, `vlantes-cursors` se puede [descargar](https://www.pling.com/p/1356095/) y copiar a `/usr/share/icons`, `~/.icons/` o `~/.local/share/icons/` recargar con `sudo gtk-update-icon-cache -f -t /usr/share/icons/`
@@ -61,6 +61,14 @@ Agregar usuario a los grupos necesarios:
 
 ```bash
 sudo usermod -aG input $USER
+
+```
+
+Permisos de scripts:
+
+```shell
+chmod +x ~/.config/myscripts/battery-notify.sh
+chmod +x ~/.config/myscripts/capslock-status.sh
 ```
 
 
@@ -74,8 +82,6 @@ Actualmente `hyperland`  a migrado su configuración a `lua` por lo que el archi
 ### Terminal
 
 Por defecto, hyprland usa `kitty` como terminal, sin embargo, dado que `foot` es una terminal creada para Wayland, la he configurado como terminal por defecto, la cual tiene como atajo de teclado `Super+q`.
-
-> De momento estoy usando los servicios y complementos que tengo instalados con sway, de tal manera que la configuración sea compatible o la conserve, solo he tenido que ajustar waybar
 
 ## Wallpapers
 
@@ -169,39 +175,39 @@ Se integra muy bien con gestores de inicio de sesión como `lightdm` o `gdm`, pe
 
 #### Configuración de PAM (nwg-hello)
 
-La documentación de [ArchLinux](https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step) sugiere editar `/etc/pam.d/login` para aquellos displays manager que no tienen el soporte automático, para el caso de `nwg-hello` debe ser `/etc/pam.d/greetd` ya que usa `greetd`; para ello se agrega  `auth optional pam_gnome_keyring.so` al final de la sección auth y `session optional pam_gnome_keyring.so auto_start` al final de la sección session:
+1. La documentación de [ArchLinux](https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step) sugiere editar `/etc/pam.d/login` para aquellos displays manager que no tienen el soporte automático, para el caso de `nwg-hello` debe ser `/etc/pam.d/greetd` ya que usa `greetd`; para ello se agrega  `auth optional pam_gnome_keyring.so` al final de la sección auth y `session optional pam_gnome_keyring.so auto_start` al final de la sección session:
 
->~/etc/pam.d/greetd~ es importante aplicarlo en este archivo, sin embargo, lo he agregado, al mismo tiempo, a login y funciona, pero es vital activar la casilla para autologin en el dialogo de contraseña de gnome-keyring.
+    >`/etc/pam.d/greetd` es importante aplicarlo en este archivo, sin embargo, lo he agregado, al mismo tiempo, a login y funciona, pero es vital activar la casilla para autologin en el dialogo de contraseña de gnome-keyring.
 
-```toml
-#%PAM-1.0
+    ```toml
+    #%PAM-1.0
 
-auth       requisite    pam_nologin.so
-auth       include      system-local-login
-#Gnome Keyring
-auth       optional     pam_gnome_keyring.so
-#---
-account    include      system-local-login
-session    include      system-local-login
-#Gnome Keyring
-session    optional     pam_gnome_keyring.so auto_start
-#----
-password   include      system-local-login
-```
-> He dejado las marcas con el comentario `gnome-keyring` para que se pueda identificar
+    auth       requisite    pam_nologin.so
+    auth       include      system-local-login
+    # Gnome Keyring Auth
+    auth       optional     pam_gnome_keyring.so
 
-Por último, es importante agregar el inicio de `gnome-keyring` al inicio de `Hyprland` para ello se agrega al archivo de configuración:
+    account    include      system-local-login
+    session    include      system-local-login
+    # Gnome Keyring Session
+    session    optional     pam_gnome_keyring.so auto_start
+    password   include      system-local-login
+    ```
+    > He dejado las marcas con el comentario `gnome-keyring` para que se pueda identificar
 
-```conf
-exec-once = gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg
-exec-once = dbus-update-activation-environment --systemd SSH_AUTH_SOCK DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-```
+2. Agregar a la configuración de `hyprland`:
 
-> Otra opción es mover el inicio del servicio a systemd-user:
->
->```shell
->systemctl --user enable gnome-keyring-daemon.service
->```
+    ```lua
+    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP DISPLAY SSH_AUTH_SOCK")
+    ```
+    > Esta configuración ha sido simplificada, tras varias pruebas, eliminado la linea `hl.exec_cmd("sh -c 'eval \"$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)\"; export SSH_AUTH_SOCK'`, ya que el inicio de `gnome-keyring-daemon` pasa a ser gestionado por `greetd` de `nwg-hello`.
+    
+3. Por último, habilitar el inicio de `hyprpolkitagent`, desde `hyprland`:
+
+    ```lua
+    hl.exec_cmd("systemctl --user enable hyprpolkitagent.service")
+    ```
+    > No iniciar a nivel de usuario, es decir, no usar `systemctl --user enable --now hyprpolkitagent.service`, ya que se define desde el inicio de hyprland
 
 #### Pruebas
 
@@ -212,6 +218,37 @@ ps aux | grep gnome-keyring
 ```
 Se debería ver `/usr/bin/gnome-keyring-daemon --daemonize --login`,y en el monitor de servicios (htop) también debe listar `gnome-keyring` con el indicativo de `login`.
 >De esta manera, gnome-keyring está activo y con la contraseña desde el inicio de sesión.
+
+#### Problemas conocidos
+1. `MySql-Workbench`: Este programa siempre requiere que una aplicación con el motor de `Chrome` se inicie antes, esto para ingresar a bases de datos que tienen la contraseña guardada, en mi caso, abro `brave` primero y, luego, abro `mysql-workbench`, en mi caso, después de asegurarme que toda la configuración es correcta, comprobando que funcionaba en mi laptop pero no en mi equipo de escritorio, el error estaba en `~/.local/share/keyrings`:
+
+    - Crear una copia del directorio `~/.local/share/keyrings`
+    - Reiniciar el sistema
+    - Al ingresar, se creará un nuevo directorio, esto eliminará las contraseñas y será necesario volver a incluirlas.
+
+Las diferencias que evidencie están en:
+
+    - Correcto:
+
+    ```shell
+    ls ~/.local/share/keyrings -> login.keyring  user.keystore |
+    ```
+
+    - Problemático:
+
+    ```shell
+     ls ~/.local/share/keyrings_backup/
+    default  Depósito_de_claves_predeterminado.keyring  login.keyring  user.keystore
+    ```
+
+También es importante asegurarse que el servicio de `gnome-keyring` inicien desde `hyprland` y `pam`, para ello:
+    
+    ```shell
+    systemctl --user disable --now gnome-keyring-daemon.socket
+    systemctl --user disable --now gnome-keyring-daemon.service
+    systemctl --user mask gnome-keyring-daemon.service
+    ```
+
 
 ### pass y pass-secret-service
 
@@ -368,6 +405,10 @@ window {
 	background-image: url("/usr/share/backgrounds/archlinux/awesome.png"); background-size: auto 100%
 }
 ```
+
+## Barra de estado
+
+Inicialmente use `waybar`, pero dado problemas que tuve con el selector de `workspace`, he optado por usar `ashell`, el cual se integra mejor y corre más fluido con `Hyprland`.
 
 ## Menu - Aplicaciones
 

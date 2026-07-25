@@ -283,6 +283,8 @@ Dentro de las opciones que tenemos para configurar los plugins:
 
 #### NVIM-TREE
 
+> Actualmente está deshabilitado, ya que uso el `yazi`, `oil` o `telescope explorer`
+
 [GitHub](https://github.com/nvim-tree/nvim-tree.lua) Reemplazando Nerd-Tree, de igual manera permite tener un arbol de directorios y archivos para explorar el poryecto actual, escrito en Lua.
 
 - `g?` permite listar las opciones sobre el archivo o directorio
@@ -1041,6 +1043,10 @@ Dentro de los subplugins que he implementado están:
 
 [GitHub](https://github.com/kdheepak/lazygit.nvim) Plugin de `LazyGit` para Vim, se instala con `:LazyGit` y se abre con `:LazyGit`
 
+#### Caps Detect
+
+Un simple indicador de mayúscula activo. [GitHub](https://github.com/nikita-edel/capsdetect.nvim)
+
 ### Temas
 
 Los temas se pueden consultar en https://vimcolorschemes.com/ y se define/configura en `core/plugins/colorscheme.lua`, actualmente uso **Tokyo Night moon**
@@ -1052,6 +1058,7 @@ Los temas se pueden consultar en https://vimcolorschemes.com/ y se define/config
 5. atom-dark
 6. dracula
 7. VimHybrid
+
 
 ## Solución de Errores
 

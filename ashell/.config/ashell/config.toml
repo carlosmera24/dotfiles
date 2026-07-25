@@ -1,0 +1,67 @@
+log_level = "ashell=debug"
+language = "es-CO"
+region = "es-CO"
+outputs = "All"
+position = "Top"
+enable_esc_key = true
+
+[workspaces]
+visibility_mode = "MonitorSpecific"
+
+[modules]
+left = [ "Laucher", "Workspaces" ]
+center = [ "WindowTitle" ]
+right = [ 
+    ["SystemInfo", "MediaPlayer"],
+    ["Tray", "Tempo", "CapsLockStatus", "Notifications", "Privacy", "Settings"]
+]
+
+[[CustomModule]]
+name = "Laucher"
+type = "Button"
+icon = ""
+command = "nwg-drawer"
+
+[[CustomModule]]
+name = "CapsLockStatus"
+type = "Text"
+icon = ""
+listen_cmd = "~/.config/myscripts/capslock-status.sh"
+indicator_format = "Icon"
+
+[media_player]
+max_title_length = 50
+indicator_format = "Icon"
+
+[notifications]
+format = "%m/%d %H:%M"
+show_timestamps = true
+show_bodies = true
+grouped = true
+toast = true
+toast_position = "top_right"
+toast_timeout = 4000
+toast_limit = 5
+toast_max_height = 150
+
+[settings]
+audio_indicator_format = "IconAndPercentage"
+bluetooth_indicator_format = "IconAndValue"
+peripheral_battery_format = "Icon"
+lock_cmd = "hyprlock &"
+hibernate_cmd = "systemctl hibernate"
+
+# Tokyo Night - night
+[appearance]
+primary_color = "#7aa2f7"
+success_color = "#9ece6a"
+warning_color = "#e0af68"
+danger_color = "#f7768e"
+text_color = "#a9b1d6"
+
+workspace_colors = [ "#7aa2f7", "#9ece6a" ]
+
+[appearance.background_color]
+base = "#1a1b26"
+weak = "#24273a"
+strong = "#414868"

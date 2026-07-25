@@ -67,23 +67,33 @@ hl.on("hyprland.start", function ()
   -- hl.exec_cmd(terminal)
   -- hl.exec_cmd("waybar & hyprpaper & firefox")
   -- hl.exec_cmd("nm-applet")
+  -- hl.exec_cmd("nm-applet & ashell &  mako")
 
-  hl.exec_cmd("waybar & nm-applet & mako")
+  -- nm-applet y blueman-applet
+  -- hl.exec_cmd("nm-applet & blueman-applet")
+  hl.exec_cmd("nm-applet")
+
+  -- Activar notificaciones try para ashell 
+  hl.exec_cmd("/usr/lib/libdbusmenu-gtk3/status-notifier-watcher")
+
+  -- Ashell
+  hl.exec_cmd("ashell")
+
   -- Wallpaper --
   hl.exec_cmd("wpaperd")
+
   -- Bloqueo de pantalla --
   -- hypridle - cambio la gestión del bloqueo de pantalla para una integración más nativa
   hl.exec_cmd("hypridle")
+
   -- genome-keyring
-  -- exec-once = sh -c 'eval "$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)"; export SSH_AUTH_SOCK'
-  hl.exec_cmd("gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg")
-  hl.exec_cmd("dbus-update-activation-environment") --systemd SSH_AUTH_SOCK DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+  hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP DISPLAY SSH_AUTH_SOCK")
 
   -- Cursor, requiere instalar volantes-cursor (AUR) o descargar y copiar en /usr/share/icons
   hl.exec_cmd("hyprctl setcursor volantes_cursors 24")
 
-  -- Polkit
-  hl.exec_cmd("systemctl --user start hyprpolkitagent")
+  -- Hyprpolkit
+  hl.exec_cmd("systemctl --user enable hyprpolkitagent.service")
 
   -- Notificador personalizado de batería baja
   hl.exec_cmd("~/.config/myscripts/battery-notify.sh")
@@ -91,6 +101,7 @@ hl.on("hyprland.start", function ()
   -- Definir workspace por default, solución alternativa para no usar default:true en workspaces,
   -- ya que genera conflicto entre equipos, y solo tomará como default el primer workspace definido
   hl.exec_cmd("hyprctl dispatch 'hl.dsp.focus({ workspace = 1 })'")
+
   -- Snappy
   hl.exec_cmd("snappy-switcher --daemon")
 end)
@@ -163,7 +174,7 @@ hl.config({
             enabled      = true,
             range        = 4,
             render_power = 3,
-            color        = 0xee1a1a1a,
+            color        = "0xee1a1a1a",
         },
 
         blur = {

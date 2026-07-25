@@ -29,14 +29,17 @@ A continuación describo las herramientas o aplicaciones que estoy gestionando c
 | Herramienta | Raíz      | Ruta completa                             | Directorio final      |
 | ----------- | --------- | ----------------------------------------- | --------------------- |
 | Alacritty   | alacritty | `~/.dotfiles/alacritty/.config/alacritty` | `~/.config/alacritty` |
+| Ashell      | ashell | `~/.dotfiles/ashell/.config/ashell` | `~/.config/ashell` |
 | Foot        | foot      | `~/.dotfiles/foot/.config/foot`           | `~/.config/foot`      |
 | gtklock     | gtklock   | `~/.dotfiles/gtklock/.config/gtklock`     | `~/.config/gtklock`   |
+| Harlequin     | harlequin   | `~/.dotfiles/harlequin/.config/harlequin`     | `~/.config/harlequin`   |
 | Kitty       | kitty     | `~/.dotfiles/kitty/.config/kitty`         | `~/.config/kitty`     |
 | LazyGit     | lazygit   | `~/.dotfiles/lazygit/.config/lazygit`     | `~/.config/lazygit`   |
 | Mako        | mako      | `~/.dotfiles/mako/.config/mako`           | `~/.config/mako`      |
 | My Scripts  | myscripts | `~/.dotfiles/myscripts/.config/myscripts` | `~/.config/myscripts` |
 | NeoVim      | nvim      | `~/.dotfiles/nvim/.config/nvim`           | `~/.config/nvim`      |
 | nwg-drawer  |nwg-drawer | `~/.dotfiles/nwg-drawer/.config/nwg-drawer`| `~/.config/nwg-drawer`|
+| Rio | rio | `~/.dotfiles/rio/.config/rio` | `~/.config/rio` |
 | snappy-switcher | snappy-switcher | `~/.dotfiles/snappy-switcher/.config/snappy-switcher` | `~/.config/snappy-switcher`|
 | Sway        | sway      | `~/.dotfiles/sway/.config/sway`           | `~/.config/sway`      |
 | Swaylock    | swaylock  | `~/.dotfiles/swaylock/.config/swaylock`   | `~/.config/swaylock`  |
@@ -59,12 +62,18 @@ tree -La 3
 ├── alacritty
 │   └── .config
 │       └── alacritty
+├── ashell
+│   └── .config
+│       └── ashell
 ├── foot
 │   └── .config
 │       └── foot
 ├── gtklock
 │   └── .config
 │       └── gtklock
+├── harlequin
+│   └── .config
+│       └── harlequin
 ├── hypr
 │   └── .config
 │       └── hypr
@@ -88,6 +97,9 @@ tree -La 3
 │   └── .config
 │       └── nwg-drawer
 ├── README.md
+├── rio
+│   └── .config
+│       └── rio
 ├── snappy-switcher
 │   └── .config
 │       └── snappy-switcher
