@@ -366,6 +366,7 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(dialogExit))
 hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd(dialogExit))
 
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("thunar"))
 hl.bind(mainMod .. " + SHIFT + SPACE", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
@@ -499,6 +500,8 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = tr
 -- CUSTOM KEYBINDS ---
 -- Open kitty terminal
 hl.bind("CONTROL + " .. modAlt .. " + K", hl.dsp.exec_cmd("kitty") )
+-- Open rio terminal
+hl.bind("CONTROL + " .. modAlt .. " + R", hl.dsp.exec_cmd("rio") )
 -- Open terminal as others desktop 
 hl.bind( "CONTROL + " .. modAlt .. " + T", hl.dsp.exec_cmd("gnome-terminal") )
 -- Block screen
