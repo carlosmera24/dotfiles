@@ -198,9 +198,11 @@ Se integra muy bien con gestores de inicio de sesión como `lightdm` o `gdm`, pe
 2. Agregar a la configuración de `hyprland`:
 
     ```lua
+    hl.exec_cmd("gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg")
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP DISPLAY SSH_AUTH_SOCK")
     ```
     > Esta configuración ha sido simplificada, tras varias pruebas, eliminado la linea `hl.exec_cmd("sh -c 'eval \"$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)\"; export SSH_AUTH_SOCK'`, ya que el inicio de `gnome-keyring-daemon` pasa a ser gestionado por `greetd` de `nwg-hello`.
+    > La linea `hl.exec_cmd("gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg")` la conservo, ya que veo que algunas veces sigue pidiendo contraseña las apps, esta linea mejora ese comportamiento
     
 3. Por último, habilitar el inicio de `hyprpolkitagent`, desde `hyprland`:
 
@@ -248,6 +250,9 @@ También es importante asegurarse que el servicio de `gnome-keyring` inicien des
     systemctl --user disable --now gnome-keyring-daemon.service
     systemctl --user mask gnome-keyring-daemon.service
     ```
+
+Por último, he mantenido la linea `hl.exec_cmd("gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg")` para que se mantenga el comportamiento de `gnome-keyring` al iniciar el servicio de `hyprland`, ya que en ocasiones suele fallar y pedir la contraseña para `brave` y `mysql-workbench`
+
 
 
 ### pass y pass-secret-service
