@@ -43,4 +43,12 @@ keys = [
     { key = "l", with ="alt", action ="SelectPrevSplit"},
     { key = "left", with ="control", action ="SelectPrevSplit"},
     { key = "left", with ="alt", action ="SelectPrevSplit"},
+    #Split resize - not working - issues report #1550
+    { key = "up", with = "control | alt", action = "MoveDividerUp" },
+    { key = "k", with = "control | alt", action = "MoveDividerUp" },
+    { key = "down", with = "control | alt", action = "MoveDividerDown" },
+    { key = "j", with = "control | alt", action = "MoveDividerDown" },
+    { key = "left", with = "control | alt", action = "MoveDividerLeft" },
+    { key = "h", with = "control | alt", action = "MoveDividerLeft" },
+    { key = "l", with = "control | alt", action = "MoveDividerRight" },
 ]
