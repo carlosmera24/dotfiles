@@ -18,7 +18,6 @@ set $right l
 set $term foot
 # Your preferred application launcher
 set $menu wofi --show drun
-set $fileManager nemo
 
 ### Output configuration
 #
@@ -158,7 +157,8 @@ input type:touchpad {
 # Custom:
 
 # Open file browser 
-bindsym $mod+e exec $fileManager
+bindsym $mod+e exec nemo
+bindsym $mod+t exec thunar
 # Open kitty terminal
 bindsym Control+$modAlt+k exec kitty
 # Open terminal as others desktop 
