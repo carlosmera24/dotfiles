@@ -40,12 +40,10 @@ keys = [
     { key = "d", with = "control | shift", action = "SplitDown" },
     { key = "F5", with = "", action = "SplitDown" },
     #Split move
-    { key = "h", with ="control", action ="SelectNextSplit"},
-    { key = "h", with ="alt", action ="SelectNextSplit"},
+    { key = "l", with ="alt", action ="SelectNextSplit"},
     { key = "right", with ="control", action ="SelectNextSplit"},
     { key = "right", with ="alt", action ="SelectNextSplit"},
-    { key = "l", with ="control", action ="SelectPrevSplit"},
-    { key = "l", with ="alt", action ="SelectPrevSplit"},
+    { key = "h", with ="alt", action ="SelectPrevSplit"},
     { key = "left", with ="control", action ="SelectPrevSplit"},
     { key = "left", with ="alt", action ="SelectPrevSplit"},
     #Split resize - not working - issues report #1550
