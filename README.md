@@ -41,6 +41,7 @@ A continuación describo las herramientas o aplicaciones que estoy gestionando c
 | nwg-drawer  |nwg-drawer | `~/.dotfiles/nwg-drawer/.config/nwg-drawer`| `~/.config/nwg-drawer`|
 | Rio | rio | `~/.dotfiles/rio/.config/rio` | `~/.config/rio` |
 | snappy-switcher | snappy-switcher | `~/.dotfiles/snappy-switcher/.config/snappy-switcher` | `~/.config/snappy-switcher`|
+|         Starship        |         starship        |                            `~/.dotfiles/starship/.config/starship`                           |              `~/.config/starshp`              |
 | Sway        | sway      | `~/.dotfiles/sway/.config/sway`           | `~/.config/sway`      |
 | Swaylock    | swaylock  | `~/.dotfiles/swaylock/.config/swaylock`   | `~/.config/swaylock`  |
 | tmux        | tmux      | `~/.dotfiles/tmux/.tmux`                  | `~/.tmux`             |
@@ -50,6 +51,7 @@ A continuación describo las herramientas o aplicaciones que estoy gestionando c
 | wofi        | wofi      | `~/.dotfiles/wofi/.config/wofi`           | `~/.config/wofi`      |
 | Wpaperd     | wpaperd    | `~/.dotfiles/wpaperd/.config/wpaperd`     | `~/.config/wpaperd`   |
 | yazi        | yazi      | `~/.dotfiles/yazi/.config/yazi`           | `~/.config/yazi`      |
+|       zsh      |      zhs     |                      `~/.dotfiles/zsh/.zshrc`                     |            `~/.zshrc`           |
 
 ## Árbol de directorio
 
@@ -103,6 +105,9 @@ tree -La 3
 ├── snappy-switcher
 │   └── .config
 │       └── snappy-switcher
+├── starship
+│   └── .config
+│       └── starship
 ├── sway
 │   └── .config
 │       └── sway
@@ -132,9 +137,11 @@ tree -La 3
 ├── wpaperd
 │   └── .config
 │       └── wpaperd
-└── yazi
-    └── .config
-        └── yazi
+├── yazi
+│   └── .config
+│       └── yazi
+└── zsh
+    └── .zshrc
 ```
 
 ## Stow
