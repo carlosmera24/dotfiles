@@ -1,5 +1,7 @@
 # Starship
 
+[Starship](https://starship.rs/) es un promp personalizado para shel, escrito en `Rust`.
+
 ## Instalación
 
 ### Arch

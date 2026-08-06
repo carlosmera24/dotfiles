@@ -17,7 +17,7 @@ En `arch` basta con ejecutar:
 sudo pacman -S zsh
 ```
 
-2. Consultar ruta de acceso:
+2. Consultar ruta de acceso:hiden
 
 ```bash
 chsh -l
@@ -31,3 +31,115 @@ chsh -s $(which zsh)
 >También se puede usar la ruta consultada: `chsh -s /usr/bin/zsh`
 ```
 
+## Prompts
+
+He usado [Oh My Bash](https://ohmybash.nntoan.com/) y [Oh My Zsh](https://ohmyz.sh/), respectivamente. Sin embargo, he optado para usar [Starship](https://starship.rs/), el cual está escrito en `Rust` y es compatible con los sistemas operativos más comunes y shells, en mi caso `zsh` y `bash`
+Para instalación y configuración, ver la sección en el directorio de este repositorio para `starship`.
+
+## Zoxide
+
+[Github](https://github.com/ajeetdsouza/zoxide) es un comando de `cd` más inteligente, recuerda y permite saltar a los directorios con más uso frecuente.
+
+### Instalación:
+
+En `arch` basta con ejecutar:
+
+```bash
+paru -S zoxide
+```
+
+En MacOs con `homebrew`:
+
+```bash
+brew install zoxide 
+```
+
+### Usos:
+
+1. Se accede normalmente a los directorios usando `cd`, estos serán guardados en el historial y `zoxide` los recuerda.
+2. Usando `z` se accede a los directorios, indicando parte o nombre del directorio
+
+```bash
+z [nombre]
+```
+
+> Se pueden incluir varios nombres, separados por espacio
+
+3. Abrir directorio con selección interactiva, usa `fzf`:
+
+```bash
+zi [nombre]
+```
+
+> Se puede omitir el nombre, y se listará los directorio frecuentes para sselección
+
+## EZA
+
+[Github](https://github.com/eza-community/eza) es un comando moderno/alternativo de `ls` que permite ver información adicional de los archivos. 
+Utiliza colores para distinguir los tipos de archivos y los metadatos. Conoce los enlaces simbólicos, los atributos extendidos y Git. Y es pequeño, rápido y solo un binario.
+
+### Instalación:
+
+En `arch` basta con ejecutar:
+
+```bash
+paru -S eza
+```
+
+En MacOs con `homebrew`:
+
+```bash
+brew install eza
+```
+
+### Usos:
+
+Funciona similar a `ls`, por lo que tendremos las mismas opciones y adicional, algunas enriquecidas:
+
+1. Listar infomación extendida: `eza -l`
+2. Listar todos los archivos y directorios, incluso ocultos: `eza -a` 
+3. Listar árbol de directorios: `eza -T`, especificar nivel con `eza -TL 2`
+
+## Tree
+
+Suelo usar [tree](https://oldmanprogrammer.net/source.php?dir=projects/tree) para listar el árbol del directorio, el cual está en los repositorios de linux y homebrew.
+
+```bash
+tree -L 2
+```
+
+## FZF
+
+[Github](https://github.com/junegunn/fzf) es un buscador de archivos, directorios y comandos.
+
+### Instalación:
+
+En `arch` basta con ejecutar, ya que está en los repositorio oficiales:
+
+```bash
+paru -S fzf
+```
+
+En MacOs con `homebrew`:
+
+```bash
+brew install fzf
+```
+
+## BAT
+
+[Github](https://github.com/sharkdp/bat) es un reemplazo de `cat` que muestra el contenido de los archivos con syntax highlighting.
+
+### Instalación:
+
+En `arch` basta con ejecutar, ya que está en los repositorio oficiales:
+
+```bash
+paru -S bat
+```
+
+En MacOs con `homebrew`:
+
+```bash
+brew install bat
+```

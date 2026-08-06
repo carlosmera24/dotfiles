@@ -51,7 +51,7 @@ A continuación describo las herramientas o aplicaciones que estoy gestionando c
 | wofi        | wofi      | `~/.dotfiles/wofi/.config/wofi`           | `~/.config/wofi`      |
 | Wpaperd     | wpaperd    | `~/.dotfiles/wpaperd/.config/wpaperd`     | `~/.config/wpaperd`   |
 | yazi        | yazi      | `~/.dotfiles/yazi/.config/yazi`           | `~/.config/yazi`      |
-|       zsh      |      zhs     |                      `~/.dotfiles/zsh/.zshrc`                     |            `~/.zshrc`           |
+|       zsh      |      zsh      |                      `~/.dotfiles/zsh/.zshrc`                     |            `~/.zshrc`           |
 
 ## Árbol de directorio
 
