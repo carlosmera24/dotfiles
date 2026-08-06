@@ -143,3 +143,21 @@ En MacOs con `homebrew`:
 ```bash
 brew install bat
 ```
+
+## DUF
+
+[GitHub](https://github.com/muesli/duf) Utilidad para mostrar información del disco, alternativa moderna a `df`
+
+### Instalación:
+
+En linux se encuentra en los repositorios oficiales, para el caso de `arch`:
+
+```bash
+paru -S duf
+```
+
+En MacOs con `homebrew`:
+
+```bash
+brew install duf
+```

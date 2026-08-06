@@ -2,7 +2,7 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-FUNCNEST=5000
+FUNCNEST=5000 # Increase the limit of nested function calls
 bindkey -v
 setopt autocd beep extendedglob nomatch notify
 # End of lines configured by zsh-newuser-install
