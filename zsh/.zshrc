@@ -2,6 +2,7 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
+FUNCNEST=5000
 bindkey -v
 setopt autocd beep extendedglob nomatch notify
 # End of lines configured by zsh-newuser-install
@@ -12,9 +13,15 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-# Enable history search with arrow keys
-bindkey '^[[A' history-search-backward
-bindkey '^[[B' history-search-forward
+#------- Enable history search with arrow keys
+# Bindings main keymap (emacs) - arrow keys
+bindkey '^[[A' history-beginning-search-backward
+bindkey '^[[B' history-beginning-search-forward
+
+# Bindings vi mode 
+bindkey -M vicmd 'j' history-beginning-search-backward
+bindkey -M vicmd 'k' history-beginning-search-forward
+#------- Enable history search with arrow keys
 
 # starship
 eval "$(starship init zsh)"
