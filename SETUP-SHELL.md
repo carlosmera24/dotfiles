@@ -161,3 +161,66 @@ En MacOs con `homebrew`:
 ```bash
 brew install duf
 ```
+
+## envchain
+
+[GitHub](https://github.com/sorah/envchain) La mejor forma que he encontrado, sencilla, práctica y eficiente, para almacenar variables de entrono, de tal manera que no se registren directamente en el shell.
+
+### Instalación:
+
+En linux suele estar en los repositorios oficiales, para  `arch` está en `aur`:
+
+```bash
+paru -S envchain
+```
+
+## Usos:
+
+> NOTE: Suelo agrupar todas las `keys` en el proyecto `apis`, de tal manera que solo cargo `envchain apis env`
+
+1. Almacenar variable:
+
+```bash
+envchain --set [name_project] [NAME_KEY]
+```
+> Ejemplo: `envchain --set apis GITHUB_API_KEY` 
+>Esto pedirá la clave que se quiere definir, allí se debe pegar o ingresar.
+
+2. Listar variables:
+
+```bash
+envchain --lit
+```
+
+3. Mostrar variable:
+
+```bash
+envchain [name_project] env
+```
+> Ejemplo: `envchain apis env`
+Este comando cargará todas las variables del espacio mi-proyecto en el entorno y ejecutará env, listando todas las variables de entorno. Verás tus variables junto con todas las demás. Puedes filtrar la salida con grep para buscar específicamente tus claves:
+
+```bash
+envchain [name_project] env | grep '[NAME_KEY]'
+```
+
+También podemos visualizar solo el valor de la clave:
+
+```bash
+envchain [name_project] printenv '[NAME_KEY]'
+```
+> Ejemplo: `envchain apis printenv GITHUB_API_KEY`
+
+3. Borrar variable: Es necesario usar un gestsor de contraseñas:
+
+- Linux: Se puede usar [seahorse](https://gitlab.gnome.org/GNOME/seahorse) [Secrets](https://apps.gnome.org/es/Secrets/)
+- MacOs: Usar `Keychain Access` 
+
+4. Cargar variable al shell: basta con agregar a `~/.bashrc` o `~/.zshrc`:
+
+```toml
+export [NAME_KEEY]="$(envchain [name_project] printenv [NAME_KEY])"
+```
+> Ejemplo: `export GEMINI_API_KEY="$(envchain apis printenv GEMINI_API_KEY)"`
+
+Esto carga solo clave por clave, por lo que es necesario agregar las necesarias
