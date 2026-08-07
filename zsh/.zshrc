@@ -49,3 +49,6 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 # zoxide
 eval "$(zoxide init zsh)"
+
+# grep color
+alias grep='grep --color=auto'
