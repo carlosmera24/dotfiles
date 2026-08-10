@@ -189,7 +189,7 @@ envchain --set [name_project] [NAME_KEY]
 2. Listar variables:
 
 ```bash
-envchain --lit
+envchain --list
 ```
 
 3. Mostrar variable:
