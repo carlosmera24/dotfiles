@@ -37,7 +37,7 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("hyprctl setcursor volantes_cursors 24")
 
   -- Hyprpolkit
-  hl.exec_cmd("systemctl --user enable hyprpolkitagent.service")
+  hl.exec_cmd("systemctl --user start hyprpolkitagent")
 
   -- Notificador personalizado de batería baja
   hl.exec_cmd("~/.config/myscripts/battery-notify.sh")
