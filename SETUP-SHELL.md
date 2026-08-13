@@ -31,6 +31,18 @@ chsh -s $(which zsh)
 >También se puede usar la ruta consultada: `chsh -s /usr/bin/zsh`
 ```
 
+### Limpieza bash
+
+Es importante limpiar de manera precisa el uso del shell `bash`, en mi caso, como no usaba `oh_my_bash`, limpié la carpeta como tal y al iniciar sesión saltaba un error de relación, esto es porque el archivo `~/.bashrc` seguía presente.
+
+1. Crear una carpeta oculta para respaldar `~/.old_bash_backup/`
+2. Copiar todos los archivos:
+
+```bash
+mv ~/.bash* ~/.profile ~/.old_bash_backup/
+```
+3. Eliminar carpeta oculta `~/.oh_my_bash`
+
 ## Prompts
 
 He usado [Oh My Bash](https://ohmybash.nntoan.com/) y [Oh My Zsh](https://ohmyz.sh/), respectivamente. Sin embargo, he optado para usar [Starship](https://starship.rs/), el cual está escrito en `Rust` y es compatible con los sistemas operativos más comunes y shells, en mi caso `zsh` y `bash`
