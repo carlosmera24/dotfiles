@@ -17,7 +17,7 @@ En `arch` basta con ejecutar:
 sudo pacman -S zsh
 ```
 
-2. Consultar ruta de acceso:hiden
+2. Consultar ruta de acceso:
 
 ```bash
 chsh -l
