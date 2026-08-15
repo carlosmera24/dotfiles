@@ -17,7 +17,7 @@ Instalará un par de dependencias y estamos listos para ejecutarla, lo cual se p
 Mi instalación recomendada o en un solo comando, después de recopilar toda mi configuración y dependencias:
 
 ```shell
-sudo pacman -S sway waybar gtklock swayidle swaybg wofi foot networkmanager network-manager-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkm adapta-nokto-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd 
+sudo pacman -S sway waybar gtklock swayidle swaybg wofi foot networkmanager network-manager-applet wofi archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkm adapta-nokto-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd hyprpolkitagent
 ```
 
 ```shell
@@ -395,6 +395,12 @@ Por último, es importante agregar el inicio de `gnome-keyring` al inicio de `sw
 ```toml
 exec = gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg
 exec = dbus-update-activation-environment --systemd SSH_AUTH_SOCK DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+```
+
+Y agregar el inicio de `hyprpolkitagent` en la configuraciòn se `sway`:
+
+```toml
+exec_always /usr/lib/hyprpolkitagent/hyprpolkitagent 
 ```
 
 #### Pruebas

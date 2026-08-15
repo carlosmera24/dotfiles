@@ -207,7 +207,7 @@ Se integra muy bien con gestores de inicio de sesión como `lightdm` o `gdm`, pe
 3. Por último, habilitar el inicio de `hyprpolkitagent`, desde `hyprland`:
 
     ```lua
-    hl.exec_cmd("systemctl --user enable hyprpolkitagent.service")
+    hl.exec_cmd("systemctl --user start hyprpolkitagent.service")
     ```
     > No iniciar a nivel de usuario, es decir, no usar `systemctl --user enable --now hyprpolkitagent.service`, ya que se define desde el inicio de hyprland
 

@@ -44,6 +44,8 @@ exec = dbus-update-activation-environment --systemd SSH_AUTH_SOCK DISPLAY WAYLAN
 exec_always --no-startup-id ~/.config/myscripts/battery-notify.sh &
 #Exportar variable para uso de Wayland
 exec_always export WAYLAND_DISPLAY=wayland-1
+# hyprpolkitagent
+exec_always /usr/lib/hyprpolkitagent/hyprpolkitagent 
 
 #
 # Example configuration:
