@@ -24,15 +24,15 @@ while true; do
     if [ "$STATUS" = "Discharging" ]; then
 
         if [ "$BAT" -le "$CRITICAL" ] && [ $NOTIFIED_CRITICAL -eq 0 ]; then
-            notify-send "🔴 Batería crítica" "Nivel: $BAT%" -u critical
+            notify-send -t 60000 -i battery-empty "🔴 Batería crítica" "Nivel: $BAT%" -u critical
             NOTIFIED_CRITICAL=1
 
         elif [ "$BAT" -le "$LOW" ] && [ $NOTIFIED_LOW -eq 0 ]; then
-            notify-send "🟡 Batería baja" "Nivel: $BAT%"
+            notify-send -t 60000 -i battery-low "🟡 Batería baja" "Nivel: $BAT%"
             NOTIFIED_LOW=1
 
         elif [ "$BAT" -le "$WARN" ] && [ $NOTIFIED_WARN -eq 0 ]; then
-            notify-send "🔌 Conecta el cargador" "Nivel: $BAT%"
+            notify-send -t 60000 -i battery-low "🔌 Conecta el cargador" "Nivel: $BAT%"
             NOTIFIED_WARN=1
         fi
 
@@ -44,11 +44,11 @@ while true; do
         # Cargando o conectado
 
         if [ "$BAT" -ge "$FULL" ] && [ $NOTIFIED_FULL -eq 0 ]; then
-            notify-send "🔋 Batería completa" "Nivel: $BAT% - puedes desconectar el cargador"
+            notify-send -t 60000 -i battery-full "🔋 Batería completa" "Nivel: $BAT% - puedes desconectar el cargador"
             NOTIFIED_FULL=1
 
         elif [ "$BAT" -ge "$CHARGE_LIMIT" ] && [ $NOTIFIED_80 -eq 0 ]; then
-            notify-send "⚡ Carga recomendada alcanzada" "Nivel: $BAT% - puedes desconectar para cuidar la batería"
+            notify-send -t 60000 -i battery-full "⚡ Carga recomendada alcanzada" "Nivel: $BAT% - puedes desconectar para cuidar la batería"
             NOTIFIED_80=1
         fi
 
