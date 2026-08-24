@@ -34,7 +34,7 @@ while true; do
             NOTIFIED_LOW=1
 
         elif [ "$BAT" -le "$WARN" ] && [ $NOTIFIED_WARN -eq 0 ]; then
-            notify-send -a "$NAME" -t "$TIMEOUT" battery-low "🔌 Conecta el cargador" "Nivel: $BAT%"
+            notify-send -a "$NAME" -t "$TIMEOUT" -i battery-low "🔌 Conecta el cargador" "Nivel: $BAT%"
             NOTIFIED_WARN=1
         fi
 
