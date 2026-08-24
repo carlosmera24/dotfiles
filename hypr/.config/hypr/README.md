@@ -469,3 +469,34 @@ El script se inicia con la configuración de `hyprland`:
 ```lua
   hl.exec_cmd("~/.config/myscripts/battery-notify.sh")
 ```
+
+## KDE-Connect
+
+La aplicación permite comunicación entre el dispositivo y el computador, la estoy utilizando como control multimedia.
+
+1. Instalar:
+
+```shell
+sudo pacman -S kdeconnect
+```
+
+2. Iniciar el servicio de `kdeconnectd`: No es obligatorio, basta con ejecutar `KDE Connect Indicator` cada vez que se quiera usar, en su defecto, se puede incializar `kdeconnectd` desde hyperland o con systemctl.
+
+3. Fix para inputs: Dado que en wayland no funciona los inputs, es necesario instalar [hypr-kdeconnect-fix](https://github.com/gfhdhytghd/hypr-kdeconnect-fix):
+
+```shell
+paru -S hypr-kdeconnect-fix-git
+```
+
+Por último, es necesario agregar configuración a `xdg-desktop-portal`:
+
+- Crear el archivo `~/.config/xdg-desktop-portal/hyprland-portals.conf`
+- Agregar a la configuración:
+
+```toml
+[preferred]
+org.freedesktop.impl.portal.RemoteDesktop=hyprland
+org.freedesktop.impl.portal.ScreenCast=hyprland
+``
+
+- Reiniciar el servicio de `xdg-desktop-portal`, o mejor, el sistema.
