@@ -24,6 +24,16 @@ while true; do
     STATUS=$(cat /sys/class/power_supply/BAT0/status)
 
     if [ "$STATUS" = "Discharging" ]; then
+        # 🔥 Resetear flags cuando el nivel sube por encima de los umbrales
+        if [ "$BAT" -gt "$WARN" ] && [ $NOTIFIED_WARN -eq 1 ]; then
+            NOTIFIED_WARN=0
+        fi
+        if [ "$BAT" -gt "$LOW" ] && [ $NOTIFIED_LOW -eq 1 ]; then
+            NOTIFIED_LOW=0
+        fi
+        if [ "$BAT" -gt "$CRITICAL" ] && [ $NOTIFIED_CRITICAL -eq 1 ]; then
+            NOTIFIED_CRITICAL=0
+        fi
 
         if [ "$BAT" -le "$CRITICAL" ] && [ $NOTIFIED_CRITICAL -eq 0 ]; then
             notify-send -a "$NAME" -t "$TIMEOUT" -i battery-empty "🔴 Batería crítica" "Nivel: $BAT%" -u critical
