@@ -26,8 +26,8 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("wpaperd")
 
   -- Bloqueo de pantalla --
-  -- hypridle - cambio la gestión del bloqueo de pantalla para una integración más nativa
-  hl.exec_cmd("hypridle")
+  -- hypridle - NOTE: Se muede a systemctl --user para una mejor experiencia
+  -- hl.exec_cmd("hypridle")
 
   -- genome-keyring
   hl.exec_cmd("gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg")
