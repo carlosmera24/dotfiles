@@ -10,9 +10,9 @@ visibility_mode = "MonitorSpecific"
 
 [modules]
 left = [ "Laucher", "Workspaces" ]
-center = [ "WindowTitle" ]
+center = [  "WindowTitle" ]
 right = [ 
-    ["SystemInfo", "MediaPlayer"],
+    ["KeyboardSubmap", "SystemInfk", "MediaPlayer"],
     ["Tray", "Tempo", "CapsLockStatus", "Notifications", "Privacy", "Settings"]
 ]
 
