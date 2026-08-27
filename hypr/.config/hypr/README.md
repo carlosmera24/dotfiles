@@ -456,7 +456,7 @@ La instalación es sencilla, basta con ejecutar:
 sudo pacman -S hypridle hyprlock
 ```
 
-> **NOTA:** Ateriormente tenía cargado al inicio de hyprland, pero lo he movido a `systemctl --user enable hypridle.service`, ya que se estaba dejando de bloquear cuando se usaba stremio, en unas pruebas, tuve mejor estabilidad con systemctl
+> **NOTA:** Ateriormente tenía cargado al inicio de hyprland, pero lo he modificado a `systemctl --user start hypridle.service`, ya que se estaba dejando de bloquear cuando se usaba stremio, en unas pruebas, tuve mejor estabilidad con systemctl
 
 ## Notifiación de batería
 

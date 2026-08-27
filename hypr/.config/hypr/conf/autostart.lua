@@ -26,8 +26,9 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("wpaperd")
 
   -- Bloqueo de pantalla --
-  -- hypridle - NOTE: Se muede a systemctl --user para una mejor experiencia
+  -- hypridle - NOTE: Se mueve a systemctl --user para una mejor experiencia
   -- hl.exec_cmd("hypridle")
+    hl.exec_cmd("systemctl --user start hypridle.service")
 
   -- genome-keyring
   hl.exec_cmd("gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg")
