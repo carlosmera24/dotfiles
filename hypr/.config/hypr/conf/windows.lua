@@ -1,9 +1,8 @@
 --------------------------------
----- WINDOWS AND WORKSPACES ----
+---- WINDOWS ----
 --------------------------------
 
 -- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/
--- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 
 -- Example window rules that are useful
 
@@ -49,34 +48,21 @@ hl.window_rule({
     float = true,
 })
 
-------------------
---- Workspaces ---
-------------------
--- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
--- "Smart gaps" / "No gaps when only"
--- uncomment all if you wish to use that.
--- hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
--- hl.workspace_rule({ workspace = "f[1]",   gaps_out = 0, gaps_in = 0 })
--- hl.window_rule({
---     name  = "no-gaps-wtv1",
---     match = { float = false, workspace = "w[tv1]" },
---     border_size = 0,
---     rounding    = 0,
--- })
--- hl.window_rule({
---     name  = "no-gaps-f1",
---     match = { float = false, workspace = "f[1]" },
---     border_size = 0,
---     rounding    = 0,
--- })
--- Desktop set workspaces
-hl.workspace_rule({
-    workspace = "1", monitor = "DVI-D-1"
+-- Telegram rule
+hl.window_rule({
+    name    = "telegram-space",
+    match   = { class = "org.telegram.desktop" },
+    float   = true,
+    move    = {
+        "monitor_w - (monitor_w * 0.3)",
+        "monitor_h * 0.045"
+    },
+    size    = {
+        "monitor_w * 0.3",
+        "monitor_h * 0.94"
+    },
+    -- popin: scale from center; opt= percentage; Ex: "popin 87%"
+    -- gnomed: Popup, open from center.
+    -- slide: Slide from border; opt= top, bottom, left, right; Ex: "slide left"
+    animation   = "gnomed",
 })
-hl.workspace_rule({
-    workspace = "2", monitor = "HDMI-A-1"
-})
--- Laptop set workspaces
--- hl.workspace_rule({
---     workspace = "", monitor = "eDP-1"
--- })
