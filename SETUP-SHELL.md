@@ -236,3 +236,21 @@ export [NAME_KEEY]="$(envchain [name_project] printenv [NAME_KEY])"
 > Ejemplo: `export GEMINI_API_KEY="$(envchain apis printenv GEMINI_API_KEY)"`
 
 Esto carga solo clave por clave, por lo que es necesario agregar las necesarias
+
+## Flameshot
+
+[Flameshot](https://flameshot.org/) Es una herramienta visual para hacer captura de images para `wayland`, pemirte editarla antes de compartirla, agregando textos, marcas, entre otros; es posible guardar el archivo o copiar al portapapeles.
+
+### Instalación:
+
+En `arch` está presente en los repositorios oficiales, basta con ejecutar:
+
+```bash
+paru -S flameshot
+```
+
+En MacOs con `homebrew`:
+
+```bash
+brew install --cask flameshot
+```

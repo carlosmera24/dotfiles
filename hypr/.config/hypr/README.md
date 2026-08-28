@@ -42,7 +42,7 @@ Instalarà las dependencias necesarias:
 Mi instalación recomendada o en un solo comando, después de recopilar toda mi configuración y dependencias:
 
 ```shell
-sudo pacman -S hyprland hyprlock hypridle wpaperd hyprlauncher foot networkmanager network-manager-applet archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkms adapta-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd nwg-drawer nwg-hello hyprpolkitagent libdbusmenu-gtk3
+sudo pacman -S hyprland hyprlock hypridle wpaperd hyprlauncher foot networkmanager network-manager-applet archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkms adapta-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd nwg-drawer nwg-hello hyprpolkitagent libdbusmenu-gtk3 hyprpicker
 ```
 
 > Parece que adapta-nokto-gtk-theme cambio a adapta-gtk-theme, wf-recoder no está disponible en estos momentos
@@ -502,3 +502,20 @@ org.freedesktop.impl.portal.ScreenCast=hyprland
 ``
 
 - Reiniciar el servicio de `xdg-desktop-portal`, o mejor, el sistema.
+
+## Color picker
+
+La pagina oficial de hyperland recomienda el uso de [hyprpicker](https://github.com/hyprwm/hyprpicker), y es una buena alternativa a `gpick`, ya que no trabaja bien en `wayland`.
+Su instalación es sencilla, está en el repositorio oficial de `arch`:
+
+```shell
+paru -S hyprpicker-git
+```
+
+Corre desde consola:
+
+```shell
+hyprpicker -n
+```
+
+`-n` habilita auto copia, es decir que al hacer click sobre el color se copia al clipboard.
