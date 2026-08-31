@@ -54,15 +54,42 @@ hl.window_rule({
     match   = { class = "org.telegram.desktop" },
     float   = true,
     move    = {
-        "monitor_w - (monitor_w * 0.3)",
-        "monitor_h * 0.045"
+        -- Use the 30% of the screen - 5px of gaps 
+        "monitor_w - (monitor_w * 0.3) - 5",
+        "41"
     },
     size    = {
         "monitor_w * 0.3",
-        "monitor_h * 0.94"
+        "monitor_h * 0.955"
     },
     -- popin: scale from center; opt= percentage; Ex: "popin 87%"
     -- gnomed: Popup, open from center.
     -- slide: Slide from border; opt= top, bottom, left, right; Ex: "slide left"
     animation   = "gnomed",
+})
+
+-- Gnome calculator
+hl.window_rule({
+    name    = "gnome-calcuator-space",
+    match   = { class = "org.gnome.Calculator" },
+    float   = true,
+    size    = { 400, 650 },
+    animation   = "popin"
+})
+
+-- Flameshow capture
+hl.window_rule({
+    name    = "flameshot-launcher-space",
+    match   = { class = "flameshot", title = "Capturar Lanzador" },
+    float   = true,
+    move    = { "monitor_w - (monitor_w * 0.4)", 41 },
+    size    = { 400, 200 },
+    animation   = "slede top"
+})
+
+hl.window_rule({
+    name    = "flameshot-capture-space",
+    match   = { class = "flameshot", title = "flameshot" },
+    float   = true,
+    animation   = "popin"
 })
