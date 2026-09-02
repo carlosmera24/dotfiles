@@ -374,5 +374,7 @@ for_window [app_id="org.telegram.desktop"] move position 70ppt 0px
 for_window [app_id="org.gnome.Calculator"] floating enable 
 for_window [app_id="org.gnome.Calculator"] resize set 400 650
 
+# Megasync
+for_window [app_id="nz.co.mega.megasync"] floating enable 
 
 include /etc/sway/config.d/*
