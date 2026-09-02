@@ -60,7 +60,7 @@ hl.window_rule({
     },
     size    = {
         "monitor_w * 0.3",
-        "monitor_h * 0.955"
+        "monitor_h * 0.936"
     },
     -- popin: scale from center; opt= percentage; Ex: "popin 87%"
     -- gnomed: Popup, open from center.
@@ -84,12 +84,31 @@ hl.window_rule({
     float   = true,
     move    = { "monitor_w - (monitor_w * 0.4)", 41 },
     size    = { 400, 200 },
-    animation   = "slede top"
+    animation   = "slide top"
 })
 
 hl.window_rule({
     name    = "flameshot-capture-space",
     match   = { class = "flameshot", title = "flameshot" },
     float   = true,
+    animation   = "popin"
+})
+
+-- MegaSync
+hl.window_rule({
+    name = "megasync-space",
+    match   = { class = "MEGAsync" },
+    float   = true,
+    move    = { "monitor_w - 410", 41 },
+    size    = { 400, 200 },
+    animation   = "slide top"
+})
+
+hl.window_rule({
+    name    = "megasync-settings-space",
+    match   = { class = "MEGAsync", title = "Ajustes" },
+    float   = true,
+    move    = { "monitor_w - 810", 41 },
+    size    = { 800, 600 },
     animation   = "popin"
 })
