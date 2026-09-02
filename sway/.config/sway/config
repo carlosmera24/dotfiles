@@ -375,6 +375,7 @@ for_window [app_id="org.gnome.Calculator"] floating enable
 for_window [app_id="org.gnome.Calculator"] resize set 400 650
 
 # Megasync
-for_window [app_id="nz.co.mega.megasync"] floating enable 
+for_window [app_id="nz.co.mega.megasync" class="MEGAsync"] floating enable 
+for_window [class="MEGAsync"] floating enable 
 
 include /etc/sway/config.d/*
