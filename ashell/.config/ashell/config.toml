@@ -9,8 +9,9 @@ enable_esc_key = true
 visibility_mode = "MonitorSpecific"
 
 [modules]
-left = [ "Laucher", "Workspaces" ]
-center = [  "WindowTitle" ]
+left = [ "Laucher"]
+center = [ "Workspaces"]
+# center = [  "WindowTitle" ]
 right = [ 
     ["KeyboardSubmap", "SystemInfo", "SystemInfk", "MediaPlayer"],
     ["Tray", "Tempo", "CapsLockStatus", "Notifications", "Privacy", "Settings"]
