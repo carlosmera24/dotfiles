@@ -17,5 +17,12 @@ vim.opt.rtp:prepend(lazypath)
 -- Los plugins se define y configurar en lua/core/plugins-settings
 if vim.loop.fs_stat(lazypath) then
     vim.g.mapleader = ' '  -- 'vim.g' sets global variables requerido por lazy
-    require("lazy").setup("core.plugins",{})
+    require("lazy").setup("core.plugins",{
+        -- Prevent `build failed` on Avante.vim
+        -- Else it will be necessary run:
+        -- `cd ~/.local/share/nvim/lazy/avante.nvim && make`
+        git = {
+            timeout = 600, -- increase the limit to 600 seconds (10 minutes)
+        },
+    })
 end
