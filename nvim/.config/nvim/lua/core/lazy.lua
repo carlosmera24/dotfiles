@@ -22,7 +22,7 @@ if vim.loop.fs_stat(lazypath) then
         -- Else it will be necessary run:
         -- `cd ~/.local/share/nvim/lazy/avante.nvim && make`
         git = {
-            timeout = 600, -- increase the limit to 600 seconds (10 minutes)
+            timeout = 1200, -- increase the limit to 600 seconds (10 minutes)
         },
     })
 end
