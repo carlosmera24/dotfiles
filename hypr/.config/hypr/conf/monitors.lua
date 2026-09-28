@@ -25,6 +25,14 @@ hl.monitor({
     scale    = "1",
 })
 
+-- TV Samsung arriba en el centro del desktop
+hl.monitor({
+    output   = "desc:Samsung Electric Company SAMSUNG 0x00000001",
+    mode     = "1920x1080@60",
+    position = "auto-center-up",
+    scale    = "1",
+})
+
 -- Monitor por default - extra
 hl.monitor({
     output   = "",
