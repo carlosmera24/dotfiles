@@ -14,6 +14,10 @@ path = "~/.config/wallpapers/dev-anime-music-desktop-setup_002_1672x941.jpg"
 path = "~/.config/wallpapers/"
 duration = "30m"
 
+#TV Samsung
+[HDMI-A-2]
+path = "~/.config/wallpapers/jujutsu-kaisen-001_3840x2160.jpg"
+
 #Laptop
 [eDP-1]
 path = "~/.config/wallpapers/"
