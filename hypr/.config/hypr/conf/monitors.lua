@@ -26,6 +26,7 @@ hl.monitor({
 })
 
 -- TV Samsung arriba en el centro del desktop
+-- DP-1
 hl.monitor({
     output   = "desc:Samsung Electric Company SAMSUNG 0x00000001",
     mode     = "1920x1080@60",
