@@ -22,6 +22,8 @@ exports_macos() {
     export PATH="/opt/homebrew/opt/apr-util/bin:$PATH"
     # Lazygit y otras aplicaciones, buscará la configuración en .config
     export XDG_CONFIG_HOME=$HOME/.config
+    # Cargo
+    . "$HOME/.cargo/env"
 }
 alias_macos() {
     eval $(ssh-agent)
