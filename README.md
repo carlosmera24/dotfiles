@@ -45,6 +45,7 @@ A continuación describo las herramientas o aplicaciones que estoy gestionando c
 | Sway        | sway      | `~/.dotfiles/sway/.config/sway`           | `~/.config/sway`      |
 | Swaylock    | swaylock  | `~/.dotfiles/swaylock/.config/swaylock`   | `~/.config/swaylock`  |
 | tmux        | tmux      | `~/.dotfiles/tmux/.tmux`                  | `~/.tmux`             |
+| user-dirs   | user-dirs | `~/.dotfiles/user-dirs/.config/`          | `~/.config/user-dirs` |
 | wallpapers  | wallpapers| `~/.dotfiles/wallpapers/.config/wallpapers`| `~/.config/wallpapers`|
 | Waybar      | waybar    | `~/.dotfiles/waybar/.config/waybar`       | `~/.config/waybar`    |
 | WezTerm     | wezterm   | `~/.dotfiles/wezterm/.config/wezterm`     | `~/.config/wezterm`   |
@@ -119,6 +120,9 @@ tree -La 3
 │   │   └── tmux
 │   ├── README.md
 │   └── .tmux.conf
+├── user-dirs
+│   └── .config
+│       └── user-dirs.dirs
 ├── wallpapers
 │   └── .config
 │       └── wallpapers
