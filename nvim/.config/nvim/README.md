@@ -774,6 +774,10 @@ Configuración de comandos definido en `map.vim`
 
 - `<leader>fh` Telescope help_tags
 
+- `Ctrl-q` Enviar los items listados a la quickfix(qflist) list, similar a `:copen`
+
+- `Alt-q` Enviar los items selectionados (Tab) listados a la quickfix list(qflist), similar a `:copen`
+
 - `<leader>fs` In mode `v` and `v`, start live grep with cursor or selecction. fg fg
 
 - `<leader>fe` Telescope file browser
