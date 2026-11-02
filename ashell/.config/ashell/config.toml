@@ -15,9 +15,14 @@ right = [
     ["Tray", "Tempo", "CapsLockStatus", "Notifications", "Privacy", "Settings"]
 ]
 
+[window_title]
+mode = "Title" 
+
 [workspaces]
 visibility_mode = "MonitorSpecific"
-indicator_format = "NameAndIcons" 
+indicator_format = "Name"
+group_by_monitor = false
+enable_workspace_filling = false
 
 [[CustomModule]]
 name = "Laucher"
