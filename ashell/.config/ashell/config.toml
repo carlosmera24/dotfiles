@@ -1,20 +1,23 @@
-log_level = "ashell=debug"
 language = "es-CO"
 region = "es-CO"
 outputs = "All"
 position = "Top"
 enable_esc_key = true
 
-[workspaces]
-visibility_mode = "MonitorSpecific"
+[logging]
+level = "debug"
 
 [modules]
-left = [ "Laucher", "Workspaces" ]
-center = [  "WindowTitle" ]
+left = [ "Laucher", "Workspaces"  ]
+center = [  "WindowTitle"]
 right = [ 
     ["KeyboardSubmap", "SystemInfo", "SystemInfk", "MediaPlayer"],
     ["Tray", "Tempo", "CapsLockStatus", "Notifications", "Privacy", "Settings"]
 ]
+
+[workspaces]
+visibility_mode = "MonitorSpecific"
+indicator_format = "NameAndIcons" 
 
 [[CustomModule]]
 name = "Laucher"
@@ -27,11 +30,9 @@ name = "CapsLockStatus"
 type = "Text"
 icon = ""
 listen_cmd = "~/.config/myscripts/capslock-status.sh"
-indicator_format = "Icon"
 
 [media_player]
-max_title_length = 50
-indicator_format = "Icon"
+max_text_length = 50
 
 [notifications]
 format = "%m/%d %H:%M"
