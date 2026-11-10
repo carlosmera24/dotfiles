@@ -42,7 +42,7 @@ Instalarà las dependencias necesarias:
 Mi instalación recomendada o en un solo comando, después de recopilar toda mi configuración y dependencias:
 
 ```shell
-sudo pacman -S hyprland hyprlock hypridle wpaperd hyprlauncher foot networkmanager network-manager-applet archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkms adapta-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd nwg-drawer nwg-hello hyprpolkitagent libdbusmenu-gtk3 hyprpicker
+sudo pacman -S hyprland hyprlock hypridle wpaperd hyprlauncher foot networkmanager network-manager-applet archlinux-wallpaper elementary-icon-theme orchis-theme mako wl-clipboard grim wf-recorder slurp ttf-font-awesome xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-wlr pipewire wireplumber pipewire-pulse gst-plugin-pipewire playerctl brightnessctl v4l2loopback-dkms adapta-gtk-theme gnome-keyring libsecret ttf-ubuntu-nerd nwg-drawer nwg-hello nwg-hello-hyprland hyprpolkitagent libdbusmenu-gtk3 hyprpicker
 ```
 
 > Parece que adapta-nokto-gtk-theme cambio a adapta-gtk-theme, wf-recoder no está disponible en estos momentos
@@ -519,3 +519,24 @@ hyprpicker -n
 ```
 
 `-n` habilita auto copia, es decir que al hacer click sobre el color se copia al clipboard.
+
+## Docks
+
+### nwg-dock
+
+Este dock hace parte de `nwg-shell` y está optimizado para `Wayland`, [GitHub](https://github.com/nwg-piotr/nwg-dock-hyprland).
+
+1. Instalación:
+
+```shell
+sudo pacman -S nwg-dock-hyprland
+```
+
+2. Agregar inicio a la configuración de hyperland
+
+```lua
+  hl.exec_cmd("nwg-dock-hyprland -d -i 32")
+
+```
+3. Configuración, editar el archivo `~/.config/nwg-dock-hyprland/style.css`
+TODO: De momento no lo he creado o modificado
