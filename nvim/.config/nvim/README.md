@@ -900,9 +900,21 @@ Este plugin integra `yazi` dentro de NeoVim, lo podemos encontrar en el [link](h
 
 - `<c-\>`: Cambiar al directorio actual (cwd )
 
+#### CMP
+
+Completado [GitHub](https://github.com/hrsh7th/nvim-cmp)
+
+##### Maps:
+
+- `[C-space]`: Listar atocompletado
+- `[C-y]`: Aceptar la elección
+- `[C-e]`: Abortar
+
 #### Asistentes IA / Autocompletado
 
 ##### Codeium
+> Descontinuado, la empresa dejó de ser Windsurf y ahora usa agentes de IA.
+> Lo he desactivado
 
 Una buena alternativa a **GitHub Copilot**, permite autocompletado de codigo con IA, su [Github](https://github.com/Exafunction/codeium.vim)  y [Web](https://codeium.com/), require registro en su web para uso gratuito, tras instalar se debe utilizar:
 
@@ -927,6 +939,8 @@ Al insertar escribir se generará automáticamente sugerencias que pueden comple
 - `<M-Bslash>` (`Alt+\`)Activar manualmente la sugerencia
 
 ##### Tabnine
+
+> Descontinuado, ha cambiado su metodología y ahora usa IA.
 
 [Github](https://github.com/codota/tabnine-nvim) [Web](https://www.tabnine.com/) Otra opción
 
@@ -973,9 +987,6 @@ Hasta la fecha, he probado muy superficialmente Avante [Github](https://github.c
 - `Gemini`: Es necesario generar un API para Gemini AI Studio y agregarla al `bashrc` o `zhrc` como `export GEMINI_API_KEY=`
 - `GitHub Copilot`: Este proveedor requiere tener instalado el plugin `github/copilot.vim` y activarlo ejecutando el comando `:Copilot setup`, se deben seguir las instrucciones para ir a la web y habilitar el dispositivo.
 
-##### Avante
-
-Hasta la fecha, he probado muy superficialmente Avante [Github](https://github.com/yetone/avante.nvim) con `gemini` activo.
 
 ###### Maps:
 
@@ -985,10 +996,6 @@ Hasta la fecha, he probado muy superficialmente Avante [Github](https://github.c
 - `leader+as` : Habilitar/Deshabilitar sugerencias.
 - `leader+an` : Nueva conversación.
 - `leader+ag` : Generar una sugerencia o completar código.
-
-###### Providers:
-
-- `Gemini`: Es necesario generar un API para Gemini AI Studio y agregarla al `bashrc` o `zhrc` como `export GEMINI_API_KEY=`
 
 #### Mini-Nvim
 
