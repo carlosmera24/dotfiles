@@ -25,10 +25,13 @@ hl.on("hyprland.start", function ()
   -- Wallpaper --
   hl.exec_cmd("wpaperd")
 
+  -- Dock
+  hl.exec_cmd("nwg-dock-hyprland -d -i 32")
+
   -- Bloqueo de pantalla --
   -- hypridle - NOTE: Se mueve a systemctl --user para una mejor experiencia
   -- hl.exec_cmd("hypridle")
-    hl.exec_cmd("systemctl --user start hypridle.service")
+  hl.exec_cmd("systemctl --user start hypridle.service")
 
   -- genome-keyring
   hl.exec_cmd("gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg")
