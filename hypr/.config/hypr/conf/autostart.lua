@@ -37,8 +37,8 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg")
   hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP DISPLAY SSH_AUTH_SOCK")
 
-  -- Cursor, requiere instalar volantes-cursor (AUR) o descargar y copiar en /usr/share/icons
-  hl.exec_cmd("hyprctl setcursor volantes_cursors 24")
+  -- Cursor, requiere instalar catppuccin-cursors-mocha (AUR) o descargar y copiar en /usr/share/icons
+  hl.exec_cmd("hyprctl setcursor catppuccin-mocha-blue-cursors 24")
 
   -- Hyprpolkit
   hl.exec_cmd("systemctl --user start hyprpolkitagent")
