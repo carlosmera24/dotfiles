@@ -948,7 +948,20 @@ Al insertar escribir se generará automáticamente sugerencias que pueden comple
 
 #### Cliente IA
 
+##### GP
+
+[GitHub](https://github.com/Robitx/gp.nvim) ChatGPT integración, funciona con Ollama ded manera local
+
+###### Maps:
+
+- `leader+cc`: Chat en modo vsplit
+- `leader+cr`: Seleccionado el texto, realiza modificación a partir de un prompt
+- `leader+cp`: A partir de selección y prompt agrega, sin reemplezar, la acción definida.
+- `Ctrl+g` `Ctrl+g`: Chat, Envía solicitud
+
 ##### Gen
+
+> Deshabilitado, no me gusta mucho que digamos
 
 [Github](https://github.com/David-Kunz/gen.nvim) Esta es una integración con `ollama` de forma práctica y sencilla, para inicializarlo he activado el uso de `:Gen` a partir de él es posible interactuar con lo que se requiera, por ejemplo `:Gen Ask` o `:Gen Chat`.
 
@@ -958,6 +971,8 @@ Al insertar escribir se generará automáticamente sugerencias que pueden comple
 - 
 
 ##### CodeCompanion
+
+> Deshabilitado, las funcionalidades se han complicado y no funciona muy bien con modelos locales
 
 [GitHub](https://github.com/olimorris/codecompanion.nvim) **AI Coding, Vim Style** es un complemento muy avanzado para utilizar AI en Neovim al estilo de [CodeCompanion](https://codecompanion.ai/), tiene muchas funcionalidades e integración, entre ellas tenemos los más reconocidos LLM, incluyendo `Ollama` a nivel local o server, Copilos, DeepSeeg, Gemini, OpenAi, etc. Su [Documentación](https://codecompanion.ai/) es muy completa.
 
@@ -979,6 +994,8 @@ Al insertar escribir se generará automáticamente sugerencias que pueden comple
 Para visualizar el estado he agreado a `lualine` el uso del plugin [franco-ruggeri/codecompanion-lualine.nvim](https://github.com/franco-ruggeri/codecompanion-lualine.nvim) y ajustado la configuración del plugin en el archivo de lualine.lua para incluir la sección de codecompanion
 
 ##### Avante
+
+> Deshabilitado, las funcionalidades se han complicado y no funciona muy bien con modelos locales
 
 Hasta la fecha, he probado muy superficialmente Avante [Github](https://github.com/yetone/avante.nvim) con `gemini` y `copilot`, el uso de `ollama` no ha sido posible, parece que tiene un bug y no termina de procesar la respuesta o consulta.
 
