@@ -149,6 +149,23 @@ hl.define_submap("resize", function()
 
 end)
 
+-- VIM Nav Submap
+hl.bind(mainMod .. "+ V", hl.dsp.submap("vim_nav"))
+-- Definir el submapa
+hl.define_submap("vim_nav", function()
+    -- Enviar flechas reales usando send_shortcut
+    hl.bind("h", hl.dsp.send_shortcut({ mods = "", key = "left" }))
+    hl.bind("j", hl.dsp.send_shortcut({ mods = "", key = "down" }))
+    hl.bind("k", hl.dsp.send_shortcut({ mods = "", key = "up" }))
+    hl.bind("l", hl.dsp.send_shortcut({ mods = "", key = "right" }))
+    -- Mover entre palabras
+    hl.bind("w", hl.dsp.send_shortcut({ mods = "Ctrl", key = "right" }))
+    hl.bind("b", hl.dsp.send_shortcut({ mods = "Ctrl", key = "left" }))
+
+    -- Salir del submapa con Escape
+    hl.bind("Escape", hl.dsp.submap("reset"))
+end)
+
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })

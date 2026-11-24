@@ -50,28 +50,24 @@ hl.device{
     kb_layout = "us",
     -- Acentos con la tecla alt derecha (AltGr)
     kb_variant = "altgr-intl",
-    kb_options = "grp:alt_shift_toggle,lv3:ralt_switch"
 }
 hl.device{
     name = "semico---usb-gaming-keyboard--system-control",
     kb_layout = "us",
     -- Acentos con la tecla alt derecha (AltGr)
     kb_variant = "altgr-intl",
-    kb_options = "grp:alt_shift_toggle,lv3:ralt_switch"
 }
 hl.device{
     name = "semico---usb-gaming-keyboard--keyboard",
     kb_layout = "us",
     -- Acentos con la tecla alt derecha (AltGr)
     kb_variant = "altgr-intl",
-    kb_options = "grp:alt_shift_toggle,lv3:ralt_switch"
 }
 hl.device{
     name = "semico---usb-gaming-keyboard--consumer-control",
     kb_layout = "us",
     -- Acentos con la tecla alt derecha (AltGr)
     kb_variant = "altgr-intl",
-    kb_options = "grp:alt_shift_toggle,lv3:ralt_switch"
 }
 
 -- Teclado VSG
